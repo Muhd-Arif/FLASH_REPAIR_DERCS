@@ -1,11 +1,11 @@
 <?php
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-require_once '../../../libs/runnerSession.php';
+//require_once '../../../libs/runnerSession.php';
 
 
-$RunnerID = $_SESSION['R_ID'];
-//$RunnerID = '1';
+//$RunnerID = $_SESSION['R_ID'];
+$RunnerID = '1';
 
 
 $product = new deliveryController();
@@ -23,269 +23,98 @@ $data = $product->viewAllMyDelivery2($RunnerID);
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rider Available Request List</title>
-
-    <!-- Google Font: Source Sans Pro -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <!-- NAVIGATION BAR  -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    <!-- NAVIGATION BAR  -->
+
+    <title>Available Pickup</title>
 </head>
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body>
+    <style>
+    .container {
+        margin-bottom: 70px;
+        width: 80%;
+    }
+
+    input[readonly] {
+        outline: none;
+        border: 0;
+        font-size: 1em;
+    }
+    </style>
+    <!-- TEMPLATE 1  -->
     <div class="wrapper">
-
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="../../../assets/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
-        </div>
-
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../../../assets/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../../../assets/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../../../assets/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="../../../assets/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">DERCS</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Navee</a>
-                    </div>
-                </div>
-
-               
-            </div>
-            <!-- /.sidebar -->
-        </aside>
-
+        <?php include("sidebar.php") ?>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
+            <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">List of Accepted Pickup</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">List of Accepted Pickup</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
+                        <!-- <div class="col-sm-6">
+                  <h1>Payment</h1>
+                  </div> -->
+                        <!-- <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active">Payment</li>
+                  </ol>
+                  </div> -->
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
             <section class="content">
                 <div class="container-fluid">
-
-
-                    <!-- Main row -->
                     <div class="row">
-                        <!-- Left col -->
-                        <div class="col-md-8">
-                            <!-- MAP & BOX PANE -->
+                        <div class="col-12">
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <div class="card bg-light">
+                                    <div class="card-body pb-0">
+                                        <!-- info row -->
+                                        <div class="row invoice-info">
+                                            <!-- /.col -->
+                                            <div class="container">
+                                                <!-- TEMPLATE 1 STOP -->
+                                                <center>
+                                                    <h2 style="margin-bottom:70px;">Accepted Pickup</h2>
+                                                </center>
+                                                <!-- <input type="text" class="form-control mt-5" id="filterInput"
+            placeholder="Search quotation ID, device type, status"> -->
 
+                                                <!-- <table class="table mt-3" id="quotationList"> -->
+                                                <table class="table mt-5" id="dataTable">
+                                                    <thead class="thead-dark">
+                                                         <tr>
+                                                            <th scope="col">Quotation ID</th>
+                                                            <th scope="col">Customer Nam</th>
+                                                            <th scope="col">Device Type</th>
+                                                            <th scope="col">Pickup Address</th>
+                                                            <th scope="col">Pickup Date & Time</th>
+                                                            <th scope="col">Service</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                                                <tbody>
+                                               <?php
+                                                            $i = 1;
 
-                            <!-- /.row -->
+                                                             foreach($data as $row){
 
-                            <!-- TABLE: LATEST ORDERS -->
-                            <div class="card">
-                                <div class="card-header border-transparent">
-                                    <h3 class="card-title">Latest Orders</h3>
-
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body p-0">
-                                    <div class="table-responsive">
-                                        <table class="table m-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Quotation ID</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Device Type</th>
-                                                    <th>Pickup Address</th>
-                                                    <th>Pickup Date & Time</th>
-                                                    <th>Service</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                $i = 1;
-
-                                 foreach($data as $row){
-
-                                ?>
+                                                            ?>
 
                                                 <tr>
                                                     <td><?=$row['Q_ID']?></td>
@@ -306,9 +135,9 @@ $data = $product->viewAllMyDelivery2($RunnerID);
                                                                 <div class="" id="button1" style="margin-right:5px">
 
                                                                     <?php
-                                        if($row['P_Status'] == 'Processing'){
-                                        
-                                          ?>
+                                                                    if($row['P_Status'] == 'Processing'){
+                                                                    
+                                                                      ?>
 
 
                                                                     <button id="edit" name="edit"
@@ -317,12 +146,12 @@ $data = $product->viewAllMyDelivery2($RunnerID);
                                                                     <!-- <a href="updateDelivery.php" class="btn btn-sm btn-info float-left">Edit</a> -->
 
 
-                                                                    <?php
-                                        } else {
-                                             echo $row['P_Status'];
+                                                                                                <?php
+                                                                    } else {
+                                                                         echo $row['P_Status'];
 
-                                          }
-                                        ?>
+                                                                      }
+                                                                    ?>
 
 
                                                                 </div>
@@ -332,79 +161,82 @@ $data = $product->viewAllMyDelivery2($RunnerID);
                                                     </td>
                                                 </tr>
                                                 <?php
-                               
-                                }
-                              
-                            
-                              ?>
-                                            </tbody>
-                                        </table>
+                                                       
+                                                        }
+                                                      
+                                                    
+                                                      ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- TEMPLATE PART 2 -->
+                                        </div>
                                     </div>
-                                    <!-- /.table-responsive -->
                                 </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer clearfix">
-                                    <a href="deliveryList.php" class="btn btn-sm btn-info float-left">Open Delivery
-                                        Request</a>
-                                    <a href="pickupList.php" class="btn btn-sm btn-secondary float-right">Open Pickup
-                                        Request</a>
-                                </div>
-                                <!-- /.card-footer -->
                             </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
-
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
-                </div>
-                <!--/. container-fluid -->
             </section>
-            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0
-            </div>
+        <footer class="main-footer no-print">
+            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
         </footer>
+        <aside class="control-sidebar control-sidebar-dark">
+        </aside>
     </div>
-    <!-- ./wrapper -->
+    <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+         <script src="../../../assets/js/adminlte.min.js"></script>
+         <script src="../../../assets/js/demo.js"></script> -->
+    <!-- TEMPLATE PART 2 STOP -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="../../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="../../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../../assets/js/adminlte.js"></script>
+    <script type="text/javascript">
+    // // Get input element
+    // let filterInput = document.getElementById('filterInput');
+    // // Add event listener
+    // filterInput.addEventListener('keyup', filter);
 
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="../../../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="../../../plugins/raphael/raphael.min.js"></script>
-    <script src="../../../plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="../../../plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <!-- ChartJS -->
-    <script src="../../../plugins/chart.js/Chart.min.js"></script>
+    // function filter() {
+    //     // Get value of input
+    //     let filterValue = document.getElementById('filterInput').value.toUpperCase();
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../../assets/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../../../assets/js/pages/dashboard2.js"></script>
+    //     let trs = document.querySelectorAll('#quotationList tr:not(.header)');
+
+    //     trs.forEach(tr => tr.style.display = [...tr.children].find(td => td.innerHTML.toUpperCase().includes(
+    //         filterValue)) ? '' : 'none');
+
+    // }
+
+    document
+
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            // dom: 'Bfrtip',
+            // buttons: [
+            //     'print'
+            // ],
+            "ordering": false,
+
+        });
+    });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 </body>
+
 
 </html>
