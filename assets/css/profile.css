@@ -1,0 +1,148 @@
+#customer-profile {
+  display: flex;
+  align-items: flex-start;
+}
+
+#customer-nav {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+#customer-nav ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* a:hover {
+  color: #0fabbc !important;
+} */
+
+#customer-nav > p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+#customer-details {
+  flex-basis: 80%;
+  flex-direction: column;
+}
+
+#customer-profile-img {
+  width: 150px;
+  height: auto;
+}
+.cust-nav {
+  font-weight: 600;
+  color: black;
+}
+.cust-nav-active {
+  font-weight: 600;
+  color: #0fabbc;
+}
+
+#customer-profile a:hover {
+  font-weight: 600;
+  color: #0fabbc;
+  text-decoration: underline;
+}
+
+.active {
+  /* color: #0fabbc !important; */
+  font-weight: 600;
+}
+
+#customer-details-info {
+  background-color: white;
+  align-items: stretch;
+}
+
+#runner-details-info {
+  align-items: stretch;
+}
+
+#customer-profile .sp-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+#customer-profile .sp-nav-active {
+  color: black;
+  font-weight: 600;
+  color: #ffa931;
+}
+
+#customer-profile .sp-nav:hover {
+  color: #ffa931;
+  text-decoration: underline;
+}
+
+#customer-profile .runner-nav-active {
+  font-weight: 600;
+  color: #2bb2bb;
+}
+
+#customer-profile .runner-nav:hover {
+  color: #2bb2bb;
+  text-decoration: underline;
+}
+
+.runner-nav {
+  text-decoration: none;
+  color: black;
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit label {
+  flex-basis: 100px;
+}
+
+.invalid {
+  color: red;
+  text-align: center;
+}
+
+.profile-img {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.profile-img-backdrop {
+  position: absolute;
+  filter: grayscale(100%) blur(5px);
+  transform: scale(1.5);
+  z-index: -1;
+}
+
+.profile-img-real {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+#admin-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#admin-nav .admin-nav-active {
+  background-color: #e84a5f;
+  color: white;
+}

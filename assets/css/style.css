@@ -1,0 +1,285 @@
+.wave {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.img {
+  height: 100px;
+}
+
+.loginbox {
+  padding-left: 60%;
+  padding-top: 10%;
+  align-items: center;
+  text-align: center;
+}
+
+.containar {
+  padding-left: 35%;
+}
+
+.fillbox {
+  margin: 8px 0;
+  padding: 8px 0;
+  padding-right: 15px;
+  width: 50%;
+  overflow: hidden;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.fillbox input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.fillbox1 {
+  margin: 8px 0;
+  padding: 8px 0;
+  padding-right: 15px;
+  width: 65%;
+  overflow: hidden;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+
+.fillbox1 input {
+  width: 500px;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+i {
+  margin: 10px;
+  color: #32be8f;
+}
+
+h2 {
+  margin: 15px 0;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 2.9rem;
+}
+
+h1 {
+  margin: 15px 0;
+  padding-top: -20px;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
+.button {
+  margin-left: 33%;
+}
+
+.button2 {
+  padding-left: -5%;
+}
+
+.btn {
+  display: block;
+  width: 60%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-position: right;
+}
+
+.link-register {
+  padding-left: 28%;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.imagefill {
+  padding-right: 45%;
+}
+
+.imageborder {
+  width: 140px;
+  height: 140px;
+  border: 2px;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+.loginboxrunner {
+  padding-left: 60%;
+  padding-top: 5%;
+  align-items: center;
+  text-align: center;
+}
+
+.borderinvoice {
+  margin-left: 20%;
+  margin-right: 20%;
+  border: 1px solid black;
+  padding-top: 5%;
+}
+
+.invoicetext1 {
+  display: inline-block;
+  padding-left: 9%;
+}
+
+.invoicetext2 {
+  display: inline-block;
+  padding-left: 25%;
+}
+
+#invoiceinfo {
+  padding-left: 10%;
+}
+
+#tableinvoice td,
+#tableinvoice th {
+  border: 1px solid black;
+}
+
+#tableinvoice {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 8%;
+}
+
+.detailtotal {
+  padding-left: 63%;
+}
+
+.buttoninvoice {
+  margin-left: 80%;
+  padding-bottom: 2%;
+}
+
+.invoiceterms {
+  padding-left: 10%;
+  padding-top: 20%;
+}
+
+.progresscontainar {
+  width: 100%;
+}
+
+.progressbar {
+  counter-reset: step;
+}
+
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+
+.progressbar li:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f058";
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 30px;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: green;
+}
+
+.progressbar li.active:before {
+  border-color: green;
+}
+
+.progressbar li.active + li:after {
+  background-color: green;
+}
+
+.product {
+  display: flex;
+  padding-bottom: 10px;
+  background-color: white;
+}
+.colourbody {
+  background-color: rgb(245, 245, 245);
+}
+
+.deliverydetails {
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-right: 10%;
+  padding-bottom: 20%;
+}
+
+.imgproduct {
+  height: 130%;
+}
+
+.imgclass {
+  border: 1px solid black;
+  padding: 30px;
+  height: 140%;
+}
+
+.detailproduct {
+  margin-left: 10%;
+  margin-top: 2%;
+  font-size: 25px;
+}
+
+.customerdetail {
+  font-size: 25px;
+  background-color: white;
+  height: 250px;
+}
+
+.boxprogress {
+  width: 100%;
+  height: 150px;
+}

@@ -1,0 +1,248 @@
+.frame {
+  width: 100%;
+  height: 160px;
+  border: 1px solid #80808063;
+  text-align: center;
+  overflow: hidden;
+}
+.frame-2 {
+  width: 100%;
+  height: 285px;
+  border: 1px solid #80808063;
+  text-align: center;
+  overflow: hidden;
+}
+.frame img,
+.frame-2 img {
+  max-width: 100%;
+  height: 99%;
+}
+body {
+  background-color: #e3e3e338;
+}
+a:hover {
+  text-decoration: none;
+}
+#search-btn {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* table td {
+    padding: 1rem;
+    font-size: 25px;
+}
+
+table {
+    width: 100%;
+} */
+
+.table-wrapper {
+  border: 1px solid black;
+  padding-bottom: 2rem;
+}
+
+#prodphoto {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.row {
+  padding: 1rem 0;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #0000003b;
+  text-transform: capitalize;
+}
+
+title {
+  text-transform: capitalize;
+}
+
+.cust img {
+  height: 220px;
+  width: 100%;
+}
+
+.sp img {
+  height: 250px;
+  width: 100%;
+}
+
+.repair {
+  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  margin-bottom: 1rem;
+}
+
+.repair-bottom {
+  padding: 1rem;
+  background-color: white;
+  position: relative;
+}
+.repair-price {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.repair:hover {
+  box-shadow: 0px 0px 9px 3px #0000002e;
+}
+/* .repair-status{background: ;} */
+
+/* order track */
+.order-wrapper .far {
+  font-size: 3em;
+  color: #949494;
+}
+
+.complete .far {
+  color: #29be03;
+}
+
+.order-wrapper {
+  position: relative;
+  padding: 3rem 0;
+  border: 1px solid #0000001f;
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.order-tracker {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.order-tracker .status {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.pending,
+.processing,
+.delivering,
+.delivered {
+  text-align: center;
+  width: 33%;
+  position: relative;
+  float: left;
+}
+
+.show-status {
+  display: block;
+}
+
+.hide-status {
+  display: none;
+}
+
+.incomplete {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  float: left;
+  color: red;
+}
+
+.incomplete .status {
+  font-size: 2em;
+}
+
+.fa-ban {
+  font-size: 5em;
+}
+
+.circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #949494;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.complete .circle,
+.complete .line {
+  background-color: #29be03;
+}
+
+.line {
+  height: 5px;
+  width: 100%;
+  background-color: #949494;
+  display: block;
+  position: absolute;
+  top: 82%;
+  left: -50%;
+  z-index: 1;
+}
+
+.clear {
+  clear: both;
+}
+
+/* order repair details */
+
+.col-md-7 p {
+  font-size: 1.4em;
+}
+
+.col-md-7 p b {
+  font-weight: 600;
+}
+
+.order-repair-details {
+  margin-top: 5rem;
+}
+
+.order-repair-details img {
+  width: 80px;
+  height: 80px;
+}
+
+.order-repair-details table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.order-repair-details td {
+  padding: 0px;
+  vertical-align: middle;
+}
+
+.order-repair-details td:nth-of-type(1) {
+  width: 12%;
+}
+
+.order-repair-details td:nth-of-type(2) {
+  width: 50%;
+}
+
+.order-repair-details td:nth-of-type(3) {
+  width: 30%;
+}
+
+.order-repair-details td:nth-of-type(4) {
+  width: 8%;
+  text-align: center;
+}
+
+.card-text:last-child {
+  margin-bottom: 1rem;
+}
+
+.order-summary .col-md-6 .justify-content-between {
+  padding: 1rem;
+}
