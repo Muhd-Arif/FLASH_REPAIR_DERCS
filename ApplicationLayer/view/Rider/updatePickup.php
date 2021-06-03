@@ -1,11 +1,11 @@
 <?php
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-require_once '../../../libs/runnerSession.php';
+//require_once '../../../libs/runnerSession.php';
 
 
-$RunnerID = $_SESSION['R_ID'];
-//$RunnerID = '1';
+//$RunnerID = $_SESSION['R_ID'];
+$RunnerID = '1';
 //$data = $_POST['edit'];
 
 $product = new deliveryController();;
@@ -29,266 +29,113 @@ if(isset($_POST['pickup'])){
 
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+<script>
+
+</script>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rider Available Request List</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- NAVIGATION BAR  -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    <!-- NAVIGATION BAR  -->
+    <title>Request Quotation</title>
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="../../../assets/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../../assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../../assets/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../../assets/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="../../../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">DERCS</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Navee</a>
-        </div>
-      </div>
-
-     
-
-     
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Delivery Details</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Delivery Details</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-       
-
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <div class="col-md-8">
-             <div class="card">
-            <!-- MAP & BOX PANE -->
-          
-       <div class="container" style="margin-bottom:100px">
-            <div class="row">
-               <div class="col-md-12">
-
-                 <div style="text-align:center;">
-                   <h3 align="center">Customer Delivery Details</h3>
-                    <i class="fa fa-truck fa-3x" aria-hidden="true"></i>
-                 </div>
-<!--                  <input type="text" class="form-control mt-3" id="filterInput" placeholder="Search location...">
- -->
-                 
-                  <div class="table-responsive pt-10">
-                   <!-- <table class="table table-borderless table-dark"> -->
-                    
-                          <?php
+<body>
+    <style>
+    .container {
+        margin-top: 20px;
+        width: 50%;
+    }
+    </style>
+    <!-- TEMPLATE 1  -->
+    <div class="wrapper">
+        <?php include("sidebar.php") ?>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <!-- <div class="col-sm-6">
+                  <h1>Payment</h1>
+                  </div> -->
+                        <!-- <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active">Payment</li>
+                  </ol>
+                  </div> -->
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <div class="card bg-light">
+                                    <div class="card-body pb-0">
+                                        <!-- info row -->
+                                        <div class="row invoice-info">
+                                            <!-- /.col -->
+                                            <div class="container">
+                                                <!-- TEMPLATE 1 STOP -->
+                                                <center>
+                                                    <h2>Customer Pickup Details</h2>
+                                                </center>
+                                                <br>
+                                                <?php
                                 $i = 1;
                                  foreach($data as $j => $value) {
                                   foreach($result as $row){
                                    
                                    ?>
                          <!--test suggestion-->
-                         <div class="card">
+                        <!--  <div class="card"> -->
                                      <form id="delivery-form" method="post">
                                          <div class="modal-body">
-                                           <div class="card-footer">
-                                             <p style="color:pink"><span style="font-weight:bold">Customer information</span></p>
-                                             <p><span style="font-weight:bold">Customer Name: </span><?=$row['C_Name']?></p>
-                                              <p><span style="font-weight:bold">Pickup Address: </span><?=$row['P_Addr']?></p>
-                                              <p><span style="font-weight:bold">Customer Phone: </span><?=$row['C_Phone']?></p>
-                                              <p><span style="font-weight:bold">Product Name: </span><?=$row['Q_DeviceType']?></p>
-                                          
-                                           
-                                           
-                                           
-                                          </div>
+                                          <div class="form-group row mb-3 mt-9">
+                                                      <label for="custName" class="col-sm-3 col-form-label"> Name </label>
+                                                        <div class="col-sm-9">
+                                                       <input type="text" class="form-control" id="name" readonly
+                                                                value="<?=$row['C_Name']?>">
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group row mb-3 mt-9">
+                                                      <label for="phone" class="col-sm-3 col-form-label"> Phone No </label>
+                                                        <div class="col-sm-9">
+                                                       <input type="text" class="form-control" id="phone" readonly
+                                                                value="<?=$row['C_Phone']?>">
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group row mb-3 mt-9">
+                                                      <label for="deviceType" class="col-sm-3 col-form-label"> Device Type </label>
+                                                        <div class="col-sm-9">
+                                                       <input type="text" class="form-control" id="deviceType" readonly
+                                                                value="<?=$row['Q_DeviceType']?>">
+                                                        </div>
+                                                     </div>
+                                                     <div class="form-group row mb-3 mt-9">
+                                                      <label for="address" class="col-sm-3 col-form-label"> Pickup Address </label>
+                                                        <div class="col-sm-9">
+                                                       <input type="text" class="form-control" id="address" readonly
+                                                                value="<?=$row['P_Addr']?>">
+                                                        </div>
+                                                     </div>
 
-                                            &nbsp;
+                                           
                                            
                                            
 
@@ -296,7 +143,7 @@ if(isset($_POST['pickup'])){
                                            <div class="card-footer">
                                             <form id="" method="post">
                                                <input type="hidden" name="PickupID" value="<?=$row['P_ID']?>">
-                                            <p style="color:pink"><span style="font-weight:bold">Pickup information</span></p>
+                                            <p style="color:blue"><span style="font-weight:bold">Pickup information</span></p>
                                            
                                            <p> <i class="fa fa-calendar-alt" aria-hidden="true"></i> <span style="font-weight:bold">Pickup Date&nbsp;&nbsp;: </span><input type="text" disabled="true" id="cost" name="cost" value="<?=$row['P_Date']?>"></p>                                        
                                            <p><i class="fa fa-clock" aria-hidden="true"></i> <span style="font-weight:bold">Pickup Time&nbsp;: </span><input type="text" disabled="true" id="cost" name="cost" value="<?=$row['P_Time']?>"></p>
@@ -318,7 +165,7 @@ if(isset($_POST['pickup'])){
                                           $color[$x] = 'red'
                                         
                                           ?>
-                                             <p <?php echo "style='color:".$color[$x]."'" ?>><span style="font-weight:bold;color:pink">Pickup Status : </span><?=strtoupper($row['P_Status'])?></p>
+                                             <p <?php echo "style='color:".$color[$x]."'" ?>><span style="font-weight:bold;color:blue">Pickup Status : </span><?=strtoupper($row['P_Status'])?></p>
                                             <input type="radio" id="Done" name="Done" value="Done" required> Done &nbsp;&nbsp;&nbsp;
                                             <input type="radio" id="proceesing" name="Done" value="proceesing" disabled="true"> Processing
                                              <?php
@@ -338,10 +185,10 @@ if(isset($_POST['pickup'])){
                                       </div>
                                       
                                     </form>
-                                           <button type="button" class="btn btn-secondary" onclick="location.href='../../ApplicationLayer/Rider/myPickup.php'">Close</button>
+                                           <button type="button" class="btn btn-secondary" onclick="location.href='myPickup.php'">Close</button>
                                          </div>
                                        </form>
-                                     </div>
+                                     <<!-- /div> -->
                                       
 
                                    <!--test suggestion-->
@@ -351,69 +198,38 @@ if(isset($_POST['pickup'])){
                                 }
                               }
                               ?>
-                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.row -->
-
-            <!-- TABLE: LATEST ORDERS -->
-         
-              </div>
-              <!-- /.card-body -->
-             
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
+                                            </div>
+                                            <!-- TEMPLATE PART 2 -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer no-print">
+            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+        </footer>
+        <aside class="control-sidebar control-sidebar-dark">
+        </aside>
     </div>
-  </footer>
-</div>
-<!-- ./wrapper -->
+    <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+         <script src="../../../assets/js/adminlte.min.js"></script>
+         <script src="../../../assets/js/demo.js"></script> -->
+    <!-- TEMPLATE PART 2 STOP -->
+    <script src="../../../assets/js/quotation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="../../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="../../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../../assets/js/adminlte.js"></script>
-
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="../../../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="../../../plugins/raphael/raphael.min.js"></script>
-<script src="../../../plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="../../../plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="../../../plugins/chart.js/Chart.min.js"></script>
-
-<!-- AdminLTE for demo purposes -->
-<script src="../../../assets/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../../assets/js/pages/dashboard2.js"></script>
 </body>
+
 </html>

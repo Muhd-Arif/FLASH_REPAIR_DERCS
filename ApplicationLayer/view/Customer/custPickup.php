@@ -37,44 +37,36 @@ if(isset($_POST['pickup'])){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
+<script>
+
+</script>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rider Available Request List</title>
-
-    <!-- Google Font: Source Sans Pro -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- NAVIGATION BAR  -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    <!-- NAVIGATION BAR  -->
+    <title>Request Quotation</title>
 </head>
-<style type="text/css">
-input,
-select,
-textarea {
-    width: 400px;
-    border: 2px solid #ccc;
 
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-}
-</style>
-
-
-
- <!-- TEMPLATE 1  -->
- <div class="wrapper">
+<body>
+    <style>
+    .container {
+        margin-top: 20px;
+        width: 50%;
+    }
+    </style>
+    <!-- TEMPLATE 1  -->
+    <div class="wrapper">
         <?php include("sidebar.php") ?>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -99,73 +91,57 @@ textarea {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            
-                   
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-
-
-                    <!-- Main row -->
-                    <div class="row">
-                        <!-- Left col -->
-                        <div class="col-md-8">
-                            <div class="card">
-                                <!-- MAP & BOX PANE -->
-
-                                <div class="container" style="margin-bottom:100px">
-                                    <div class="row">
-                                        <div class="col-md-12">
-
-                                            <div style="text-align:center;">
-                                                <h3 align="center">Customer Pickup Details</h3>
-                                                <i class="fa fa-truck fa-2x" aria-hidden="true"></i><br><br>
-                                            </div>
-                                            <!--                  <input type="text" class="form-control mt-3" id="filterInput" placeholder="Search location...">
- -->
-
-                                            <div class="table-responsive pt-10">
-                                                <!-- <table class="table table-borderless table-dark"> -->
-
-                                                <?php
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <div class="card bg-light">
+                                    <div class="card-body pb-0">
+                                        <!-- info row -->
+                                        <div class="row invoice-info">
+                                            <!-- /.col -->
+                                            <div class="container">
+                                                <!-- TEMPLATE 1 STOP -->
+                                                <center>
+                                                    <h2>Customer Pickup Details</h2>
+                                                </center>
+                                                 <?php
                                 $i = 1;
+                                foreach($cust as $row){
+                                    # code...
+                                
                                 // foreach($cust as $row) { 
                                    
                                    ?>
                                                 <!--test suggestion-->
-                                                <div class="card">
+                                              <!--   <div class="card"> -->
                                                     <form id="delivery-form" method="post">
-                                                        <div class="modal-body">
-
-
-
-                                                            <div class="card-footer">
-                                                                <form id="" method="post">
-                                                                    <input type='hidden' id='OrderProductID[<?=$x?>]'
-                                                                        name='OrderProductID'
-                                                                        value='<?=$orderproductid[$x]?>'>
-                                                                    <input type='hidden' id='QuotationID[<?=$x?>]'
+                                                      <!--   <div class="modal-body">-->
+                                                          <!--   <div class="card-footer"> -->
+                                                               
+                                                                  
+                                                                    <input type='hidden' id='<?=$row['Q_ID']?>'
                                                                         name='QuotationID'
-                                                                        value='<?=$quotationid[$x]?>'>
-                                                                    <input type='hidden' id='CustID[<?=$x?>]'
-                                                                        name='CustID' value='<?=$custid[$x]?>'>
-                                                                    <p style="color:pink"><span
-                                                                            style="font-weight:bold">Please provide
-                                                                            pickup details </span></p>
+                                                                        value='<?=$row['Q_ID']?>'>
+                                                                    <input type='hidden' id='<?=$row['C_ID']?>'
+                                                                        name='CustID' value='<?=$row['C_ID']?>'>
+                                                                        <br>
+                                                                     <!-- <label for="damageInfo">Please provide pickup details</label><br> -->
 
-                                                                    <p> <i class="fa fa-calendar-alt"
-                                                                            aria-hidden="true"></i> <span
-                                                                            style="font-weight:bold">Pickup
-                                                                            Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                                        </span><input type="date" id="date" name="date"
-                                                                            width="50" value="<?=$pickupDate[$x]?>"
-                                                                            required="true"></p>
-                                                                    <p><i class="fa fa-clock" aria-hidden="true"></i>
-                                                                        <span style="font-weight:bold">Pickup
-                                                                            Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                                        </span> <select id="time" name="time"
-                                                                            required="true">
+                                                                      <div class="form-group row mb-3 mt-9">
+                                                                        <i class="fa fa-calendar-alt" aria-hidden="true">
+                                                                        <label for="date" class="col-sm-9 col-form-label">Pickup
+                                                                            Date</label></i>
+                                                                            <div class="col-sm-9">
+                                                                        <input type="date" class="form-control" id="date" name="date"required="true" value="<?php echo date('Y-m-d'); ?>">
+                                                                            </div>
+                                                                      </div>
+
+                                                                    <div class="form-group row mb-3 mt-9">
+                                                                     <i class="fa fa-clock" aria-hidden="true"> 
+                                                                        <label for="time" class="col-sm-9 col-form-label">Pickup
+                                                                            Time</label></i>
+                                                                   
+                                                                        <div class="col-sm-9">
+                                                                            <select id="time" name="time" required="true"  class="form-control">
                                                                             <option value="10:00 - 12:00">10:00 - 12:00
                                                                             </option>
                                                                             <option value="13:00 - 15:00">13:00 - 15:00
@@ -173,72 +149,60 @@ textarea {
                                                                             <option value="16:00 - 18:00">16:00 - 18:00
                                                                             </option>
                                                                         </select>
-                                                                    </p>
+                                                                        </div>
+                                                                    </div>
 
-                                                                    <p><i class="fa fa-address-book"
-                                                                            aria-hidden="true"></i> <span
-                                                                            style="font-weight:bold">Pickup
-                                                                            Address&nbsp;: </span><textarea id="addr"
-                                                                            name="addr" rows="4" cols="50"
-                                                                            required="true"></textarea></p>
+                                                                    <div class="form-group row mb-3 mt-9">
+                                                                    <i class="fa fa-address-book" aria-hidden="true"> 
+                                                                        <label for="addr" class="col-sm-9 col-form-label">Pickup Address</label></i>
+                                                                        <div class="col-sm-9">
+                                                                             <textarea class="form-control mt-2" id="addr" name="addr" rows="3"></textarea>
+                                                                        </div>
+                                                                    </div>
 
-                                                                    <p><i class="fas fa-comment-alt"
-                                                                            aria-hidden="true"></i> <span
-                                                                            style="font-weight:bold">Pickup
-                                                                            Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                                        </span><textarea id="notes" name="notes"
-                                                                            rows="4" cols="50"></textarea></p>
+                                                                     <div class="form-group row mb-3 mt-9">
+                                                                    <i class="fa fa-address-book" aria-hidden="true"> 
+                                                                        <label for="notes" class="col-sm-9 col-form-label">Pickup
+                                                                            Notes</label></i>
+                                                                        <div class="col-sm-9">
+                                                                             <textarea class="form-control mt-2" id="notes" name="notes" rows="3"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                        
 
                                                                     <div class="modal-footer">
 
-                                                                        <div class="" id="button1"
-                                                                            style="margin-right:5px">
+                                                                        <div class="col-md-12 text-center mt-3">
+                                                                           
                                                                             <input type="hidden" name="OrderProductID"
                                                                                 value="<?=$orderproductid[$x]?>">
-                                                                            <button id="pickup" name="pickup"
+                                                                            <!-- <button id="pickup" name="pickup"
                                                                                 type="submit"
                                                                                 class="btn btn-primary accept"
-                                                                                onclick="return confirm('Are you sure you want to confirm this pickup?');">CONFIRM</button>
+                                                                                onclick="return confirm('Are you sure you want to confirm this pickup?');">CONFIRM</button> -->
+                                                                                 <button id="pickup" name="pickup" type="submit" class="btn btn-primary"
+                                                            style="width: 200px"onclick="return confirm('Are you sure you want to confirm this pickup?');">CONFIRM</button>
 
 
                                                                 </form>
-                                                            </div>
+                                                           <!--  </div> -->
 
 
                                                             &nbsp;
 
-                                                            <button type="button" class="btn btn-secondary"
-                                                                onclick="location.href='../../ApplicationLayer/Rider/pickupList.php'">Back</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-
+                                                           
+                                                   
+                                              <!--   </div>
+ -->
 
                                                 <!--test suggestion-->
                                                 <?php
                                 $i++;
+                            }
                                echo "</tr>";
                                 // }
                               ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-
-                            <!-- TABLE: LATEST ORDERS -->
-
-                        </div>
-                        <!-- /.card-body -->
-
-                        <!-- /.card-footer -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-
-       <!-- TEMPLATE PART 2 -->
+                                            <!-- TEMPLATE PART 2 -->
                                         </div>
                                     </div>
                                 </div>
@@ -254,21 +218,21 @@ textarea {
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
     </div>
+    <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+         <script src="../../../assets/js/adminlte.min.js"></script>
+         <script src="../../../assets/js/demo.js"></script> -->
+    <!-- TEMPLATE PART 2 STOP -->
+    <script src="../../../assets/js/quotation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <!-- <script src="../../../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="../../../plugins/raphael/raphael.min.js"></script>
-    <script src="../../../plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="../../../plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script> -->
-    <!-- ChartJS -->
-    <!-- <script src="../../../plugins/chart.js/Chart.min.js"></script> -->
-
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="../../dist/js/demo.js"></script> -->
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <!-- <script src="../../../dist/js/pages/dashboard2.js"></script> -->
 </body>
 
 </html>
