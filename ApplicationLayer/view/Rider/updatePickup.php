@@ -47,7 +47,7 @@ if(isset($_POST['pickup'])){
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
     <!-- NAVIGATION BAR  -->
-    <title>Request Quotation</title>
+    <title>Update Pickup Status</title>
 </head>
 
 <body>
