@@ -112,8 +112,9 @@ class repairController{
     }
 
     // view the details of a quotation and repair - Hoe Shin Yi
-    function viewQuotationRepair($rpid){
+    function viewQuotationRepair($qid,$rpid){
         $repair = new repairModel();
+        $repair->qid = $qid;
         $repair->rpid = $rpid;
         return $repair->viewQRP();
     }
