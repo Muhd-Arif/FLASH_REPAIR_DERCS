@@ -115,7 +115,10 @@ $data = $repair->viewRepairDetails($RepairID);
                 <img src="<?="../../../uploads/".$row['RP_Image']?>" class="d-block w-100"
                     onerror="this.src='../../../uploads/default.png';">
                 <br><br>
-                <a href="delivery.php?rpid=<?= $row['RP_ID']?>" class="pay-now btn btn-success" disabled>Pay Now</a>
+
+                <?php if($rpstatus == 'Completed') {?>
+                    <a href="delivery.php?rpid=<?= $row['RP_ID']?>" class="pay-now btn btn-success" disabled>Pay Now</a>
+                <?php }?>
             </div>
 
 
@@ -130,7 +133,7 @@ $data = $repair->viewRepairDetails($RepairID);
                 <p><b>Reason: </b><?=$row['RP_Reason']?></p>
                 <p><b>Quotation ID: </b><?=$row['Q_ID']?></p>
                 <p><b>Quotation Date: </b><?=$row['Q_Date']?></p>
-                <p><b>Estimated Cost: </b>RM<?=$row['Q_Cost']?></p>
+                <p><b>Estimated Cost: </b>RM <?=$row['Q_Cost']?></p>
 
             </div>
         </div>
