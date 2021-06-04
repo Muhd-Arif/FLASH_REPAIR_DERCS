@@ -3,7 +3,7 @@
  Filename: PaymentModel.php
  Purpose: Entity Class for payment model
 */
-require_once $_SERVER["DOCUMENT_ROOT"].'/dercs/libs/database.php';
+require_once '../../../libs/database.php';
 
 class paymentModel
 {
