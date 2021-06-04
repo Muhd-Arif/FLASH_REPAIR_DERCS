@@ -388,9 +388,11 @@ $pages_needed = ceil($total / $number_of_records);
                 [5, 10, 20, -1],
                 [5, 10, 20, "All"]
             ],
-            "iDisplayLength": 5
+            "iDisplayLength": 5,
+            "order": [[ 2, "desc" ]]
         });
     });
+
     </script>
 </body>
 
