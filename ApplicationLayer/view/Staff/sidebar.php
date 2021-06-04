@@ -36,7 +36,7 @@
                     <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="customerProfile.php" class="nav-link">
+                        <a href="adminProfile.php" class="nav-link">
                             <i class="far fa-user nav-icon"></i>
                             <p>My Account</p>
                         </a>
@@ -69,10 +69,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="myRepairList.php" class="nav-link">
+                    <a href="allRepairList.php" class="nav-link">
                         <i class="nav-icon far fa-bell"></i>
                         <p>
-                            My Repairs
+                            All Repairs
                         </p>
                     </a>
                 </li>

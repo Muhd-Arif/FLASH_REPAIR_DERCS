@@ -102,7 +102,7 @@
                                                     Type</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" id="deviceType">
-                                                        <option>Computer</option>
+                                                        <option>Desktop</option>
                                                         <option>Laptop</option>
                                                         <option>Mobile</option>
                                                         <option>Tablet</option>
