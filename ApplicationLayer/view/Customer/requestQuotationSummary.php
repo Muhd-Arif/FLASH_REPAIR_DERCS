@@ -1,10 +1,12 @@
 <?php
+require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
 $quotation = new quotationController();
+$c_id = $_SESSION['C_ID'];
 
 if(isset($_POST['addQuotation'])){
-    $quotation->addQuotation();
+    $quotation->addQuotation($c_id);
 }
 
 ?>

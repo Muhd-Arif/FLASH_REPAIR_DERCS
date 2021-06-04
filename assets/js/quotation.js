@@ -28,7 +28,7 @@ document.getElementById("quotationForm").addEventListener("submit", (e) => {
       document.querySelector(".alert").remove();
       location.reload();
       return false;
-    }, 1000);
+    }, 2000);
   } else {
     // instatiatie book
     localStorage.setItem("name", name);

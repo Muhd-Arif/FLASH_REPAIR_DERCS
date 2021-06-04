@@ -2,9 +2,10 @@
 require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
+$c_id = $_SESSION['C_ID'];
 $quotation = new quotationController();
 
-$data = $quotation->getMyQuotation(1);
+$data = $quotation->getMyQuotation($c_id);
 
 ?>
 
@@ -187,6 +188,8 @@ $data = $quotation->getMyQuotation(1);
             //     'print'
             // ],
             "ordering": false,
+            "pageLength": 5,
+            lengthMenu: [5, 10, 15, 20, 25, 30],
 
         });
     });
