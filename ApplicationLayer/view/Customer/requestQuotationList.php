@@ -34,7 +34,7 @@ $data = $quotation->getMyQuotation(1);
 <body>
     <style>
     .card {
-        width: 80%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 2%;
@@ -42,6 +42,7 @@ $data = $quotation->getMyQuotation(1);
 
     .container {
         margin-top: 10px;
+        margin-bottom: 50px;
         width: 80%;
     }
 
@@ -84,21 +85,23 @@ $data = $quotation->getMyQuotation(1);
                                 <div class="container">
                                     <!-- TEMPLATE 1 STOP -->
                                     <div class="card-header">
-
-                                    <!-- <table class="table mt-3" id="quotationList"> -->
-                                    <table class="table mt-5" id="dataTable">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Quotation ID</th>
-                                                <th scope="col">Device Type</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- <tr>
+                                        <center>
+                                            <h2 style="margin-bottom:50px;">My Quotation</h2>
+                                        </center>
+                                        <!-- <table class="table mt-3" id="quotationList"> -->
+                                        <table class="table mt-5" id="dataTable">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Quotation ID</th>
+                                                    <th scope="col">Device Type</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- <tr>
                     <th scope="row">1</th>
                     <td>#123456</td>
                     <td>Laptop</td>
@@ -106,7 +109,7 @@ $data = $quotation->getMyQuotation(1);
                     <td>23 / 3 / 2021</td>
                     <td><button type="submit" class="btn btn-primary">View</button></td>
                 </tr> -->
-                                            <?php
+                                                <?php
                 $i = 1;
                 foreach($data as $row){
                     echo '
@@ -117,52 +120,52 @@ $data = $quotation->getMyQuotation(1);
                     <td id="'.$row['Q_ID'].'">'.$row['Q_Status'].'</td>
                     <td>'.$row['Q_Date'].'</td>'
                     ?>
-                                            <td>
-                                                <form method="POST">
-                                                    <button type="button"
-                                                        onclick="location.href='requestQuotationDetails.php?q_id=<?=$row['Q_ID']?>'"
-                                                        name="<?=$row['Q_ID']?>" id="view"
-                                                        class="btn btn-primary">View</button>
-                                                </form>
-                                            </td>
+                                                <td>
+                                                    <form method="POST">
+                                                        <button type="button"
+                                                            onclick="location.href='requestQuotationDetails.php?q_id=<?=$row['Q_ID']?>'"
+                                                            name="<?=$row['Q_ID']?>" id="view"
+                                                            class="btn btn-primary">View</button>
+                                                    </form>
+                                                </td>
 
-                                            <script type="text/javascript">
-                                            var td = document.getElementById("<?=$row['Q_ID']?>");
-                                            var btn = document.getElementById("<?=$row['Q_ID']?>");
+                                                <script type="text/javascript">
+                                                var td = document.getElementById("<?=$row['Q_ID']?>");
+                                                var btn = document.getElementById("<?=$row['Q_ID']?>");
 
-                                            if (td.innerText == 'Pending') {
-                                                td.style.fontWeight = "bold"
-                                            } else if (td.innerText == 'Pending Confirmation') {
-                                                td.style.color = "Blue"
-                                                td.style.fontWeight = "bold"
-                                            } else if (td.innerText == 'Accepted') {
-                                                td.style.color = "Green"
-                                                td.style.fontWeight = "bold"
-                                            } else {
-                                                td.style.color = "Red"
-                                                td.style.fontWeight = "bold"
-                                            }
-                                            </script>
+                                                if (td.innerText == 'Pending') {
+                                                    td.style.fontWeight = "bold"
+                                                } else if (td.innerText == 'Pending Confirmation') {
+                                                    td.style.color = "Blue"
+                                                    td.style.fontWeight = "bold"
+                                                } else if (td.innerText == 'Accepted') {
+                                                    td.style.color = "Green"
+                                                    td.style.fontWeight = "bold"
+                                                } else {
+                                                    td.style.color = "Red"
+                                                    td.style.fontWeight = "bold"
+                                                }
+                                                </script>
 
 
-                                            <?php echo '
+                                                <?php echo '
                     </tr>';
                     $i++;
                 }
 
                 ?>
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- TEMPLATE PART 2 -->
                                 </div>
-                                <!-- TEMPLATE PART 2 -->
                             </div>
                         </div>
                     </div>
                 </div>
         </div>
-    </div>
-    </section>
+        </section>
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer no-print">
