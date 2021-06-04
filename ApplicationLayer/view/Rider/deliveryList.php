@@ -1,11 +1,11 @@
 <?php
-require_once '../../../libs/runnerSession.php';
+require_once '../../../libs/runnerProfileSession.php';
 // require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 
 
 
-$RunnerID = $_SESSION['RunnerID'];
+$RunnerID = $_SESSION['R_ID'];
 //$RunnerID = '1';
 
 $product = new deliveryController();

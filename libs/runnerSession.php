@@ -19,7 +19,7 @@ else if (isset($_SESSION['R_ID'])) {
     ];
     if ($dataRunner['status'] != "APPROVED") {
         echo "<script>
-    window.location = 'runnerProfile.php';
+    window.location = 'index.php';
     </script>";
         exit();
     }
