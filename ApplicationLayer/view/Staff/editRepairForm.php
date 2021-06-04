@@ -36,32 +36,35 @@ if(isset($_POST['upload-photo']) && !isset($_POST['edit'])){
         <title>Edit Repair</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="../../../assets/css/main.css">
+    
+    
+    
+        <!-- NAVIGATION BAR  -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    
     </head>
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-3">
-        <div class="container">
-            <a class="navbar-brand" href="allRepairList.php">Flash Delivery | SP</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <body class="hold-transition sidebar-mini">
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="addRepair.php">Add Repair</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="allRepairList.php">Repair List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="buyersList.php">Buyers List</a>
-                        </li>
-                    </ul>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+
+    <div class="wrapper">
+
+<?php include("sidebar.php") ?>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- NAVIGATION PART 1 STOP -->
+
+
+
+
+
         <div class="container">
             <h2>Edit Repair</h2>
             <!-- EDIT REPAIR FORM -->
@@ -115,15 +118,21 @@ if(isset($_POST['upload-photo']) && !isset($_POST['edit'])){
             </form>
         </div>
         
-        <!-- FOOTER -->
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2020 Flash Delivery</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
+
+            <!-- NAVIGATION PART 2 -->
+            </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer no-print">
+            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. </center>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
 
 
 
@@ -131,5 +140,17 @@ if(isset($_POST['upload-photo']) && !isset($_POST['edit'])){
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="../../../assets/js/main.js"></script>
+
+
+        <!-- jQuery -->
+        <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../../assets/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../../assets/js/demo.js"></script>
+
+    <!-- NAVIGATION PART 2 STOP -->
     </body>
 </html>

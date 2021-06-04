@@ -41,7 +41,7 @@ $data = $repair->viewRepairDetails($RepairID);
 
 
 
-<body class="bg-light" class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini">
 
 
 
@@ -133,7 +133,7 @@ $data = $repair->viewRepairDetails($RepairID);
 
 
 
-    </div>
+    <!-- </div> -->
 
 
 
@@ -152,11 +152,7 @@ $data = $repair->viewRepairDetails($RepairID);
     </div>
     <!-- ./wrapper -->
 
-    <script type="text/javascript">
-    for (var n = 0; n < 5; n++) {
-        document.getElementById('stars').innerHTML += `<i class="fa fa-star" aria-hidden="true"></i>`;
-    };
-    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

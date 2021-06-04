@@ -63,27 +63,229 @@ $pages_needed = ceil($total / $number_of_records);
     }
     </style>
 
-
+    <script src="https://kit.fontawesome.com/e40306d6a0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
+
+
+
+
+
+
+ <!-- NAVBAR -->
+
+ <?php
+    //  $fullname = $_SESSION['CustName'];
+    $fullname = 'Test Name';
+     $shortname = explode(" ", $fullname);
+     $name = $shortname[0].' '.$shortname[1];
+     ?>
+
+
+    <!-- TEMPLATE 1  -->
+    <div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+        <!-- =================== SIDEBAR ====================== -->
+
+
+
+
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../manageLoginAndRegister/userLogin.php" class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-2">
+            <a href="#" class="brand-link">
+                <i class="far fa-tools" style="padding-left: 8%; padding-right: 1%"></i>
+                <span class="brand-text font-weight-light">Flash Repair</span>
+            </a>
+
+
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+                            <li class="nav-item">
+                                <a href="customerProfile.php" class="nav-link">
+                                    <i class="far fa-user nav-icon"></i>
+                                    <p>My Account</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+
+                        <li class="nav-item">
+                            <a href="requestQuotationForm.php" class="nav-link">
+
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>Request Quotation</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="requestQuotationList.php" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>
+                                    My Quotation
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="myRepairList.php" class="nav-link">
+                                <i class="nav-icon far fa-bell"></i>
+                                <p>
+                                    My Repairs
+                                </p>
+                            </a>
+                        </li>
+
+                        <!-- ========== FILTERS DEVICE TYPE ============ -->
+                        <div class="user-panel">
+                            <nav class="mt-2">
+                                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                                    data-accordion="false">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <p>
+                                                Device Type
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- <li class="nav-item">
+                        <p>
+                            Device Type
+                        </p>
+                </li> -->
+                        <li class="nav-item">
+                            <a href="allRepairList.php" class="nav-link">
+                                <p>
+                                    All
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="allRepairList.php?device=Mobile" class="nav-link">
+                                <p>
+                                    Mobile
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="allRepairList.php?device=Tablet" class="nav-link">
+                                <p>
+                                    Tablet
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="allRepairList.php?device=Laptop" class="nav-link">
+                                <p>
+                                    Laptop
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="allRepairList.php?device=Desktop" class="nav-link">
+                                <p>
+                                    Desktop
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+
+
+
+        <!-- =================== SIDEBAR ====================== -->
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <div class="card bg-light">
+                                    <div class="card-body pb-0">
+                                        <!-- info row -->
+                                        <div class="row invoice-info">
+                                            <!-- /.col -->
+                                            <!-- TEMPLATE 1 STOP -->
+
+
+
+
+
+
 
     <div class="container" style="margin-top:30px">
 
-        <h2><?php echo isset($_GET['device'])? $_GET['device']: '';?>All Repair List</h2>
+        <h2><?php echo isset($_GET['device'])? $_GET['device']: '';?> All Repair List</h2>
         <div class="row">
-            <div class="col-sm-2 sidebar">
-
-                <h3>Device Type</h3>
-                <ul>
-                    <li><a href="allRepairList.php">All</a></li>
-                    <li><a href="allRepairList.php?device=Mobile">Mobile</a></li>
-                    <li><a href="allRepairList.php?device=Tablet">Tablet</a></li>
-                    <li><a href="allRepairList.php?device=Laptop">Laptop</a></li>
-                    <li><a href="allRepairList.php?device=Desktop">Desktop</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-10 main-content">
+            <div class="col-sm-12 main-content">
                 <table id="repair-list" class="display">
                     <thead>
                         <tr>
@@ -132,7 +334,33 @@ $pages_needed = ceil($total / $number_of_records);
 
 
 
+ <!-- TEMPLATE PART 2 -->
+ </div>
+                                </div>
+                            </div>
 
+                            <!-- /.invoice -->
+                        </div><!-- /.col -->
+
+                    </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer no-print">
+            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+        </footer>
+
+        <aside class="control-sidebar control-sidebar-dark">
+        </aside>
+    </div>
+
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/adminlte.min.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+
+    <!-- TEMPLATE PART 2 STOP -->
 
 
 

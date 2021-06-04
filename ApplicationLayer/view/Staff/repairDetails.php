@@ -30,6 +30,12 @@ $data = $repair->viewRepair($rpid);
     .frame-2 {
         width: auto;
     }
+
+    .wrapper .content-wrapper{
+        min-height: 900px!important;
+    }
+
+
     </style>
 
         <!-- NAVIGATION BAR  -->
@@ -95,17 +101,20 @@ $data = $repair->viewRepair($rpid);
                             <th scope="row">Estimated Cost:</th>
                             <td><?=$row['Q_Cost']?></td>
                         </tr>
+                        
                     </tbody>
                 </table>
+                <div>
+                    <a class="btn btn-primary" href='editRepairForm.php?rpid=<?= $rpid?>'>Edit</a>
+
+                </div>
+
             </div>
 
 
         </div>
 
-        <a class="btn btn-primary" href='editRepairForm.php?rpid=<?= $rpid?>'>Edit</a>
-
     </div>
-    <br><br><br><br>
 
     <?php
             }
@@ -119,11 +128,6 @@ $data = $repair->viewRepair($rpid);
             <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. </center>
         </footer>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
