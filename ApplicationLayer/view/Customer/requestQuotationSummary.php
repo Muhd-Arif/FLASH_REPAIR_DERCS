@@ -145,7 +145,9 @@ if(isset($_POST['addQuotation'])){
                                                 <button type="button" class="btn btn-primary" style="width: 230px"
                                                     id="edit">Edit Request
                                                     Quotation</button>
-                                                <button type="submit" name="addQuotation" class="btn btn-success ms-5"
+                                                <button type="submit"
+                                                    onclick="return confirm('Are you sure you want to send this quotation?');"
+                                                    name="addQuotation" class="btn btn-success ms-5"
                                                     style="width: 230px">Submit Request
                                                     Quotation</button>
                                             </div>
