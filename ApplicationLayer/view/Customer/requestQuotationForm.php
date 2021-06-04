@@ -25,9 +25,15 @@
 
 <body>
     <style>
+    .card{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        /*padding-bottom: 1%;*/
+    }
     .container {
-        margin-top: 20px;
-        width: 50%;
+        margin-top: 10px;
+        width: 80%;
     }
     </style>
     <!-- TEMPLATE 1  -->
@@ -55,19 +61,18 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2>Request Quotation</h2>
-                                                </center>
+                            <div class="col-12 ">
+                                <!-- Main content -->
+
+                                <div class="card ">
+                                    <!-- /.col -->
+                                    <div class="container" >
+                                        <!-- TEMPLATE 1 STOP -->
+                                        <div class="card-header">
+                                            <h3 style="text-align: center">Request Quotation</h3>
+                                        </div>
+                                                <div style="margin-top: -4%;">
+                                                    
                                                 <form id="quotationForm">
                                                     <div class="form-group row mb-3 mt-5">
                                                         <label for="name" class="col-sm-3 col-form-label">Name</label>
@@ -128,6 +133,7 @@
                                                     <br>
                                                 </form>
                                             </div>
+                                        </div>
                                             <!-- TEMPLATE PART 2 -->
                                         </div>
                                     </div>

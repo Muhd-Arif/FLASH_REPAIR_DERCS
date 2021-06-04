@@ -19,12 +19,18 @@ $payment = new paymentController();
 
 $qrpData = $repair->viewQuotationRepair($qid,$rpid);
 $deliverydata = $delivery->viewDelivery($qid,$rpid);
+$paymentdata = $payment->viewPayment($cid,$qid,$rpid);
 
 if(isset($_POST['paycod'])){
 	
 	$payment->addPaymentCOD($cid,$qid,$rpid);
 	$payment->updatePaymentType($cid,$qid,$rpid,"COD");
 
+}
+
+if(sizeof($paymentdata)!=0){
+    echo "<script type='text/javascript'>
+    window.location = '../Customer/success.php?cid=$cid&qid=$qid&rpid=$rpid'</script>";
 }
 ?>
 
@@ -54,7 +60,7 @@ if(isset($_POST['paycod'])){
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <div class="container-fluid">
+                <!-- div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1>Payment</h1>
@@ -66,7 +72,7 @@ if(isset($_POST['paycod'])){
                             </ol>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div> --><!-- /.container-fluid -->
             </section>
 
             <section class="content">
@@ -192,9 +198,9 @@ if(isset($_POST['paycod'])){
 
                                                 <!-- URLs -->
                                                 <input type='hidden' name='cancel_return'
-                                                    value='http://localhost/Dercs/ApplicationLayer/Customer/cancel.php?cid=<?php echo $cid?>&qid=<?php echo $qid ?>&rpid=<?php echo $rpid ?>'>
+                                                    value='http://localhost/FLASH_REPAIR_DERCS/ApplicationLayer/view/Customer/cancel.php?cid=<?php echo $cid?>&qid=<?php echo $qid ?>&rpid=<?php echo $rpid ?>'>
                                                 <input type='hidden' name='return'
-                                                    value='http://localhost/Dercs/ApplicationLayer/Customer/success.php?'>
+                                                    value='http://localhost/FLASH_REPAIR_DERCS/ApplicationLayer/view/Customer/success.php?'>
 
                                                 <!-- payment button. -->
                                                 <input type="image" name="payonline" id="payonline" border="0"
@@ -232,10 +238,7 @@ if(isset($_POST['paycod'])){
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer no-print">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.1.0
-        </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
     </footer>
 
     <!-- Control Sidebar -->

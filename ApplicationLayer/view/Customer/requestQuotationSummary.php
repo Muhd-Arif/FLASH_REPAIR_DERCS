@@ -30,10 +30,15 @@ if(isset($_POST['addQuotation'])){
 
 <body>
     <style>
+    .card{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
     .container {
-        margin-top: 20px;
-        margin-bottom: 70px;
-        width: 50%;
+        margin-top: 10px;
+        width: 80%;
     }
 
     input[readonly] {
@@ -67,19 +72,17 @@ if(isset($_POST['addQuotation'])){
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2>Request Quotation</h2>
-                                                </center>
+                            <div class="col-12 ">
+                                <!-- Main content -->
+
+                                <div class="card ">
+                                    <!-- /.col -->
+                                    <div class="container" >
+                                        <!-- TEMPLATE 1 STOP -->
+                                        <div class="card-header">
+                                            <h3 style="text-align: center">Request Quotation</h3>
+                                        </div>
+                                                <div style="margin-top: -4%;">
                                                 <form method="POST">
                                                     <div class="form-group row mb-3 mt-5">
                                                         <label for="name" class="col-sm-5 col-form-label">Name</label>
@@ -147,6 +150,7 @@ if(isset($_POST['addQuotation'])){
                                                             Quotation</button>
                                                     </div>
                                                 </form>
+                                            </div>
                                             </div>
 
                                             <!-- TEMPLATE PART 2 -->

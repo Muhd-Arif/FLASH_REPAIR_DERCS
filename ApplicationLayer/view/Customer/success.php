@@ -36,7 +36,7 @@ if($pt=="Online"){
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Payment</title>
+	<title>Payment Details</title>
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -54,7 +54,7 @@ if($pt=="Online"){
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<div class="container-fluid">
+				<!-- div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
 							<h1>Payment</h1>
@@ -66,7 +66,7 @@ if($pt=="Online"){
 							</ol>
 						</div>
 					</div>
-				</div><!-- /.container-fluid -->
+				</div --><!-- /.container-fluid -->
 			</section>
 
 			<section class="content">
@@ -128,15 +128,13 @@ if($pt=="Online"){
 												</table>
 											</div>
 											<!-- /.col -->
-
-											
-
+	
 													<!-- /.col -->
 												</div>
 												<div class="col-6 table-responsive">
 													<div class="card ">
 														<div class="card-header">
-															<h3 style="text-align: center">Delivery Form</h3>
+															<h3 style="text-align: center">Delivery & Payment Details</h3>
 														</div>
 
 														<table class="table table-hover">
@@ -159,19 +157,23 @@ if($pt=="Online"){
 														foreach($paymentData as $row){  ?>
 														<tr>
 															<th width="30%">Payment ID</th>
-															<td><?php echo $row['Pay_ID']?></td>
+															<td><?php echo $row['PAY_ID']?></td>
 														</tr>
 														<tr>
 															<th>Payment Date</th>
-															<?php if($row['Pay_Status']!="Completed"){ ?>
+															<?php if($row['PAY_Status']!="Completed"){ ?>
 															<td>-</td>
 															<?php }else{ ?>
-															<td><?php echo $row['Pay_Date']?></td>
+															<td><?php echo $row['PAY_Date']?></td>
+														</tr>
+														<tr>
+															<th>Transaction ID</th>
+															<td><?php echo $row['Txn_ID']?></td>
 															<?php } ?>
 														</tr>
 															<tr>
 																<th>Payment Status</th>
-																<td><?php echo $row['Pay_Status']?></td>
+																<td><?php echo $row['PAY_Status']?></td>
 															</tr>
 															<?php } ?>
 														</tbody>
@@ -209,11 +211,8 @@ if($pt=="Online"){
 </div>
 <!-- /.content-wrapper -->
 <footer class="main-footer no-print">
-	<div class="float-right d-none d-sm-block">
-		<b>Version</b> 3.1.0
-	</div>
-	<strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-</footer>
+    <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+    </footer>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
