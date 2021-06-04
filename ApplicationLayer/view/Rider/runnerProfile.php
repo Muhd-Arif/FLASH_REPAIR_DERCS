@@ -3,6 +3,8 @@
 require_once '../../../libs/runnerProfileSession.php';
 require_once '../../../BusinessServiceLayer/controller/runnerProfileController.php';
 
+
+$RunnerID = $_SESSION['R_ID'];
 $runner = new runnerProfileController();
 $data = $runner->runner();
 
