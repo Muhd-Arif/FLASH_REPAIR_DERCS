@@ -1,3 +1,13 @@
+<?php
+
+require_once '../../../libs/runnerProfileSession.php';
+
+
+$RunnerID = $_SESSION['R_ID'];
+
+
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -29,7 +29,7 @@
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-2">
-    <a href="#" class="brand-link">
+    <a href="index.php" class="brand-link">
         <i class="far fa-tools" style="padding-left: 8%; padding-right: 1%"></i>
         <span class="brand-text font-weight-light">Flash Repair</span>
     </a>
@@ -46,7 +46,7 @@
                     <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="customerProfile.php" class="nav-link">
+                        <a href="runnerProfile.php" class="nav-link">
                             <i class="far fa-user nav-icon"></i>
                             <p>My Account</p>
                         </a>

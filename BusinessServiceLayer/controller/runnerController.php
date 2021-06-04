@@ -21,12 +21,12 @@ function loginRun(){
                 $_SESSION['R_Email'] = $value[3];
                 $_SESSION['R_Password'] = $value[3];
                 $_SESSION['R_Phone'] = $value[4];
-                $_SESSION['R_LicienseNo'] = $value[5];
+                $_SESSION['R_LicenseNo'] = $value[5];
                 $_SESSION['R_Address'] = $value[6];
                 $_SESSION['R_image'] = $value[7];;
                 
                 echo "<script type='text/javascript'>alert('$message');
-                window.location = 'runnerProfile.php';
+                window.location = 'index.php';
                 </script>";
                 exit();
     }else{
