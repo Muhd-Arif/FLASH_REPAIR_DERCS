@@ -1,21 +1,24 @@
 <?php
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-session_start();
+
+require_once '../../../libs/custSession.php';
 
 
-
-$rpid = "2";
-$qid = "2";
-$cid = "2";
+// $rpid = "2";
+// $qid = "2";
+// $cid = "2";
+$rpid = $_GET['rpid'];
+$cid = $_SESSION['C_ID'];
 $repair = new repairController();
 $delivery = new deliveryController();
 
+$data = $repair->viewQuotationRepair($rpid);
 
-$data = $repair->viewQuotationRepair($qid,$rpid);
+foreach($data as $p){
+    $qid = $p['Q_ID'];
+}
 $deliveryData = $delivery->viewDelivery($qid,$rpid);
-
-
 
 if(isset($_POST['add'])){
 	$delivery->addDelivery($cid,$qid,$rpid);
