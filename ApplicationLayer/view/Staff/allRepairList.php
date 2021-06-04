@@ -61,6 +61,10 @@ $pages_needed = ceil($total / $number_of_records);
         width: 100px;
         height: 100px;
     }
+
+    .wrapper .content-wrapper{
+        min-height: 1100px!important;
+    }
     </style>
 
     <script src="https://kit.fontawesome.com/e40306d6a0.js" crossorigin="anonymous"></script>
