@@ -37,6 +37,13 @@ $data = $repair->viewRepairDetails($RepairID);
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+
+    <style>
+        .pay-now{
+            display: block;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 
 
@@ -107,6 +114,8 @@ $data = $repair->viewRepairDetails($RepairID);
             <div class="col-md-4">
                 <img src="<?="../../../uploads/".$row['RP_Image']?>" class="d-block w-100"
                     onerror="this.src='../../../uploads/default.png';">
+                <br><br>
+                <a href="delivery.php?rpid=<?= $row['RP_ID']?>" class="pay-now btn btn-success">Pay Now</a>
             </div>
 
 
