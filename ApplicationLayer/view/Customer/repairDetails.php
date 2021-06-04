@@ -130,7 +130,7 @@ $data = $repair->viewRepairDetails($RepairID);
                 <p><b>Reason: </b><?=$row['RP_Reason']?></p>
                 <p><b>Quotation ID: </b><?=$row['Q_ID']?></p>
                 <p><b>Quotation Date: </b><?=$row['Q_Date']?></p>
-                <p><b>Estimated Cost: </b>RM <?=$row['Q_Cost']?></p>
+                <p><b>Estimated Cost: </b>RM<?=$row['Q_Cost']?></p>
 
             </div>
         </div>

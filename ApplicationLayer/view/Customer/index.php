@@ -1,3 +1,6 @@
+<?php 
+require_once '../../../libs/custSession.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

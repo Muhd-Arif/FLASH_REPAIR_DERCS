@@ -40,7 +40,6 @@ class deliveryModel{
     //Hoe Shin Yi
     //method to add delivery
 	function addDelivery(){
-
 		$query = "INSERT into delivery(C_ID, Q_ID, RP_ID, D_Status, D_Address, D_Note, Service) values(:C_ID, :Q_ID, :RP_ID, :D_Status, :D_Address, :D_Note, :Service)";
 
 
