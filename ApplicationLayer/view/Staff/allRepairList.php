@@ -62,8 +62,8 @@ $pages_needed = ceil($total / $number_of_records);
         height: 100px;
     }
 
-    .wrapper .content-wrapper{
-        min-height: 1100px!important;
+    .wrapper .content-wrapper {
+        min-height: 1100px !important;
     }
     </style>
 
@@ -83,9 +83,9 @@ $pages_needed = ceil($total / $number_of_records);
 
 
 
- <!-- NAVBAR -->
+    <!-- NAVBAR -->
 
- <?php
+    <?php
     //  $fullname = $_SESSION['CustName'];
     $fullname = 'Test Name';
      $shortname = explode(" ", $fullname);
@@ -285,23 +285,24 @@ $pages_needed = ceil($total / $number_of_records);
 
 
 
-    <div class="container" style="margin-top:30px">
+                                            <div class="container" style="margin-top:30px">
 
-        <h2><?php echo isset($_GET['device'])? $_GET['device']: '';?> All Repair List</h2>
-        <div class="row">
-            <div class="col-sm-12 main-content">
-                <table id="repair-list" class="display">
-                    <thead>
-                        <tr>
-                            <th>Repair ID</th>
-                            <th>Device Image</th>
-                            <th>Repair Status</th>
-                            <th>Estimated Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+                                                <h2><?php echo isset($_GET['device'])? $_GET['device']: '';?> All Repair
+                                                    List</h2>
+                                                <div class="row">
+                                                    <div class="col-sm-12 main-content">
+                                                        <table id="repair-list" class="display">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Repair ID</th>
+                                                                    <th>Device Image</th>
+                                                                    <th>Repair Status</th>
+                                                                    <th>Estimated Price</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
                 if (isset($errmsg)){
                     echo "<h3>$errmsg</h3>";
                 }
@@ -316,37 +317,41 @@ $pages_needed = ceil($total / $number_of_records);
             ?>
 
 
-                        <tr>
-                            <td><?=$row['RP_ID']?></td>
-                            <td><img class='repair-img' src='../../../uploads/<?=$row['RP_Image']?>'></td>
-                            <td><?=$row['RP_Status']?></td>
-                            <td>RM <?=$row['Q_Cost']?></td>
-                            <td><a class="btn btn-primary" href='repairDetails.php?rpid=<?=$row['RP_ID']?>'>View</a>
-                                <a class="btn btn-success" href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
-                            </td>
-                        </tr>
+                                                                <tr>
+                                                                    <td><?=$row['RP_ID']?></td>
+                                                                    <td><img class='repair-img'
+                                                                            src='../../../uploads/<?=$row['RP_Image']?>'>
+                                                                    </td>
+                                                                    <td><?=$row['RP_Status']?></td>
+                                                                    <td>RM <?=$row['Q_Cost']?></td>
+                                                                    <td><a class="btn btn-primary"
+                                                                            href='repairDetails.php?rpid=<?=$row['RP_ID']?>'>View</a>
+                                                                        <a class="btn btn-success"
+                                                                            href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
+                                                                    </td>
+                                                                </tr>
 
 
-                        <?php 
+                                                                <?php 
                 }
             ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
 
- <!-- TEMPLATE PART 2 -->
- </div>
+                                            <!-- TEMPLATE PART 2 -->
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- /.invoice -->
-                        </div><!-- /.col -->
+                                <!-- /.invoice -->
+                            </div><!-- /.col -->
 
-                    </div><!-- /.container-fluid -->
+                        </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
         </div>
@@ -389,10 +394,11 @@ $pages_needed = ceil($total / $number_of_records);
                 [5, 10, 20, "All"]
             ],
             "iDisplayLength": 5,
-            "order": [[ 2, "desc" ]]
+            "order": [
+                [0, "desc"]
+            ]
         });
     });
-
     </script>
 </body>
 
