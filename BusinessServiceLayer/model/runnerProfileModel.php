@@ -14,7 +14,7 @@ class runnerProfileModel
   // Find user by email
   public function findUserByEmail($email)
   {
-    $this->db->query('SELECT * FROM rider WHERE R_Mail = :email');
+    $this->db->query('SELECT * FROM rider WHERE R_Email = :email');
     // Bind value
     $this->db->bind(':email', $email);
 
@@ -54,7 +54,7 @@ class runnerProfileModel
   // Edit User by ID
   public function editUserById($id, $data)
   {
-    $this->db->query('UPDATE rider SET R_Name = :name, R_Mail = :email, R_Phone= :phone_number, R_Password = :password, R_Address = :address, R_LicienseNo =:liciense_no WHERE R_ID = :id');
+    $this->db->query('UPDATE rider SET R_Name = :name, R_Email = :email, R_Phone= :phone_number, R_Password = :password, R_Address = :address, R_License =:license_no WHERE R_ID = :id');
 
     // Bind value
     $this->db->bind(':id', $id);
@@ -63,7 +63,7 @@ class runnerProfileModel
     $this->db->bind(':phone_number', $data['phone_number']);
     $this->db->bind(':password', $data['password']);
     $this->db->bind(':address', $data['address']);
-    $this->db->bind(':liciense_no', $data['liciense_no']);
+    $this->db->bind(':license_no', $data['license_no']);
 
     // Execute
     if ($this->db->execute()) {
@@ -76,7 +76,7 @@ class runnerProfileModel
   // Reapply User by ID
   public function reapplyUserById($id, $data)
   {
-    $this->db->query('UPDATE rider SET R_Name = :name, R_Mail = :email,R_Phone= :phone_number, R_Password = :password, R_Address = :address, R_LicienseNo =:liciense_no WHERE R_ID = :id');
+    $this->db->query('UPDATE rider SET R_Name = :name, R_Mail = :email,R_Phone= :phone_number, R_Password = :password, R_Address = :address, R_License =:license_no WHERE R_ID = :id');
 
     // Bind value
     $this->db->bind(':id', $id);
@@ -85,7 +85,7 @@ class runnerProfileModel
     $this->db->bind(':phone_number', $data['phone_number']);
     $this->db->bind(':password', $data['password']);
     $this->db->bind(':address', $data['address']);
-    $this->db->bind(':liciense_no', $data['liciense_no']);
+    $this->db->bind(':license_no', $data['license_no']);
     // Execute
     if ($this->db->execute()) {
       return true;

@@ -140,10 +140,10 @@ error_reporting(0);
 
             <div class="form-group">
               <div class="edit">
-                <label for="address">Liciense Number: </label>
-                <input type="text" name="address" class="form-control form-control-lg <?php echo (!empty($data['liciense_no_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['liciense_no']; ?>">
+                <label for="address">License Number: </label>
+                <input type="text" name="license_no" class="form-control form-control-lg <?php echo (!empty($data['license_no_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['license_no']; ?>">
               </div>
-                <p><?php echo $data['liciense_no_err']; ?></p>
+                <p><?php echo $data['license_no_err']; ?></p>
               </span>
             </div>
                 <input type="submit" value="Save" class="btn btn-success btn-block">

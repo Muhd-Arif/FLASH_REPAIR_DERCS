@@ -16,7 +16,7 @@ class runnerProfileController extends Controller
       'phone_number' => $runner->R_Phone,
       'password' => $runner->R_Password,
       'image' => $runner->R_image,
-      'liciense_no' => $runner->R_LicienseNo,
+      'license_no' => $runner->R_License,
       'address' => $runner->R_Address,
      
     ];
@@ -38,13 +38,13 @@ class runnerProfileController extends Controller
         'password' => trim($_POST['password']),
         'image' =>  trim($_POST['image']),
         'address' =>  trim($_POST['address']),
-        'liciense_no' =>  trim($_POST['liciense_no']),
+        'license_no' =>  trim($_POST['license_no']),
         'name_err' => '',
         'email_err' => '',
         'phone_number_err' => '',
         'password_err' => '',
         'address_err' => '',
-        'liciense_no_err' => '',
+        'license_no_err' => '',
       ];
       // Validate Email
       if (empty($data['email'])) {
@@ -82,24 +82,30 @@ class runnerProfileController extends Controller
       }
 
       // Validate license
-      if (empty($data['liciense_no'])) {
-        $data['liciense_no_err'] = 'Please enter your liciense number';
+      if (empty($data['license_no'])) {
+        $data['license_no_err'] = 'Please enter your license number';
       }
 
       // Make sure errors are empty
-      if (empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['phone_number_err']) && empty($data['address_err']) && empty($data['liciense_no_err'])) {
+      if (empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['phone_number_err']) && empty($data['address_err']) && empty($data['license_no_err'])) {
         $_SESSION['R_Name'] = $data['name'];
         $_SESSION['R_Email'] = $data['email'];
         $_SESSION['R_Password'] = $data['password'];
         $_SESSION['R_Phone'] = $data['phone_number'];
-        $_SESSION['R_LicienseNo'] = $data['liciense_no'];
+        $_SESSION['R_License'] = $data['license_no'];
         $_SESSION['R_Address'] = $data['address'];
         $_SESSION['R_image'] = $data['image'];
         // Validated
         // Check the user registration status
       
           if ($this->userModel->editUserById($_SESSION['R_ID'], $data)) {
-            header("location:runnerProfile.php");
+             $message = "Profile Details Edited!";
+            echo "<script type='text/javascript'>
+            alert('$message');
+            window.location = 'runnerProfile.php';
+            </script>";
+
+            // header("location:runnerProfile.php");
           } else {
             die('Something went wrong');
           }
@@ -117,14 +123,14 @@ class runnerProfileController extends Controller
         'phone_number' => $runner->R_Phone,
         'password' => $runner->R_Password,
         'image' => $runner->R_image,
-        'liciense_no' => $runner->R_LicienseNo,
+        'license_no' => $runner->R_License,
         'address' => $runner->R_Address,
         'name_err' => "",
         'email_err' => "",
         'phone_number_err' => "",
         'password_err' => "",
         'address_err' => "",
-        'liciense_no_err' => "",
+        'license_no_err' => "",
      
 
       ];
