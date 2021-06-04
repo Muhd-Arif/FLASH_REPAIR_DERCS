@@ -40,14 +40,22 @@ foreach($data as $index => $value) {
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <!-- NAVIGATION BAR  -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
+    <!-- NAVIGATION BAR  -->
+
     <title>Customer Quotation</title>
 </head>
 
 <body>
     <style>
     .container {
-        margin-top: 100px;
-        width: 60%;
+        margin-top: 20px;
+        margin-bottom: 100px;
+        width: 70%;
     }
 
     input[readonly] {
@@ -56,30 +64,59 @@ foreach($data as $index => $value) {
         font-size: 1em;
     }
     </style>
+    <!-- TEMPLATE 1  -->
+    <div class="wrapper">
+        <?php include("sidebar.php") ?>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <!-- <div class="col-sm-6">
+                  <h1>Payment</h1>
+              </div> -->
+                        <!-- <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active">Payment</li>
+                  </ol>
+              </div> -->
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <!-- Main content -->
 
-
-    <div class="container">
-        <center>
-            <h2 style="margin-bottom:70px;">Customer Quotation</h2>
-        </center>
-        <!-- <input type="text" class="form-control mt-5" id="filterInput"
+                            <div class="card ">
+                                <!-- /.col -->
+                                <div class="container">
+                                    <!-- TEMPLATE 1 STOP -->
+                                    <center>
+                                        <h2 style="margin-bottom:50px;">Customer Quotation</h2>
+                                    </center>
+                                    <!-- <input type="text" class="form-control mt-5" id="filterInput"
             placeholder="Search quotation ID, device type, status"> -->
 
-        <!-- <table class="table mt-3" id="quotationList"> -->
-        <table class="table mt-5" id="dataTable">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Quotation ID</th>
-                    <th scope="col">Device Type</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+                                    <!-- <table class="table mt-3" id="quotationList"> -->
+                                    <table class="table mt-5" id="dataTable">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Customer Name</th>
+                                                <th scope="col">Quotation ID</th>
+                                                <th scope="col">Device Type</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                 $i = 0;
                 for($x = 0; $x <= $k; $x++){
                     echo '
@@ -92,44 +129,50 @@ foreach($data as $index => $value) {
                             <td>'.$q_status[$x].'</td>'
                             ?>
 
-                <td>
-                    <form method="POST">
-                        <?php if( $q_status[$x] == "Pending" || $q_status[$x] == "Pending Confirmation") { ?>
-                        <button type="button" onclick="location.href='quotationDetails.php?q_id=<?=$q_id[$x]?>'"
-                            name="<?=$q_id[$x]?>" id="view" class="btn btn-primary">View</button>
-                        <?php } ?>
-                    </form>
-                </td>
+                                            <td>
+                                                <form method="POST">
+                                                    <?php if( $q_status[$x] == "Pending" || $q_status[$x] == "Pending Confirmation") { ?>
+                                                    <button type="button"
+                                                        onclick="location.href='quotationDetails.php?q_id=<?=$q_id[$x]?>'"
+                                                        name="<?=$q_id[$x]?>" id="view"
+                                                        class="btn btn-primary">View</button>
+                                                    <?php } ?>
+                                                </form>
+                                            </td>
 
-                <?php echo '
+                                            <?php echo '
                 </tr>
                 ';
                 $i++;
                 }
 
                 ?>
-            </tbody>
-        </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- TEMPLATE PART 2 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
+    </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer no-print">
+        <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
+    </div>
+    <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+         <script src="../../../assets/js/adminlte.min.js"></script>
+         <script src="../../../assets/js/demo.js"></script> -->
+    <!-- TEMPLATE PART 2 STOP -->
 
     <script type="text/javascript">
-    // Get input element
-    // let filterInput = document.getElementById('filterInput');
-    // // Add event listener
-    // filterInput.addEventListener('keyup', filter);
-
-    // function filter() {
-    //     // Get value of input
-    //     let filterValue = document.getElementById('filterInput').value.toUpperCase();
-
-    //     let trs = document.querySelectorAll('#quotationList tr:not(.header)');
-
-    //     trs.forEach(tr => tr.style.display = [...tr.children].find(td => td.innerHTML.toUpperCase().includes(
-    //         filterValue)) ? '' : 'none');
-
-    // }
-
-
     $(document).ready(function() {
         $('#dataTable').DataTable({
             // dom: 'Bfrtip',

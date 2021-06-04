@@ -25,12 +25,13 @@
 
 <body>
     <style>
-    .card{
+    .card {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
         /*padding-bottom: 1%;*/
     }
+
     .container {
         margin-top: 10px;
         width: 80%;
@@ -61,94 +62,91 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                            <div class="col-12 ">
-                                <!-- Main content -->
+                        <div class="col-12 ">
+                            <!-- Main content -->
 
-                                <div class="card ">
-                                    <!-- /.col -->
-                                    <div class="container" >
-                                        <!-- TEMPLATE 1 STOP -->
-                                        <div class="card-header">
-                                            <h3 style="text-align: center">Request Quotation</h3>
-                                        </div>
-                                                <div style="margin-top: -4%;">
-                                                    
-                                                <form id="quotationForm">
-                                                    <div class="form-group row mb-3 mt-5">
-                                                        <label for="name" class="col-sm-3 col-form-label">Name</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="name" readonly
-                                                                value="<?=$_SESSION['C_Name']?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="phone" class="col-sm-3 col-form-label">Phone
-                                                            Number</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="phone" readonly
-                                                                value="<?=$_SESSION['C_Phone']?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="date" class="col-sm-3 col-form-label">Date</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" readonly class="form-control" id="date"
-                                                                placeholder="<?=date("F j, Y")?>"
-                                                                value="<?=date("F j, Y")?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="deviceType" class="col-sm-3 col-form-label">Device
-                                                            Type</label>
-                                                        <div class="col-sm-9">
-                                                            <select class="form-control" id="deviceType">
-                                                                <option>Computer</option>
-                                                                <option>Laptop</option>
-                                                                <option>Mobile</option>
-                                                                <option>Tablet</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <input type="hidden" readonly id="c_id"
-                                                        value="<?=$_SESSION['C_ID']?>">
-                                                    <div class="form-group row mb-3">
-                                                        <label for="damageType" class="col-sm-3 col-form-label">Damage
-                                                            Type</label>
-                                                        <div class="col-sm-9">
-                                                            <select class="form-control" id="damageType">
-                                                                <option>Hardware</option>
-                                                                <option>Software</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="damageInfo">Damage Information / Symptom </label>
-                                                        <textarea class="form-control mt-2" id="damageInfo"
-                                                            rows="3"></textarea>
-                                                    </div>
-                                                    <div class="col-md-12 text-center mt-3">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 200px">Add Damage</button>
-                                                    </div>
-                                                    <br>
-                                                </form>
+                            <div class="card ">
+                                <!-- /.col -->
+                                <div class="container">
+                                    <!-- TEMPLATE 1 STOP -->
+                                    <div class="card-header">
+                                        <h3 style="text-align: center">Request Quotation</h3>
+                                    </div>
+                                    <div id="container" style="margin-top: -4%;">
+
+                                        <form id="quotationForm">
+                                            <div class="form-group row mb-3 mt-5">
+                                                <label for="name" class="col-sm-3 col-form-label">Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="name" readonly
+                                                        value="<?=$_SESSION['C_Name']?>">
+                                                </div>
                                             </div>
-                                        </div>
-                                            <!-- TEMPLATE PART 2 -->
-                                        </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="phone" class="col-sm-3 col-form-label">Phone
+                                                    Number</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="phone" readonly
+                                                        value="<?=$_SESSION['C_Phone']?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="date" class="col-sm-3 col-form-label">Date</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" readonly class="form-control" id="date"
+                                                        placeholder="<?=date("F j, Y")?>" value="<?=date("F j, Y")?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="deviceType" class="col-sm-3 col-form-label">Device
+                                                    Type</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="deviceType">
+                                                        <option>Computer</option>
+                                                        <option>Laptop</option>
+                                                        <option>Mobile</option>
+                                                        <option>Tablet</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" readonly id="c_id" value="<?=$_SESSION['C_ID']?>">
+                                            <div class="form-group row mb-3">
+                                                <label for="damageType" class="col-sm-3 col-form-label">Damage
+                                                    Type</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="damageType">
+                                                        <option>Hardware</option>
+                                                        <option>Software</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="damageInfo">Damage Information / Symptom </label>
+                                                <textarea class="form-control mt-2" id="damageInfo" rows="3"></textarea>
+                                            </div>
+                                            <div class="col-md-12 text-center mt-3">
+                                                <button type="submit" class="btn btn-primary" style="width: 200px">Add
+                                                    Damage</button>
+                                            </div>
+                                            <br>
+                                        </form>
                                     </div>
                                 </div>
+                                <!-- TEMPLATE PART 2 -->
                             </div>
                         </div>
                     </div>
-            </section>
+                </div>
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer no-print">
-            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
-        </footer>
-        <aside class="control-sidebar control-sidebar-dark">
-        </aside>
+    </div>
+    </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer no-print">
+        <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
     </div>
     <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
          <script src="../../../assets/js/adminlte.min.js"></script>

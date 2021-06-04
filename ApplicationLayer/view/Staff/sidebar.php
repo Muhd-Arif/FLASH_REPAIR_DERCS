@@ -53,18 +53,18 @@
            with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="requestQuotationForm.php" class="nav-link">
+                    <a href=".php" class="nav-link">
 
                         <i class="nav-icon fas fa-edit"></i>
-                        <p>Request Quotation</p>
+                        <p>Customer List</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="requestQuotationList.php" class="nav-link">
+                    <a href="quotationList.php" class="nav-link">
                         <i class="fas fa-list nav-icon"></i>
                         <p>
-                            My Quotation
+                            Customer Quotation
                         </p>
                     </a>
                 </li>
