@@ -34,9 +34,9 @@ class repairModel{
     // retrieve a specific number of repairs from the repair table according to the page number - Wei Sheng
     function viewRPPage($offset, $number_of_records, $term){
         if(isset($this->deviceType)){
-            $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and q.Q_DeviceType='$this->deviceType' and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records;
+            $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and q.Q_DeviceType='$this->deviceType' and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records + " ORDER BY r.RP_ID DESC" ;
         }else{
-            $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records;
+            $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records + " ORDER BY r.RP_ID DESC";
         }
 
         return DB::run($sql);
