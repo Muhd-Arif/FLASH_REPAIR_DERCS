@@ -83,7 +83,6 @@ $data = $quotation->getMyQuotation(1);
                                     <!-- TEMPLATE 1 STOP -->
                                     <div class="card-header">
                                                     <h3 style="text-align: center">My Quotation</h3>
-
                                                 </div>
                                                 <br>
                                                 <!-- <input type="text" class="form-control mt-5" id="filterInput"
