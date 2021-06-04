@@ -41,7 +41,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
     <!-- NAVIGATION BAR  -->
 
-    <title>Available Pickup</title>
+    <title>Accepted Pickup</title>
 </head>
 
 <body>
