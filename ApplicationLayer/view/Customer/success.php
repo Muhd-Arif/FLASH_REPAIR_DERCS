@@ -2,16 +2,16 @@
 require_once '../../../BusinessServiceLayer/controller/paymentController.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-session_start();
+require_once '../../../libs/custSession.php';
+
+$cid = $_SESSION['C_ID'];
 
 if(isset($_GET['custom'])){
 	parse_str($_GET['custom'],$id);
-	$cid = $id['cid'];
 	$qid = $id['qid'];
 	$rpid = $id['rpid'];
 	$pt = "Online";
 }else{
-	$cid = $_GET['cid'];
 	$qid = $_GET['qid'];
 	$rpid = $_GET['rpid'];
 	$pt = "COD";

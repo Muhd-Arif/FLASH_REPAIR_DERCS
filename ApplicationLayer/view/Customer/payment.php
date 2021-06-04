@@ -1,10 +1,11 @@
 <?php
 // Author : Hoe Shin Yi
 // This page displays payment interface
+require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/paymentController.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-session_start();
+
 
 $paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; 
 // Paypal merchant demo email
@@ -12,7 +13,7 @@ $paypal_email = 'flashrepair@business.example.com';
 
 $rpid = $_GET['rpid'];
 $qid = $_GET['qid'];
-$cid = $_GET['cid'];
+$cid = $_SESSION['C_ID'];
 $repair = new repairController();
 $delivery = new deliveryController();
 $payment = new paymentController();
@@ -22,10 +23,8 @@ $deliverydata = $delivery->viewDelivery($qid,$rpid);
 $paymentdata = $payment->viewPayment($cid,$qid,$rpid);
 
 if(isset($_POST['paycod'])){
-	
 	$payment->addPaymentCOD($cid,$qid,$rpid);
 	$payment->updatePaymentType($cid,$qid,$rpid,"COD");
-
 }
 
 if(sizeof($paymentdata)!=0){
