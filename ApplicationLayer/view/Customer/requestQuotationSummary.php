@@ -30,12 +30,13 @@ if(isset($_POST['addQuotation'])){
 
 <body>
     <style>
-    .card{
+    .card {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 2%;
     }
+
     .container {
         margin-top: 10px;
         width: 80%;
@@ -72,102 +73,99 @@ if(isset($_POST['addQuotation'])){
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                            <div class="col-12 ">
-                                <!-- Main content -->
+                        <div class="col-12 ">
+                            <!-- Main content -->
 
-                                <div class="card ">
-                                    <!-- /.col -->
-                                    <div class="container" >
-                                        <!-- TEMPLATE 1 STOP -->
-                                        <div class="card-header">
-                                            <h3 style="text-align: center">Request Quotation</h3>
-                                        </div>
-                                                <div style="margin-top: -4%;">
-                                                <form method="POST">
-                                                    <div class="form-group row mb-3 mt-5">
-                                                        <label for="name" class="col-sm-5 col-form-label">Name</label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="custName" readonly
-                                                                class="form-control-plaintext" id="name" placeholder=""
-                                                                value="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="phone" class="col-sm-5 col-form-label">Phone
-                                                            Number</label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="custPhone" readonly
-                                                                class="form-control-plaintext" id="phone"
-                                                                placeholder="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="date" class="col-sm-5 col-form-label">Date</label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="requestDate" readonly
-                                                                class="form-control-plaintext" id="date"
-                                                                placeholder="<?=date("F j, Y")?>"
-                                                                value="<?=date("F j, Y")?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row mb-3">
-                                                        <label for="deviceType" class="col-sm-5 col-form-label">Device
-                                                            Type</label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="deviceType" readonly
-                                                                class="form-control-plaintext" id="deviceType"
-                                                                placeholder="Computer" value="Computer">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group row mb-3">
-                                                        <label for="damageType" class="col-sm-5 col-form-label">Damage
-                                                            Type</label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="damageType" readonly
-                                                                class="form-control-plaintext" id="damageType"
-                                                                placeholder="Hardware" value="Hardware">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="damageInfo" class="col-sm-5 col-form-label">Damage
-                                                            Information / Symptom </label>
-                                                        <div class="col-sm-7">
-                                                            <input type="text" name="damageInfo" readonly
-                                                                class="form-control-plaintext" id="damageInfo"
-                                                                placeholder="Cannot boot windows"
-                                                                value="Cannot boot windows">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 text-center mt-5">
-                                                        <button type="button" class="btn btn-primary"
-                                                            style="width: 230px" id="edit">Edit Request
-                                                            Quotation</button>
-                                                        <button type="submit" name="addQuotation"
-                                                            class="btn btn-success" style="width: 230px">Submit Request
-                                                            Quotation</button>
-                                                    </div>
-                                                </form>
+                            <div class="card ">
+                                <!-- /.col -->
+                                <div class="container">
+                                    <!-- TEMPLATE 1 STOP -->
+                                    <div class="card-header">
+                                        <h3 style="text-align: center">Request Quotation</h3>
+                                    </div>
+                                    <div style="margin-top: -4%;">
+                                        <form method="POST">
+                                            <div class="form-group row mb-3 mt-5">
+                                                <label for="name" class="col-sm-5 col-form-label">Name</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="custName" readonly
+                                                        class="form-control-plaintext" id="name" placeholder=""
+                                                        value="">
+                                                </div>
                                             </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="phone" class="col-sm-5 col-form-label">Phone
+                                                    Number</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="custPhone" readonly
+                                                        class="form-control-plaintext" id="phone" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="date" class="col-sm-5 col-form-label">Date</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="requestDate" readonly
+                                                        class="form-control-plaintext" id="date"
+                                                        placeholder="<?=date("F j, Y")?>" value="<?=date("F j, Y")?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <label for="deviceType" class="col-sm-5 col-form-label">Device
+                                                    Type</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="deviceType" readonly
+                                                        class="form-control-plaintext" id="deviceType"
+                                                        placeholder="Computer" value="Computer">
+                                                </div>
                                             </div>
 
-                                            <!-- TEMPLATE PART 2 -->
-                                        </div>
+
+                                            <div class="form-group row mb-3">
+                                                <label for="damageType" class="col-sm-5 col-form-label">Damage
+                                                    Type</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="damageType" readonly
+                                                        class="form-control-plaintext" id="damageType"
+                                                        placeholder="Hardware" value="Hardware">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="damageInfo" class="col-sm-5 col-form-label">Damage
+                                                    Information / Symptom </label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" name="damageInfo" readonly
+                                                        class="form-control-plaintext" id="damageInfo"
+                                                        placeholder="Cannot boot windows" value="Cannot boot windows">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-center mt-5">
+                                                <button type="button" class="btn btn-primary" style="width: 230px"
+                                                    id="edit">Edit Request
+                                                    Quotation</button>
+                                                <button type="submit" name="addQuotation" class="btn btn-success ms-5"
+                                                    style="width: 230px">Submit Request
+                                                    Quotation</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
+
+                                <!-- TEMPLATE PART 2 -->
                             </div>
                         </div>
                     </div>
-            </section>
+                </div>
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer no-print">
-            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
-        </footer>
-        <aside class="control-sidebar control-sidebar-dark">
-        </aside>
+    </div>
+    </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer no-print">
+        <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
     </div>
     <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
          <script src="../../../assets/js/adminlte.min.js"></script>
