@@ -84,12 +84,6 @@ $data = $quotation->getMyQuotation(1);
                                 <div class="container">
                                     <!-- TEMPLATE 1 STOP -->
                                     <div class="card-header">
-                                        <h3 style="text-align: center">My Quotation</h3>
-
-                                    </div>
-                                    <br>
-                                    <!-- <input type="text" class="form-control mt-5" id="filterInput"
-                                                    placeholder="Search quotation ID, device type, status"> -->
 
                                     <!-- <table class="table mt-3" id="quotationList"> -->
                                     <table class="table mt-5" id="dataTable">

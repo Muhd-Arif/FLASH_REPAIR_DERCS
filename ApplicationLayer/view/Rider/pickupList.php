@@ -50,9 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <body>
     <style>
-    .container {
-        margin-bottom: 70px;
+    .card{
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
+    .container {
+        margin-top: 10px;
+        width: 90%;
     }
 
     input[readonly] {
@@ -68,37 +74,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <!-- <div class="col-sm-6">
-                  <h1>Payment</h1>
-                  </div> -->
-                        <!-- <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Payment</li>
-                  </ol>
-                  </div> -->
-                    </div>
-                </div>
+                
                 <!-- /.container-fluid -->
             </section>
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2 style="margin-bottom:70px;">Available Pickup</h2>
-                                                </center>
+                   <div class="row">
+                            <div class="col-12 ">
+                                <!-- Main content -->
+
+                                <div class="card ">
+                                    <!-- /.col -->
+                                    <div class="container" >
+                                        <!-- TEMPLATE 1 STOP -->
+                                        <div class="card-header">
+                                            <h3 style="text-align: center">Available Pickup</h3>
+                                        </div>
+                                        <br>
+                                              
                                                 <!-- <input type="text" class="form-control mt-5" id="filterInput"
             placeholder="Search quotation ID, device type, status"> -->
 
@@ -107,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                                     <thead class="thead-dark">
                                                         <tr>
                                                             <th scope="col">Quotation ID</th>
-                                                            <th scope="col">Customer Nam</th>
+                                                            <th scope="col">Customer Name</th>
                                                             <th scope="col">Device Type</th>
                                                             <th scope="col">Pickup Address</th>
                                                             <th scope="col">SPickup Date</th>
