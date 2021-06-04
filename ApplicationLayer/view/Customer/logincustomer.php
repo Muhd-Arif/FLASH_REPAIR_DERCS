@@ -23,7 +23,6 @@ if(isset($_POST['login-submit']))
 </head>
 
 <body>
-    <img class="wave" src="../../../uploads/wave.png">
 
     <form action="#" method="POST">
         <div class="loginbox">
@@ -33,7 +32,7 @@ if(isset($_POST['login-submit']))
             <div class="containar">
                 <div class="fillbox">
                     <i class="fas fa-user"></i>
-                    <input type="email" placeholder="Email" name="C_Email">
+                    <input type="email" placeholder="Email" name="C_Mail">
                 </div>
 
 

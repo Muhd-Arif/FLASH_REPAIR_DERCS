@@ -13,13 +13,13 @@ $data = $customer->my();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/css/profile.css">
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css"> 
 
     <!-- NAVIGATION BAR  -->
     <!-- Google Font: Source Sans Pro -->
@@ -43,10 +43,11 @@ $data = $customer->my();
                 <div id="customer-profile">
                     <div id="customer-nav" class="text-center">
                         <div class="profile-img border w-100">
-                            <img class="profile-img-backdrop" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
-                                srcset="">
+
+                            
                             <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
                                 srcset="" onerror="this.src='../../../uploads/default.png';">
+								
                         </div>
                         <div class="border w-100">
                             <h5 class=" mt-2">Hello, <?php echo $data["sub_name"]  ?></h5>
