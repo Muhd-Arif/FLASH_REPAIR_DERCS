@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../libs/runnerSession.php';
+require_once '../../../libs/runnerProfileSession.php';
 
 
 $RunnerID = $_SESSION['R_ID'];
