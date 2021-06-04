@@ -99,7 +99,7 @@ $data = $repair->viewRepair($rpid);
                         </tr>
                         <tr>
                             <th scope="row">Estimated Cost:</th>
-                            <td><?=$row['Q_Cost']?></td>
+                            <td>RM <?=$row['Q_Cost']?></td>
                         </tr>
                         
                     </tbody>
