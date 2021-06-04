@@ -1,10 +1,10 @@
 <?php
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
-//require_once '../../../libs/runnerSession.php';
+require_once '../../../libs/runnerSession.php';
  
-//$RunnerID = $_SESSION['R_ID'];
-$RunnerID = '1';
+$RunnerID = $_SESSION['R_ID'];
+//$RunnerID = '1';
 //$data = $_POST['edit'];
 
 $product = new deliveryController();
