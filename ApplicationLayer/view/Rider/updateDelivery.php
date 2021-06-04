@@ -52,14 +52,20 @@ if(isset($_POST['delivered'])){
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
     <!-- NAVIGATION BAR  -->
-    <title>Request Quotation</title>
+    <title>Update Delivery Status</title>
 </head>
 
 <body>
     <style>
+    .card{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
     .container {
-        margin-top: 20px;
-        width: 50%;
+        margin-top: 10px;
+        width: 90%;
     }
     </style>
     <!-- TEMPLATE 1  -->
@@ -69,38 +75,23 @@ if(isset($_POST['delivered'])){
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <!-- <div class="col-sm-6">
-                  <h1>Payment</h1>
-                  </div> -->
-                        <!-- <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Payment</li>
-                  </ol>
-                  </div> -->
-                    </div>
-                </div>
-                <!-- /.container-fluid -->
+                
             </section>
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2>Customer Delivery Details</h2>
-                                                </center>
-                                                <br><br>
+                   <div class="row">
+                            <div class="col-12 ">
+                                <!-- Main content -->
+
+                                <div class="card ">
+                                    <!-- /.col -->
+                                    <div class="container" >
+                                        <!-- TEMPLATE 1 STOP -->
+                                        <div class="card-header">
+                                            <h3 style="text-align: center">Customer Delivery Details</h3>
+                                        </div>
+                                        <br>
+                                                
                                                   <?php
                                 $i = 1;
                                 // $x = 0;
@@ -209,7 +200,7 @@ if(isset($_POST['delivered'])){
                                         ?>
                                     </form>
                                            <button type="button" class="btn btn-secondary" onclick="location.href='myDelivery.php'">Close</button>
-                                         </div>
+                                         
                                    <?php
                                 $i++;
                               
@@ -218,6 +209,7 @@ if(isset($_POST['delivered'])){
                           //   }
                           // }
                               ?>
+                                            </div>
                                             </div>
                                             <!-- TEMPLATE PART 2 -->
                                         </div>

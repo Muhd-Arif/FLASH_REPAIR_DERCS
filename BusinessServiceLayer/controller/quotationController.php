@@ -4,9 +4,9 @@ require_once '../../../BusinessServiceLayer/model/quotationModel.php';
 class quotationController {
 
     // add customer request quotation into database - Arif
-    function addQuotation(){
+    function addQuotation($c_id){
         $quotation = new quotationModel();
-        $quotation->c_id = 1;
+        $quotation->c_id = $c_id;
         $quotation->q_deviceType = $_POST['deviceType'];
         $quotation->q_damageType = $_POST['damageType'];
         $quotation->q_damageInfo = $_POST['damageInfo'];

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cancelled Payment</title>
+	<title>Customer Homepage</title>
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -24,14 +24,9 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Delivery</h1>
+							<h1>Homepage</h1>
 						</div>
-						<div class="col-sm-6">
-							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Delivery</li>
-							</ol>
-						</div>
+						
 					</div>
 				</div><!-- /.container-fluid -->
 			</section>
@@ -44,56 +39,54 @@
 
 							<!-- Main content -->
 							<div class="invoice p-3 mb-3">
-								<h2>Your transaction has been canceled.</h2><br>
+								<br>
 								<!-- info row -->
 								<div class="row invoice-info">
 									<!-- /.col -->
 									<div class="col-sm-4 ">
+
 										<div class="card-block" style="text-align: center;">
-											<span class="fab fa-paypal fa-10x"></span>
+											<span class="fas fa-user-circle fa-10x"></span>
 											<div class="card-header">
 												
 											</div>
 											<br>
-											<?php 
-											$cid = $_GET['cid'];
-											$qid = $_GET['qid'];
-											$rpid = $_GET['rpid'];
-											?>
-
-											<a href="payment.php?cid=<?php echo $cid?>&qid=<?php echo $qid ?>&rpid=<?php echo $rpid ?>" class="btn-lg btn-success">Retry Pay</a>
+											
+											<a href="runnerProfile.php" class="btn-lg btn-success">My Profile</a>
 										</div>
 										<br>
 									</div>
 									<!-- /.col -->
 
-									<!-- /.col -->
-									<div class="col-sm-4 ">
-										<div class="card-block" style="text-align: center;">
-											<span class="fas fa-tools fa-10x"></span>
-											<div class="card-header">
-												<!-- <h3 style="text-align: center;">Repair List</h3> -->
-											</div>
-											<br>
-											<a href="repairList.php" class="btn-lg btn-info">Repair List</a>
-										</div>
-										<br>
-									</div>
-									<!-- /.col -->
+									
 
 									<!-- /.col -->
 									<div class="col-sm-4 ">
 										<div class="card-block" style="text-align: center;">
-											<span class="fas fa-file-invoice fa-10x"></span>
+											<span class="fas fa-truck fa-10x"></span>
 											<div class="card-header">
 												<!-- <h3 style="text-align: center;">Quotation List</h3> -->
 											</div>
 											<br>
-											<a href="quotationList.php" class="btn-lg btn-primary">Quotation List</a>
+											<a href="deliveryList.php" class="btn-lg btn-primary">Delivery Request</a>
 										</div>
 										<br>
 									</div>
 
+									<!-- /.col -->
+
+									<!-- /.col -->
+									<div class="col-sm-4 ">
+										<div class="card-block" style="text-align: center;">
+											<span class="fas fa-house fa-10x"></span>
+											<div class="card-header">
+												<!-- <h3 style="text-align: center;">Repair List</h3> -->
+											</div>
+											<br>
+											<a href="pickupList.php" class="btn-lg btn-info">Pickup Request</a>
+										</div>
+										<br>
+									</div>
 									<!-- /.col -->
 								</div>
 								<!-- /.row -->
@@ -109,8 +102,11 @@
 	</div>
 	<!-- /.content-wrapper -->
 	<footer class="main-footer no-print">
-    <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
-    </footer>
+		<div class="float-right d-none d-sm-block">
+			<b>Version</b> 3.1.0
+		</div>
+		<center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+	</footer>
 
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">

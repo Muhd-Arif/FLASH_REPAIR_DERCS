@@ -1,9 +1,11 @@
 <?php
+require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
+$c_id = $_SESSION['C_ID'];
 $quotation = new quotationController();
 
-$data = $quotation->getMyQuotation(1);
+$data = $quotation->getMyQuotation($c_id);
 
 ?>
 
@@ -32,8 +34,16 @@ $data = $quotation->getMyQuotation(1);
 
 <body>
     <style>
+    .card {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
+
     .container {
-        margin-bottom: 70px;
+        margin-top: 10px;
+        margin-bottom: 50px;
         width: 80%;
     }
 
@@ -54,13 +64,13 @@ $data = $quotation->getMyQuotation(1);
                     <div class="row mb-2">
                         <!-- <div class="col-sm-6">
                   <h1>Payment</h1>
-                  </div> -->
+              </div> -->
                         <!-- <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
                       <li class="breadcrumb-item"><a href="#">Home</a></li>
                       <li class="breadcrumb-item active">Payment</li>
                   </ol>
-                  </div> -->
+              </div> -->
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -68,36 +78,31 @@ $data = $quotation->getMyQuotation(1);
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 ">
                             <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2 style="margin-bottom:70px;">My Quotation</h2>
-                                                </center>
-                                                <!-- <input type="text" class="form-control mt-5" id="filterInput"
-            placeholder="Search quotation ID, device type, status"> -->
 
-                                                <!-- <table class="table mt-3" id="quotationList"> -->
-                                                <table class="table mt-5" id="dataTable">
-                                                    <thead class="thead-dark">
-                                                        <tr>
-                                                            <th scope="col">No</th>
-                                                            <th scope="col">Quotation ID</th>
-                                                            <th scope="col">Device Type</th>
-                                                            <th scope="col">Status</th>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <!-- <tr>
+                            <div class="card ">
+                                <!-- /.col -->
+                                <div class="container">
+                                    <!-- TEMPLATE 1 STOP -->
+                                    <div class="card-header">
+                                        <center>
+                                            <h2 style="margin-bottom:50px;">My Quotation</h2>
+                                        </center>
+                                        <!-- <table class="table mt-3" id="quotationList"> -->
+                                        <table class="table mt-5" id="dataTable">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Quotation ID</th>
+                                                    <th scope="col">Device Type</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- <tr>
                     <th scope="row">1</th>
                     <td>#123456</td>
                     <td>Laptop</td>
@@ -105,70 +110,70 @@ $data = $quotation->getMyQuotation(1);
                     <td>23 / 3 / 2021</td>
                     <td><button type="submit" class="btn btn-primary">View</button></td>
                 </tr> -->
-                                                        <?php
+                                                <?php
                 $i = 1;
                 foreach($data as $row){
                     echo '
-                        <tr>
-                            <th scope="row">'. $i .'</th>
-                            <td>#'.$row['Q_ID'].'</td>
-                            <td>'.$row['Q_DeviceType'].'</td>
-                            <td id="'.$row['Q_ID'].'">'.$row['Q_Status'].'</td>
-                            <td>'.$row['Q_Date'].'</td>'
-                            ?>
-                                                        <td>
-                                                            <form method="POST">
-                                                                <button type="button"
-                                                                    onclick="location.href='requestQuotationDetails.php?q_id=<?=$row['Q_ID']?>'"
-                                                                    name="<?=$row['Q_ID']?>" id="view"
-                                                                    class="btn btn-primary">View</button>
-                                                            </form>
-                                                        </td>
+                    <tr>
+                    <th scope="row">'. $i .'</th>
+                    <td>#'.$row['Q_ID'].'</td>
+                    <td>'.$row['Q_DeviceType'].'</td>
+                    <td id="'.$row['Q_ID'].'">'.$row['Q_Status'].'</td>
+                    <td>'.$row['Q_Date'].'</td>'
+                    ?>
+                                                <td>
+                                                    <form method="POST">
+                                                        <button type="button"
+                                                            onclick="location.href='requestQuotationDetails.php?q_id=<?=$row['Q_ID']?>'"
+                                                            name="<?=$row['Q_ID']?>" id="view"
+                                                            class="btn btn-primary">View</button>
+                                                    </form>
+                                                </td>
 
-                                                        <script type="text/javascript">
-                                                        var td = document.getElementById("<?=$row['Q_ID']?>");
-                                                        var btn = document.getElementById("<?=$row['Q_ID']?>");
+                                                <script type="text/javascript">
+                                                var td = document.getElementById("<?=$row['Q_ID']?>");
+                                                var btn = document.getElementById("<?=$row['Q_ID']?>");
 
-                                                        if (td.innerText == 'Pending') {
-                                                            td.style.fontWeight = "bold"
-                                                        } else if (td.innerText == 'Pending Confirmation') {
-                                                            td.style.color = "Blue"
-                                                            td.style.fontWeight = "bold"
-                                                        } else if (td.innerText == 'Accepted') {
-                                                            td.style.color = "Green"
-                                                            td.style.fontWeight = "bold"
-                                                        } else {
-                                                            td.style.color = "Red"
-                                                            td.style.fontWeight = "bold"
-                                                        }
-                                                        </script>
+                                                if (td.innerText == 'Pending') {
+                                                    td.style.fontWeight = "bold"
+                                                } else if (td.innerText == 'Pending Confirmation') {
+                                                    td.style.color = "Blue"
+                                                    td.style.fontWeight = "bold"
+                                                } else if (td.innerText == 'Accepted') {
+                                                    td.style.color = "Green"
+                                                    td.style.fontWeight = "bold"
+                                                } else {
+                                                    td.style.color = "Red"
+                                                    td.style.fontWeight = "bold"
+                                                }
+                                                </script>
 
 
-                                                        <?php echo '
-                        </tr>';
+                                                <?php echo '
+                    </tr>';
                     $i++;
                 }
 
                 ?>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- TEMPLATE PART 2 -->
-                                        </div>
+                                            </tbody>
+                                        </table>
                                     </div>
+                                    <!-- TEMPLATE PART 2 -->
                                 </div>
                             </div>
                         </div>
                     </div>
-            </section>
+                </div>
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer no-print">
-            <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
-        </footer>
-        <aside class="control-sidebar control-sidebar-dark">
-        </aside>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer no-print">
+        <center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
     </div>
     <!-- <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
          <script src="../../../assets/js/adminlte.min.js"></script>
@@ -176,24 +181,6 @@ $data = $quotation->getMyQuotation(1);
     <!-- TEMPLATE PART 2 STOP -->
 
     <script type="text/javascript">
-    // // Get input element
-    // let filterInput = document.getElementById('filterInput');
-    // // Add event listener
-    // filterInput.addEventListener('keyup', filter);
-
-    // function filter() {
-    //     // Get value of input
-    //     let filterValue = document.getElementById('filterInput').value.toUpperCase();
-
-    //     let trs = document.querySelectorAll('#quotationList tr:not(.header)');
-
-    //     trs.forEach(tr => tr.style.display = [...tr.children].find(td => td.innerHTML.toUpperCase().includes(
-    //         filterValue)) ? '' : 'none');
-
-    // }
-
-    document
-
     $(document).ready(function() {
         $('#dataTable').DataTable({
             // dom: 'Bfrtip',
@@ -201,6 +188,8 @@ $data = $quotation->getMyQuotation(1);
             //     'print'
             // ],
             "ordering": false,
+            "pageLength": 5,
+            lengthMenu: [5, 10, 15, 20, 25, 30],
 
         });
     });
