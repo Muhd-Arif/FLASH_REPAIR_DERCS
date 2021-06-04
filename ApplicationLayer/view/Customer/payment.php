@@ -18,6 +18,7 @@ $repair = new repairController();
 $delivery = new deliveryController();
 $payment = new paymentController();
 
+
 $qrpData = $repair->viewQuotationRepair($rpid);
 $deliverydata = $delivery->viewDelivery($qid,$rpid);
 $paymentdata = $payment->viewPayment($cid,$qid,$rpid);
