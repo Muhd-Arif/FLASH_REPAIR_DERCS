@@ -69,7 +69,7 @@ class repairController{
     // view all repairs (used to calculate the number of pages required) - Wei Sheng
     function viewRepairList(){
         $repair = new repairModel();
-        $repair->custid = 1;
+        $repair->custid = $_SESSION['C_ID'];
         if(isset($_GET['device'])){
             $repair->deviceType = $_GET['device'];
         }else if(isset($_GET['status'])){
@@ -81,7 +81,7 @@ class repairController{
     // view all searched repairs - Wei Sheng
     function viewSearchRepairList($term){
         $repair = new repairModel();
-        $repair->custid = 1;
+        $repair->custid = $_SESSION['C_ID'];
         if(isset($_GET['device'])){
             $repair->deviceType = $_GET['device'];
 
@@ -94,7 +94,7 @@ class repairController{
     // view a specific page of repairs - Wei Sheng
     function viewRepairListPage($offset, $number_of_records, $term){
         $repair = new repairModel();
-        $repair->custid = 1;
+        $repair->custid = $_SESSION['C_ID'];
         if(isset($_GET['device'])){
             $repair->deviceType = $_GET['device'];
         }else if(isset($_GET['status'])){
@@ -106,7 +106,7 @@ class repairController{
     // get repair details from repair table to display at repairDetails page - Wei Sheng
     function viewRepairDetails($rpid){
         $repair = new repairModel();
-        $repair->custid = 1;
+        $repair->custid = $_SESSION['C_ID'];
         $repair->rpid = $rpid;
         return $repair->viewRepairDetails();
     }
