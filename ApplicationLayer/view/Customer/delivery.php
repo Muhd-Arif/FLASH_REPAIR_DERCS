@@ -15,6 +15,7 @@ $delivery = new deliveryController();
 
 $data = $repair->viewQuotationRepair($rpid);
 
+
 foreach($data as $p){
     $qid = $p['Q_ID'];
 }
