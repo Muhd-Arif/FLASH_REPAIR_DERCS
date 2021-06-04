@@ -52,9 +52,15 @@ if(isset($_POST['pickup'])){
 
 <body>
     <style>
+    .card{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
     .container {
-        margin-top: 20px;
-        width: 50%;
+        margin-top: 10px;
+        width: 90%;
     }
     </style>
     <!-- TEMPLATE 1  -->
@@ -64,36 +70,24 @@ if(isset($_POST['pickup'])){
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <!-- <div class="col-sm-6">
-                  <h1>Payment</h1>
-                  </div> -->
-                        <!-- <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Payment</li>
-                  </ol>
-                  </div> -->
-                    </div>
-                </div>
+                
                 <!-- /.container-fluid -->
             </section>
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <!-- Main content -->
-                            <div class="invoice p-3 mb-3">
-                                <div class="card bg-light">
-                                    <div class="card-body pb-0">
-                                        <!-- info row -->
-                                        <div class="row invoice-info">
-                                            <!-- /.col -->
-                                            <div class="container">
-                                                <!-- TEMPLATE 1 STOP -->
-                                                <center>
-                                                    <h2>Customer Pickup Details</h2>
+                            <div class="col-12 ">
+                                <!-- Main content -->
+
+                                <div class="card ">
+                                    <!-- /.col -->
+                                    <div class="container" >
+                                        <!-- TEMPLATE 1 STOP -->
+                                        <div class="card-header">
+                                            <h3 style="text-align: center">Customer Pickup Details</h3>
+                                        </div>
+                                        <div style="margin-top: -2%;">
+                                                   
                                                 </center>
                                                 <br>
                                                 <?php
@@ -188,7 +182,7 @@ if(isset($_POST['pickup'])){
                                            <button type="button" class="btn btn-secondary" onclick="location.href='myPickup.php'">Close</button>
                                          </div>
                                        </form>
-                                     <<!-- /div> -->
+                                     <!-- /div> -->
                                       
 
                                    <!--test suggestion-->
