@@ -23,13 +23,13 @@ class runnerModel{
      // save data to database
     function registerRun(){
         if(in_array($this->imageFileType, $this->extensions_arr)){
-        $sql = "insert into rider (R_Name,R_Email,R_Password,R_Phone,R_LicienseNo,
+        $sql = "insert into rider (R_Name,R_Email,R_Password,R_Phone,R_License,
                  R_Address,R_image)
 
-        value(:R_Name, :R_Email, :R_Password,  :R_Phone, :R_LicienseNo, :R_Address, :R_image)";
+        value(:R_Name, :R_Email, :R_Password,  :R_Phone, :R_License, :R_Address, :R_image)";
 		
 		 $args = [':R_Name'=>$this->R_Name, ':R_Email'=>$this->R_Email, ':R_Phone'=>$this->R_Phone,
-        ':R_LicienseNo'=>$this->R_LicienseNo,':R_Address'=>$this->R_Address, ':R_image'=>$this->R_image,
+        ':R_License'=>$this->R_License,':R_Address'=>$this->R_Address, ':R_image'=>$this->R_image,
         ':R_Password'=>$this->R_Password];
 //print_r($sql);
 //exit();

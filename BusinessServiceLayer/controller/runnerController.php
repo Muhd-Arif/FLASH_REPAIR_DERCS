@@ -21,7 +21,7 @@ function loginRun(){
                 $_SESSION['R_Email'] = $value[3];
                 $_SESSION['R_Password'] = $value[3];
                 $_SESSION['R_Phone'] = $value[4];
-                $_SESSION['R_LicenseNo'] = $value[5];
+                $_SESSION['R_License'] = $value[5];
                 $_SESSION['R_Address'] = $value[6];
                 $_SESSION['R_image'] = $value[7];;
                 
@@ -47,7 +47,7 @@ function loginRun(){
         $runner->R_Name = $_POST['R_Name'];
         $runner->R_Email = $_POST['R_Email'];
         $runner->R_Phone = $_POST['R_Phone'];
-        $runner->R_LicienseNo = $_POST['R_LicienseNo'];
+        $runner->R_License = $_POST['R_License'];
         $runner->R_Address = $_POST['R_Address'];
         $runner->R_image = time().$_FILES['photoFile']['name'];
         $runner->R_Password = $_POST['R_Password'];

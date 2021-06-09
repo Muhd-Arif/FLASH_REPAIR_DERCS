@@ -41,7 +41,7 @@ if(isset($_POST['login-submit']))
             </div>
 
             <div class="link-register">
-                <a href="../../../ApplicationLayer/view/Runner/registerRunner.php">Click to register</a>
+                <a href="registerRunner.php">Click to register</a>
             </div>
 
 

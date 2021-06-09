@@ -48,8 +48,7 @@ $data = $runner->runner();
                 <div id="customer-profile">
                     <div id="customer-nav" class="text-center">
                         <div class="profile-img border w-100">
-                            <img class="profile-img-backdrop" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
-                                srcset="">
+                            
                             <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
                                 srcset="" onerror="this.src='../../../uploads/default.png';">
                         </div>

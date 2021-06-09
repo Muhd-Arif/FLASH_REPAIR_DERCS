@@ -44,17 +44,17 @@ if(isset($_POST['regs-submit']))
 			<div class="fillbox1">
 				<input type="text" placeholder="Name" name="R_Name"></div>
 
-			<div class="fillbox1"><input type="email" placeholder="Email" name="R_Mail" required></div>
+			<div class="fillbox1"><input type="email" placeholder="Email" name="R_Email" required></div>
 
 			<div class="fillbox1"><input type="text" placeholder="No. Phone" name="R_Phone" required></div>
 
 			<div class="fillbox1"><input type="Password" placeholder="Password" name="R_Password" required ></div>
 
-      <div class="fillbox1"><input type="text" placeholder="Liciense Number" name="R_LicienseNo" required></div>
+      <div class="fillbox1"><input type="text" placeholder="License Number" name="R_License" required></div>
 
       <div class="fillbox1"><input type="text" placeholder="Address" name="R_Address" required></div>
       <div class="link-register">
-      <a href="../../../ApplicationLayer/view/Runner/loginRunner.php">Click to Login</a>
+      <a href="loginRunner.php">Click to Login</a>
       </div>
 		  <div class="button2">
 			<input class="btn" type="submit"  name="regs-submit" value="Register"></div>

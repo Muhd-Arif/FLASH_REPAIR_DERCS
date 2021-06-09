@@ -8,50 +8,35 @@ $data = $runner->runner();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../assets/css/profile.css">
-  <title>Flash Delivery ! Admin</title>
+    <title>Rider List</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+   
+
+    <!-- NAVIGATION BAR  -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger mb-3">
-    <div class="container">
-      <a class="navbar-brand" href="adminValidateRunner.php">Flash Delivery | Admin</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="adminValidateRunner.php">Riders</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="adminValidateCustomer.php">Customer</a>
-          </li>
-
-
-        </ul>
-        <form method="POST">
-          <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-              <input class="btn shadow-none text-light " type="submit" name="logout" value="Logout">
-
-            </li>
-
-          </ul>
-        </form>
-      </div>
-    </div>
-  </nav>
+    <!-- TEMPLATE 1  -->
+    <div class="wrapper">
+        <?php include("sidebar.php") ?>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
   <div class="container">
     <h2 class="text-center mb-3">Riders List</h2>
     <table class="table">
@@ -59,8 +44,8 @@ $data = $runner->runner();
         <tr>
         <th scope="no">No</th>
           <th scope="col">Rider ID</th>
-          <th scope="col">Email</th>
-          <th scope="col">License No</th>
+          <th scope="col">Rider Name</th>
+      <th scope="col">Rider Email</th>
           <th scope="col">Status</th>
           <th scope="col">Validate</th>
           <th scope="col">Info</th>
@@ -74,14 +59,15 @@ $data = $runner->runner();
             <tr>
               <th scope="row"><?php echo $index ?></th>
               <th scope="row"><?php echo $runner->R_ID ?></th>
-              <td><?php echo $runner->R_Mail ?></td>
-              <td><?php echo $runner->R_LicienseNo ?></td>
+            <td><?php echo $runner->R_Name ?></td>
+       <td><?php echo $runner->R_Email ?></td>
               <!-- <td><?php echo $runner->R_AccStatus ?></td> -->
             <td>
                 <select class="form-control form-control-sm" name="reg_status">
                   <option selected value="<?php echo $runner->R_AccStatus; ?>"> <?php echo $runner->R_AccStatus; ?></option>
-                  <option value="BAN"> BAN</option>
-                  <option value="UNBAN"> UNBAN</option>
+            <option value="ACCOUNT VALID"> ACCOUNT VALID</option>
+                  <option value="ACCOUNT BANNED"> ACCOUNT BANNED </option>
+                  <option value="ACCOUNT UNBANED">ACCOUNT  UNBANED</option>
                 </select>
               </td>
             
@@ -98,9 +84,20 @@ $data = $runner->runner();
     </table>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
+    </script>
+    <script src="../../../assets/js/repair.js"></script>
 
 </body>
 

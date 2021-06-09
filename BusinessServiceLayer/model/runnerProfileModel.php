@@ -110,13 +110,13 @@ class runnerProfileModel
   
   
     public function deleteRider(){
-        $link = mysqli_connect("localhost", "root", "", "dcrms");
+        $link = mysqli_connect("localhost", "root", "", "dercs");
  
 // Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-          $sql = "DELETE FROM  rider  where R_ID ='$this->R_ID'";
+          $sql = "DELETE FROM  rider  where R_ID ='$this->id'";
           if(mysqli_query($link, $sql)){
     echo "Account Deleted successfully.";
 } else{
