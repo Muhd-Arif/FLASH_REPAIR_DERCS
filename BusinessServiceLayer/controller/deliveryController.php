@@ -52,7 +52,7 @@ class deliveryController{
         $delivery->cid = $cid;
         $delivery->qid = $qid;
         $delivery->rpid = $rpid;
-        $delivery->D_Status = "Processing";
+        $delivery->D_Status = "Pending";
         $delivery->D_Address = $_POST['deliveryAdd'];
         $delivery->D_Note = $_POST['deliveryNote'];
         $delivery->Service = "Delivery";
