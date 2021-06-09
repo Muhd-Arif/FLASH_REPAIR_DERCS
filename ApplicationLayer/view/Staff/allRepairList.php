@@ -1,8 +1,7 @@
 <?php
 // Author : Ng Wei Sheng
 // This page displays all the repairs owned by the staff
-
-// require_once '../../../libs/spSession.php';
+require_once '../../../libs/adminSession.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
 
 $repair = new repairController();

@@ -1,4 +1,5 @@
 <?php
+require_once '../../../libs/adminSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
 $q_id = $_GET['q_id'];

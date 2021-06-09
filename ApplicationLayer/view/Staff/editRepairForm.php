@@ -3,7 +3,7 @@
 // This page displays an edit repair form for the staff
 
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
-// require_once '../../../libs/spSession.php';
+require_once '../../../libs/adminSession.php';
 
 $rpid = $_GET['rpid'];
 
