@@ -27,7 +27,7 @@ class CustomerProfileModel
   // Find user by email
   public function findUserByEmail($email)
   {
-    $this->db->query('SELECT * FROM customer WHERE C_Mail = :email');
+    $this->db->query('SELECT * FROM customer WHERE C_Email = :email');
     // Bind value
     $this->db->bind(':email', $email);
 
@@ -44,7 +44,7 @@ class CustomerProfileModel
   // Edit User by ID
   public function editUserById($id, $data)
   {
-    $this->db->query('UPDATE customer SET C_Name = :name, C_Mail = :email, C_Phone= :phone_number, C_Password= :password WHERE C_ID = :id');
+    $this->db->query('UPDATE customer SET C_Name = :name, C_Email = :email, C_Phone= :phone_number, C_Password= :password WHERE C_ID = :id');
     // Bind value
     $this->db->bind(':id', $id);
     $this->db->bind(':name', $data['name']);
@@ -73,13 +73,13 @@ class CustomerProfileModel
   // delere cust
   
      function deleteCust(){
-        $link = mysqli_connect("localhost", "root", "", "dcrms");
+        $link = mysqli_connect("localhost", "root", "", "dercs");
  
 // Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-          $sql = "DELETE FROM  customer where C_ID ='$this->C_ID'";
+          $sql = "DELETE FROM  customer where C_ID ='$this->id'";
           if(mysqli_query($link, $sql)){
     echo "Account Deleted successfully.";
 } else{

@@ -11,7 +11,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="../manageLoginAndRegister/userLogin.php" class="nav-link">Logout</a>
+            <a href="logout.php" class="nav-link">Logout</a>
         </li>
     </ul>
 </nav>
@@ -53,10 +53,18 @@
            with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href=".php" class="nav-link">
+                    <a href="adminValidateCustomer.php" class="nav-link">
 
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Customer List</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="adminValidateRunner.php" class="nav-link">
+
+                      <i class="far fa-user nav-icon"></i>
+                        <p>Rider List</p>
                     </a>
                 </li>
 

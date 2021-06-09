@@ -4,72 +4,73 @@
 require_once '../../../libs/adminSession.php';
 require_once '../../../BusinessServiceLayer/controller/adminProfileController.php';
 $customer = new adminProfileController();
-$data = $customer->edit();
-?>
 
+ $id = $_GET['id'];
+$data = $customer->customer();
+
+if(isset($_POST['Save'])){
+   $data = $customer->edit();
+   $id = $_GET['id'];
+   $data = $customer->customer();
+}else if(isset($_POST['Delete'])){
+   $data = $customer->deleteCust($id);
+   //$id = $_GET['id'];
+   //$data = $customer->customer();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../assets/css/profile.css">
-  <link rel="stylesheet" href="../../../assets/css/navbar.css">
-  <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-  <title>Flash Delivery ! Customer's profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../assets/css/profile.css">
+    <link rel="stylesheet" href="../../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css"> 
+
+    <!-- NAVIGATION BAR  -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
 </head>
 
-<body>  <title> DCRMS ! Admin</title>
-</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger mb-3">
-    <div class="container">
-      <a class="navbar-brand" href="adminValidateRunner.php"> DCRMS | Admin</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <?php include("sidebar.php") ?>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- NAVIGATION PART 1 STOP -->
+            <div class="container mt-5">
+                <div id="customer-profile">
+                    <div id="customer-nav" class="text-center">
+                        <div class="profile-img border w-100">
 
-          <li class="nav-item">
-            <a class="nav-link" href="adminValidateRunner.php">Rider</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="adminValidateServiceProvider.php">Customer</a>
-          </li>
+                            
+                            <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
+                                srcset="" onerror="this.src='../../../uploads/default.png';">
+                
+                        </div>
+                        <div class="border w-100">
+                            <h5 class=" mt-2"> <?php echo $data["sub_name"]  ?></h5>
+                        </div>
+                
 
-        </ul>
-        <form method="POST">
-          <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-              <input class="btn shadow-none text-light " type="submit" name="logout" value="Logout">
-            </li>
-
-          </ul>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div id="customer-profile">
-      <div id="customer-nav" class="text-center">
-        <div class="profile-img border w-100">
-          <img class="profile-img-backdrop" src="../../../uploads/<?php echo $data['image'] ?>" alt="" srcset="">
-          <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt="" srcset="">
-        </div>
-        
 
       </div>
       <div id="customer-details" class="mx-4">
-        <h4>My Profile</h4>
-        <form action="" method="post">
-		
+        <h4>Customer Profile</h4>
+        <form action="" method="post" action="adminEditCustomerProfile.php">
+     <input type="hidden"  name="id" value="<?php echo $id ?>">
           <div id="customer-details-info">
             <div class="form-group ">
               <div class="edit">
@@ -97,37 +98,32 @@ $data = $customer->edit();
               <span class="invalid">
                 <p><?php echo $data['phone_number_err']; ?></p>
               </span>
-            </div>
-            <div class="form-group">
+        <div class="form-group ">
               <div class="edit">
                 <label for="password">Password: </label>
-                <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
+                <input type="text" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
               </div>
               <span class="invalid">
                 <p><?php echo $data['password_err']; ?></p>
               </span>
             </div>
+            </div> 
             <div class="row">
               <div class="col">
-                <input type="submit" value="Save" class="btn btn-success btn-block">
+                <input type="submit" value="Save" name="Save"  class="btn btn-success btn-block">
               </div>
-
+            </div>
+            <br>
+            <div class="row">
+            <div class="col">
+                <input type="submit" value="Delete" name="Delete"  class="btn btn-success btn-block">
+              </div>
             </div>
             </input>
         </form>
       </div>
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2017-2020 Flash Delivery</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-      </ul>
-    </footer>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
