@@ -83,13 +83,16 @@ class deliveryModel{
     // update payment status to completed based on quotation id
      function receivePayment(){
 
-        $QuotationID = $this->QuotationID[$this->p];
+        $QuotationID = $this->QuotationID;
         $DeliveryID = $this->DeliveryID;
 
         $PaymentStatus = 'Completed';
 
         $sql = "UPDATE payment SET PAY_Status=:PaymentStatus WHERE Q_ID = '{$QuotationID}'";
         $args = [':PaymentStatus'=>$PaymentStatus];
+
+        // print_r($QuotationID);
+        // exit();
 
        
         return DB::run($sql,$args);

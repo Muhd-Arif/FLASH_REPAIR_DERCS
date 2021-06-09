@@ -129,10 +129,10 @@ class deliveryController{
         $product->RunnerID = $RunnerID;
         $product->DeliveryID = $_POST['DeliveryID'];
         $product->QuotationID = $_POST['QuotationID'];
+        // print_r($product);
+        // exit();
         if($product->receivePayment()){
-             // $product = new repairModel();
-             // $product->updateRepairPaid();   
-
+            
           $message = "Success Accept Payment!"; 
             echo "<script type='text/javascript'>
             alert('$message');

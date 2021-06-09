@@ -23,6 +23,9 @@ $deliveryid = $_POST["DeliveryID"];
 $QuotationID = $_POST["QuotationID"];
 $rpid = $_POST['RP_ID'];
 
+// print_r($QuotationID);
+// exit();
+
 // get all delivery details from delivery table based on delivery id
 $result = $product->getOrderID($deliveryid,$j);
  
@@ -156,7 +159,8 @@ if(isset($_POST['delivered'])){
                                               <input type='hidden' id="" name='RP_ID' value="<?=$row['RP_ID']?>">
                                             <p style="color:red"><span style="font-weight:bold">COD Payment Status</span></p>
                                             <input type="text" disabled="true" id="cost" name="cost" value="RM <?=$row['Q_Cost']?>">&nbsp;&nbsp;&nbsp;
-                                             <button id="receive" name="receive" type="submit" <?php if (!empty($row['PAY_Status'])){echo "disabled=true; style='background-color:green';";} ?> class="btn btn-primary accept" onclick="return confirm('Are you sure you want to receive this payment?');">RECEIVE</button>
+
+                                             <button id="receive" name="receive" type="submit" <?php if ($row['PAY_Status']=='Completed'){echo "disabled=true; style='background-color:green';";} ?> class="btn btn-primary accept" onclick="return confirm('Are you sure you want to receive this payment?');">RECEIVE</button>
                                            </form>
                                              </div>
 
