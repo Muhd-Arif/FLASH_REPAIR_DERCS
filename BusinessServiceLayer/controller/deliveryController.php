@@ -1,6 +1,7 @@
 <?php
 require_once '../../../BusinessServiceLayer/model/deliveryModel.php';
 require_once '../../../BusinessServiceLayer/model/pickupModel.php';
+require_once '../../../BusinessServiceLayer/model/repairModel.php';
 
 
 class deliveryController{
@@ -124,16 +125,21 @@ class deliveryController{
     // update payment status to completed based on quotation id
      function receivePayment($RunnerID){
         $product = new deliveryModel();
+       
         $product->RunnerID = $RunnerID;
         $product->DeliveryID = $_POST['DeliveryID'];
         $product->QuotationID = $_POST['QuotationID'];
         if($product->receivePayment()){
+             // $product = new repairModel();
+             // $product->updateRepairPaid();   
+
           $message = "Success Accept Payment!"; 
             echo "<script type='text/javascript'>
             alert('$message');
             </script>"; 
 
-        }       
+        }  
+
     }
 
 
