@@ -88,6 +88,8 @@ class deliveryController{
         $product = new pickupModel();
         $product->pickupid = $pickupid;
         $product->j = $j;
+        // print_r($product);
+        // exit();
         return $product->getOrderID2();
     }
 
