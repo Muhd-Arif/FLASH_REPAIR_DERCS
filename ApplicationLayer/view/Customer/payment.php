@@ -20,7 +20,7 @@ $payment = new paymentController();
 
 
 $qrpData = $repair->viewQuotationRepair($rpid);
-$deliverydata = $delivery->viewDelivery($qid,$rpid);
+$deliverydata = $delivery->viewDelivery($rpid);
 $paymentdata = $payment->viewPayment($cid,$rpid);
 
 if(isset($_POST['paycod'])){
