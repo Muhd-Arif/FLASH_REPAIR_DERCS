@@ -106,7 +106,7 @@ $pages_needed = ceil($total / $number_of_records);
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../manageLoginAndRegister/userLogin.php" class="nav-link">Logout</a>
+                    <a href="logout.php" class="nav-link">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -114,7 +114,7 @@ $pages_needed = ceil($total / $number_of_records);
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-2">
-            <a href="#" class="brand-link">
+            <a href="index.php" class="brand-link">
                 <i class="far fa-tools" style="padding-left: 8%; padding-right: 1%"></i>
                 <span class="brand-text font-weight-light">Flash Repair</span>
             </a>
@@ -277,6 +277,13 @@ $pages_needed = ceil($total / $number_of_records);
                             <a href="myRepairList.php?status=Cannot be repaired" class="nav-link">
                                 <p>
                                     Cannot be repaired
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="myRepairList.php?status=Paid" class="nav-link">
+                                <p>
+                                    Paid
                                 </p>
                             </a>
                         </li>
