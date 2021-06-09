@@ -93,14 +93,14 @@ $data = $repair->viewRepairDetails($RepairID);
                     <div class="status">Pending</div>
                     <div class="circle"></div>
                 </div>
-                <div class="<?php echo $rpstatus=='In Progress' || $rpstatus=='Completed' ?'complete':'';?> delivering">
+                <div class="<?php echo $rpstatus=='In Progress' || $rpstatus=='Completed' || $rpstatus == 'Paid'?'complete':'';?> delivering">
                     <i class="far fa-hourglass"></i>
                     <div class="status">In Progress</div>
                     <div class="circle"></div>
                     <span class="line"></span>
 
                 </div>
-                <div class="<?php echo $rpstatus=='Completed'?'complete':'';?> delivered">
+                <div class="<?php echo $rpstatus=='Completed' || $rpstatus == 'Paid'?'complete':'';?> delivered">
                     <i class="far fa-check-circle"></i>
                     <div class="status">Completed</div>
                     <div class="circle"></div>
