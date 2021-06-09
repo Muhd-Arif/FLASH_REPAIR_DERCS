@@ -5,10 +5,12 @@ require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../libs/runnerProfileSession.php';
  
 $RunnerID = $_SESSION['R_ID'];
+
 //$RunnerID = '1';
 //$data = $_POST['edit'];
 
 $product = new deliveryController();
+$rpid = 
 $paid = new repairController();
 
 error_reporting(0);
@@ -19,6 +21,7 @@ $data = $product->viewAllMyDelivery($RunnerID);
 
 $deliveryid = $_POST["DeliveryID"]; 
 $QuotationID = $_POST["QuotationID"];
+$rpid = $_POST['RP_ID'];
 
 // get all delivery details from delivery table based on delivery id
 $result = $product->getOrderID($deliveryid,$j);
@@ -29,7 +32,7 @@ if(isset($_POST['delivered'])){
     $product->deliveredDelivery();
 } else if(isset($_POST['receive'])){
   $product->receivePayment($RunnerID);
-  $paid->updateRepairPaid($RunnerID);
+  $paid->updateRepairPaid($rpid);
   $deliveryid = $_POST["DeliveryID"]; 
   $result = $product->getOrderID($deliveryid,$j);
  
@@ -150,6 +153,7 @@ if(isset($_POST['delivered'])){
                                             <form id="" method="post" action="updateDelivery.php">
                                              <input type='hidden' id="" name='DeliveryID' value="<?=$row['D_ID']?>">
                                              <input type='hidden' id="" name='QuotationID' value="<?=$row['Q_ID']?>">
+                                              <input type='hidden' id="" name='RP_ID' value="<?=$row['RP_ID']?>">
                                             <p style="color:red"><span style="font-weight:bold">COD Payment Status</span></p>
                                             <input type="text" disabled="true" id="cost" name="cost" value="RM <?=$row['Q_Cost']?>">&nbsp;&nbsp;&nbsp;
                                              <button id="receive" name="receive" type="submit" <?php if (!empty($row['PAY_Status'])){echo "disabled=true; style='background-color:green';";} ?> class="btn btn-primary accept" onclick="return confirm('Are you sure you want to receive this payment?');">RECEIVE</button>
