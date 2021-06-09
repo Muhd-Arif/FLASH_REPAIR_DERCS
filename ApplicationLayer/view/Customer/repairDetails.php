@@ -119,7 +119,7 @@ $data = $repair->viewRepairDetails($RepairID);
                 <?php if($rpstatus == 'Completed') {?>
                     <a href="delivery.php?rpid=<?= $row['RP_ID']?>" class="pay-now btn btn-success" disabled>Pay Now</a>
                 <?php }?>
-                <?php if($rpstatus == 'Paid') {?>
+                <?php if($rpstatus == 'Paid' || $rpstatus == 'COD Pending') {?>
                     <a href="success.php?rpid=<?= $row['RP_ID']?>" class="pay-now btn btn-success" disabled>View Payment Summary</a>
                 <?php }?>
             </div>
