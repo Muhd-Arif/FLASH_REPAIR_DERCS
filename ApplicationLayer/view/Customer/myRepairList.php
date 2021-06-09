@@ -287,6 +287,13 @@ $pages_needed = ceil($total / $number_of_records);
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="myRepairList.php?status=COD Pending" class="nav-link">
+                                <p>
+                                    COD Pending
+                                </p>
+                            </a>
+                        </li>
 
 
 
