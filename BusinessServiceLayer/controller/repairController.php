@@ -123,8 +123,11 @@ class repairController{
         $repair = new repairModel();
         $repair->rpid = $rpid;
         $repair->rpstatus = "Paid";
-        
-        $repair->updateRepairPaid();
+ 
+        if($repair->updateRepairPaid()){
+            $message = "Success Update!";
+        echo "<script type='text/javascript'>alert('$message')";
+        }
     }
     
 }
