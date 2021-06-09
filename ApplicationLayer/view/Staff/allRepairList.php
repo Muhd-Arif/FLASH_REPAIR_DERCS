@@ -166,10 +166,18 @@ $pages_needed = ceil($total / $number_of_records);
            with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="requestQuotationForm.php" class="nav-link">
+                            <a href="adminValidateCustomer.php" class="nav-link">
 
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>Customer List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="adminValidateRunner.php" class="nav-link">
+
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Rider List</p>
                             </a>
                         </li>
 

@@ -60,9 +60,10 @@ class quotationController {
         return $quotation->getCustomerInfo();
     }
 
-    function updateQuotation($q_id){
+    function updateQuotation($q_id, $s_id){
         $quotation = new quotationModel();
         $quotation->q_id = $q_id;
+        $quotation->s_id = $s_id;
         $quotation->q_solution = $_POST['solution'];
         $quotation->q_cost = $_POST['cost'];
         if($quotation->updateQuotation()){
