@@ -8,7 +8,7 @@ require_once '../../../libs/database.php';
 class paymentModel
 {
 	//Attributes
-	 public $cid, $qid, $rpid, $Pay_Date, $Pay_Amount, $Pay_Status, $Txn_ID, $Payment_Type;
+	 public $cid, $qid, $rpid, $Pay_Date, $Pay_Amount, $Pay_Status, $Txn_ID, $Payment_Type, $D_Status;
 
 	//check existing transaction ID to avoid duplicate
 	function checkExistingPayment()
@@ -46,9 +46,10 @@ class paymentModel
     }
 
     function updatePaymentType(){
-        $sql = "UPDATE delivery set Payment_Type=:Payment_Type WHERE RP_ID = '$this->rpid'";
+        $sql = "UPDATE delivery set Payment_Type=:Payment_Type, D_Status =:D_Status WHERE RP_ID = '$this->rpid'";
 
-        $args = [':Payment_Type' =>$this->Payment_Type];
+        $args = [':Payment_Type' =>$this->Payment_Type, ':D_Status' =>$this->D_Status];
+
         return DB::run($sql,$args);
     }
 
