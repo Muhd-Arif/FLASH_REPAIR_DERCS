@@ -129,6 +129,17 @@ class repairController{
         echo "<script type='text/javascript'>alert('$message')";
         }
     }
+
+    function updateRepairCOD($rpid){
+        $repair = new repairModel();
+        $repair->rpid = $rpid;
+        $repair->rpstatus = "COD Pending";
+ 
+        if($repair->updateRepairCOD()){
+            $message = "Success Update!";
+        echo "<script type='text/javascript'>alert('$message')";
+        }
+    }
     
 }
 ?>

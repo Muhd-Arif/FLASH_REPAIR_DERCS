@@ -119,6 +119,13 @@ class repairModel{
         return DB::run($sql,$args);
     }
 
+    // update repair status to Paid based on repair id - Hoe Shin Yi
+     function updateRepairCOD(){
+        $sql = "update repair set RP_Status=:rpstatus where RP_ID=:rpid";
+        $args = [':rpstatus'=>$this->rpstatus, ':rpid'=>$this->rpid];
+        return DB::run($sql,$args);
+    }
+
 
 
 }

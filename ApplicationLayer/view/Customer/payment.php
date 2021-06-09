@@ -25,7 +25,9 @@ $paymentdata = $payment->viewPayment($cid,$rpid);
 
 if(isset($_POST['paycod'])){
     $payment->updatePaymentType($cid,$rpid,"COD");
-	$payment->addPaymentCOD($cid,$qid,$rpid);
+	$repair->updateRepairCOD($rpid);
+    $payment->addPaymentCOD($cid,$qid,$rpid);
+
 	
 }
 
