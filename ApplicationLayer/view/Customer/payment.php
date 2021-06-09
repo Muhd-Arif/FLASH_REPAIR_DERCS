@@ -21,7 +21,7 @@ $payment = new paymentController();
 
 $qrpData = $repair->viewQuotationRepair($rpid);
 $deliverydata = $delivery->viewDelivery($qid,$rpid);
-$paymentdata = $payment->viewPayment($cid,$qid,$rpid);
+$paymentdata = $payment->viewPayment($cid,$rpid);
 
 if(isset($_POST['paycod'])){
 	$payment->addPaymentCOD($cid,$qid,$rpid);

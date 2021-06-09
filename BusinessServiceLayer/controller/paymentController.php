@@ -80,10 +80,9 @@
 
  	}
 
- 	function viewPayment($cid,$qid,$rpid){
+ 	function viewPayment($cid, $rpid){
  		$payment = new paymentModel();
- 		$payment->cid = $cid;
- 		$payment->qid = $qid;       
+ 		$payment->cid = $cid;      
  		$payment->rpid = $rpid;
  		return $payment->viewPayment();
  	}
