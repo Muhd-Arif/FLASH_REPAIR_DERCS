@@ -28,6 +28,7 @@ $paymentData = $payment->viewPayment($cid,$qid,$rpid);
 
 if($pt=="Online"){
 	$payment->addPaymentOnline($_GET);
+	$repair->updateRepairPaid($rpid);
 	$payment->updatePaymentType($cid,$qid,$rpid,$pt);
 }
 ?>

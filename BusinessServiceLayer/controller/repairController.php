@@ -118,6 +118,14 @@ class repairController{
         $repair->rpid = $rpid;
         return $repair->viewQRP();
     }
+
+    function updateRepairPaid($rpid){
+        $repair = new repairModel();
+        $repair->rpid = $rpid;
+        $repair->rpstatus = "Paid";
+        
+        $repair->updateRepairPaid();
+    }
     
 }
 ?>

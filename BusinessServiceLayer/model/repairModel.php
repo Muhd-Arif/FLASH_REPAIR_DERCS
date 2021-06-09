@@ -112,6 +112,13 @@ class repairModel{
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // update repair status to Paid based on repair id - Hoe Shin Yi
+     function updateRepairPaid(){
+        $sql = "update repair set RP_Status=:rpstatus where RP_ID=:rpid";
+        $args = [':rpstatus'=>$this->rpstatus, ':rpid'=>$this->rpid];
+        return DB::run($sql,$args);
+    }
+
 
 
 }
