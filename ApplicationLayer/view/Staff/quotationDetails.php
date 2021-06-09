@@ -3,6 +3,7 @@ require_once '../../../libs/adminSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
 $q_id = $_GET['q_id'];
+$s_id = $_SESSION['S_ID'];
 
 $quotation = new quotationController();
 $data = $quotation->getQuotationDetails($q_id);
@@ -28,7 +29,7 @@ foreach($data as $index => $value) {
 }
 
 if(isset($_POST['add'])){
-    $quotation->updateQuotation($q_id);
+    $quotation->updateQuotation($q_id, $s_id);
 }
 
 ?>

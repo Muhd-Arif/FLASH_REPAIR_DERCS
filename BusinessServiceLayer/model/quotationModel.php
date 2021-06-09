@@ -52,8 +52,8 @@ require_once '../../../libs/database.php';
 
         // update customer request quotation - ARIF
         function updateQuotation(){
-            $sql = "UPDATE quotation SET Q_Solution=:Q_Solution, Q_Cost=:Q_Cost, Q_Status = 'Pending Confirmation' WHERE Q_ID=:Q_ID";
-            $args = [':Q_Solution'=>$this->q_solution, ':Q_Cost'=>$this->q_cost,':Q_ID'=>$this->q_id];
+            $sql = "UPDATE quotation SET S_ID=:S_ID, Q_Solution=:Q_Solution, Q_Cost=:Q_Cost, Q_Status = 'Pending Confirmation' WHERE Q_ID=:Q_ID";
+            $args = [':Q_Solution'=>$this->q_solution, ':Q_Cost'=>$this->q_cost,':Q_ID'=>$this->q_id, ':S_ID'=>$this->s_id];
 
             return DB::run($sql,$args);
         }
