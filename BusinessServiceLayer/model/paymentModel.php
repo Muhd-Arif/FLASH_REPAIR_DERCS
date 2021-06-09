@@ -41,8 +41,8 @@ class paymentModel
 	}
 
 	function viewPayment(){
-        $query = "SELECT * FROM payment WHERE C_ID = '$this->cid' and Q_ID ='$this->qid' and RP_ID = '$this->rpid'";
-        return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);;
+        $query = "SELECT * FROM payment WHERE C_ID = '$this->cid' and RP_ID = '$this->rpid'";
+        return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function updatePaymentType(){
