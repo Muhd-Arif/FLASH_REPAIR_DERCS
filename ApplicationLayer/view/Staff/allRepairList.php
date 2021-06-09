@@ -131,7 +131,7 @@ $pages_needed = ceil($total / $number_of_records);
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-2">
-            <a href="#" class="brand-link">
+            <a href="allRepairList.php" class="brand-link">
                 <i class="far fa-tools" style="padding-left: 8%; padding-right: 1%"></i>
                 <span class="brand-text font-weight-light">Flash Repair</span>
             </a>

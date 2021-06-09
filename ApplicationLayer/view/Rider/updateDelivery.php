@@ -1,6 +1,7 @@
 <?php
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
+require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../libs/runnerProfileSession.php';
  
 $RunnerID = $_SESSION['R_ID'];
@@ -8,6 +9,7 @@ $RunnerID = $_SESSION['R_ID'];
 //$data = $_POST['edit'];
 
 $product = new deliveryController();
+$paid = new repairController();
 
 error_reporting(0);
 
@@ -27,6 +29,7 @@ if(isset($_POST['delivered'])){
     $product->deliveredDelivery();
 } else if(isset($_POST['receive'])){
   $product->receivePayment($RunnerID);
+  $paid->updateRepairPaid($RunnerID);
   $deliveryid = $_POST["DeliveryID"]; 
   $result = $product->getOrderID($deliveryid,$j);
  
