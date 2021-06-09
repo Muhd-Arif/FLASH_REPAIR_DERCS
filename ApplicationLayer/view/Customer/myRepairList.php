@@ -17,7 +17,7 @@ if (isset($_GET['pageno'])) {
 if (isset($_GET['recordnum'])) {
     $number_of_records = $_GET['recordnum'];
 } else {
-    $number_of_records = 12;
+    $number_of_records = 8;
 }
 
 $offset = ($pageno - 1) * $number_of_records;
