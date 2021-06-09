@@ -89,8 +89,7 @@
 
  	function updatePaymentType($cid,$qid,$rpid,$type){
         $payment = new paymentModel();
-        $payment->cid = $cid;
- 		$payment->qid = $qid;       
+        $payment->cid = $cid;       
  		$payment->rpid = $rpid;
         $payment->Payment_Type = $type;
 

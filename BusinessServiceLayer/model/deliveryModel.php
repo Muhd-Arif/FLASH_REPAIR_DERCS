@@ -52,7 +52,7 @@ class deliveryModel{
 
     //Hoe Shin Yi
 	function viewDelivery(){
-        $query = "SELECT * FROM delivery WHERE Q_ID ='$this->qid' and RP_ID = '$this->rpid'";
+        $query = "SELECT * FROM delivery WHERE RP_ID = '$this->rpid'";
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);;
     }
 

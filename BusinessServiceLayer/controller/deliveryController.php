@@ -34,9 +34,8 @@ class deliveryController{
         }
 
     //Hoe Shin Yi
-    function viewDelivery($qid,$rpid){
+    function viewDelivery($rpid){
         $delivery = new deliveryModel();
-        $delivery->qid = $qid;
         $delivery->rpid = $rpid;
         return $delivery->viewDelivery();
     }

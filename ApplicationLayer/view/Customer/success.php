@@ -12,7 +12,6 @@ if(isset($_GET['custom'])){
 	$rpid = $id['rpid'];
 	$pt = "Online";
 }else{
-	$qid = $_GET['qid'];
 	$rpid = $_GET['rpid'];
 	$pt = "COD";
 }
@@ -23,13 +22,13 @@ $payment = new paymentController();
 
 
 $qrpData = $repair->viewQuotationRepair($rpid);
-$deliveryData = $delivery->viewDelivery($qid,$rpid);
+$deliveryData = $delivery->viewDelivery($rpid);
 $paymentData = $payment->viewPayment($cid,$rpid);
 
 if($pt=="Online"){
 	$payment->addPaymentOnline($_GET);
 	$repair->updateRepairPaid($rpid);
-	$payment->updatePaymentType($cid,$qid,$rpid,$pt);
+	$payment->updatePaymentType($cid,$rpid,$pt);
 }
 ?>
 
