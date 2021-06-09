@@ -31,7 +31,10 @@ class pickupModel{
         $PickupID = $this->pickupid;
 
         
-        $sql = "SELECT * FROM pickup INNER JOIN quotation ON pickup.Q_ID = quotation.Q_ID INNER JOIN payment ON payment.Q_ID=pickup.Q_ID INNER JOIN customer on pickup.C_ID = customer.C_ID WHERE pickup.P_ID = '{$PickupID}'";
+        $sql = "SELECT * FROM pickup INNER JOIN quotation ON pickup.Q_ID = quotation.Q_ID INNER JOIN customer on pickup.C_ID = customer.C_ID WHERE pickup.P_ID = '{$PickupID}'";
+
+        // print_r($PickupID);
+        // exit();
 
         return DB::run($sql);
     }
@@ -56,7 +59,10 @@ class pickupModel{
         $sql = "SELECT * FROM rider_order INNER JOIN pickup ON pickup.P_ID=rider_order.P_ID INNER JOIN quotation ON quotation.Q_ID= pickup.Q_ID INNER JOIN customer ON customer.C_ID = pickup.C_ID WHERE pickup.Service='Pickup' AND R_ID=:RunnerID";
       
         $args = [':RunnerID'=>$this->RunnerID];
+
+
         return DB::run($sql,$args);
+
 
     }
 
