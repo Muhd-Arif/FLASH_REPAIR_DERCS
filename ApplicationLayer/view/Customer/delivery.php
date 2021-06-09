@@ -18,7 +18,7 @@ $data = $repair->viewQuotationRepair($rpid);
 foreach($data as $p){
     $qid = $p['Q_ID'];
 }
-$deliveryData = $delivery->viewDelivery($qid,$rpid);
+$deliveryData = $delivery->viewDelivery($rpid);
 
 if(isset($_POST['add'])){
 	$delivery->addDelivery($cid,$qid,$rpid);
