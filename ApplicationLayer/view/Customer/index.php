@@ -106,7 +106,6 @@ require_once '../../../libs/custSession.php';
 	<!-- /.content-wrapper -->
 	<footer class="main-footer no-print">
 		<div class="float-right d-none d-sm-block">
-			<b>Version</b> 3.1.0
 		</div>
 		<center><strong>Copyright &copy; 2022 Flash Repair</a>.</strong> All rights reserved. <center>
 	</footer>
