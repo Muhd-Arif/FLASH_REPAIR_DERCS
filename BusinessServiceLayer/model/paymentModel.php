@@ -46,9 +46,9 @@ class paymentModel
     }
 
     function updatePaymentType(){
-        $sql = "UPDATE delivery set Payment_Type=:Payment_Type, D_Status =:D_Status WHERE RP_ID = '$this->rpid'";
+        $sql = "UPDATE delivery set Payment_Type=:Payment_Type WHERE RP_ID = '$this->rpid'";
 
-        $args = [':Payment_Type' =>$this->Payment_Type, ':D_Status' =>$this->D_Status];
+        $args = [':Payment_Type' =>$this->Payment_Type];
 
         return DB::run($sql,$args);
     }

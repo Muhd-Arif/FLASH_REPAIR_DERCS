@@ -92,7 +92,6 @@
         $payment->cid = $cid;       
  		$payment->rpid = $rpid;
         $payment->Payment_Type = $type;
-        $payment->D_Status = "Pending";
 
         if($payment->updatePaymentType()){
             $message = "Success Update!";
