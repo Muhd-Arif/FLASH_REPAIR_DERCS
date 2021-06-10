@@ -124,7 +124,7 @@ error_reporting(0);
                               
                                  <td>
                                      <form id="delivery-form" method="post" action="updateDelivery.php">
-                                      <input type='hidden' id="" name='DeliveryID' value="<?=$row['D_ID']?>'">
+                                      <input type='hidden' id="" name='DeliveryID' value="<?=$row['D_ID']?>">
                                       <div id="parent" style="display:flex;">
                                       <div class="" id="button1" style="margin-right:5px">
                                       

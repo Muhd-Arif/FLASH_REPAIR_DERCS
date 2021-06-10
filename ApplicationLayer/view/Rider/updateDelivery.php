@@ -22,6 +22,8 @@ $data = $product->viewAllMyDelivery($RunnerID);
 $deliveryid = $_POST["DeliveryID"]; 
 $QuotationID = $_POST["QuotationID"];
 $rpid = $_POST['RP_ID'];
+// print_r($deliveryid);
+// exit();
 
 // print_r($QuotationID);
 // exit();

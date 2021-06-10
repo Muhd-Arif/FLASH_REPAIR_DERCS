@@ -80,6 +80,8 @@ class deliveryController{
         $product = new deliveryModel();
         $product->deliveryid = $deliveryid;
         $product->j = $j;
+        // print_r($deliveryid);
+        // exit();
         return $product->getOrderID();
     }
 

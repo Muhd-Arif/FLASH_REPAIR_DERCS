@@ -53,15 +53,18 @@ class deliveryModel{
     //Hoe Shin Yi
 	function viewDelivery(){
         $query = "SELECT * FROM delivery WHERE RP_ID = '$this->rpid'";
-        return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);;
+        return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
    
     // get all delivery details from delivery table based on delivery id
     function getOrderID(){
-        $DeliveryID = $this->deliveryid[$this->j];
+        $DeliveryID = $this->deliveryid;
 
         $sql = "SELECT * FROM delivery INNER JOIN quotation ON delivery.Q_ID = quotation.Q_ID INNER JOIN payment ON payment.Q_ID=delivery.Q_ID INNER JOIN customer on delivery.C_ID = customer.C_ID WHERE delivery.D_ID = '{$DeliveryID}'";
+
+        // print_r($DeliveryID);
+        // exit();
 
         return DB::run($sql);
     }
