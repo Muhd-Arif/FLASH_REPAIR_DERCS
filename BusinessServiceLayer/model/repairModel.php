@@ -125,8 +125,5 @@ class repairModel{
         $args = [':rpstatus'=>$this->rpstatus, ':rpid'=>$this->rpid];
         return DB::run($sql,$args);
     }
-
-
-
 }
 ?>

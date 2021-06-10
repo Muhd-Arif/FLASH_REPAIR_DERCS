@@ -49,6 +49,7 @@
  		$cid = $id['cid'];
  		$qid = $id['qid'];
  		$rpid = $id['rpid'];
+        date_default_timezone_set("Asia/Kuala_Lumpur");
 
 
  		$payment->cid = $cid;

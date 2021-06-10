@@ -15,7 +15,6 @@ if(isset($_GET['custom'])){
 	$rpid = $_GET['rpid'];
 	$pt = "COD";
 }
-
 $repair = new repairController();
 $delivery = new deliveryController();
 $payment = new paymentController();
@@ -29,7 +28,6 @@ if($pt=="Online"){
 	$payment->addPaymentOnline($_GET);
 	$payment->updatePaymentType($cid,$rpid,$pt);
 	$repair->updateRepairPaid($rpid);
-	
 }
 ?>
 

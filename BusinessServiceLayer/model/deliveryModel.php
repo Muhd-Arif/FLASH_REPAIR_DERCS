@@ -6,7 +6,7 @@ class deliveryModel{
     public $prodid,$prodname,$prodprice,$prodcategory,$proddescription,$prodstatus,$prodimage,$spid,
     $CustID, $OrderDate, $OrderAddress, $DeliveryStatus, $total, $image, $oldphoto,
     $target_dir,$target_file,$imageFileType,$extensions_arr, $PickupAddress,
-    $OrderID, $ProductID, $OrderProductID, $quantity, $i, $index, $RunnerID, $PaymentStatus,$DeliveryID,$QuotationID,
+    $OrderID, $ProductID, $OrderProductID, $quantity, $i, $index, $RunnerID, $PaymentStatus,$PaymentDate,$DeliveryID,$QuotationID,
     $orderproductid, $j, $orderid, $p, $orderproductID;
 
 
@@ -87,9 +87,12 @@ class deliveryModel{
         $DeliveryID = $this->DeliveryID;
 
         $PaymentStatus = 'Completed';
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+        $PaymentDate = date("Y-m-d H:i:s");
 
-        $sql = "UPDATE payment SET PAY_Status=:PaymentStatus WHERE Q_ID = '{$QuotationID}'";
-        $args = [':PaymentStatus'=>$PaymentStatus];
+
+        $sql = "UPDATE payment SET PAY_Status=:PaymentStatus, PAY_Date=:PaymentDate WHERE Q_ID = '{$QuotationID}'";
+        $args = [':PaymentStatus'=>$PaymentStatus, ':PaymentDate'=>$PaymentDate];
 
         // print_r($QuotationID);
         // exit();
