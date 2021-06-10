@@ -8,7 +8,7 @@
  class PaymentController
  {
 
-    //method to add payment
+    //method to pass payment data for COD payment to payment model
  	function addPaymentCOD($cid,$qid,$rpid)
  	{
  		$payment = new paymentModel();
@@ -20,7 +20,6 @@
  		$payment->Pay_Date = 0;
  		$payment->Pay_Amount = $_POST['amount'];
  		$payment->Pay_Status = "Pending";
-
 
  		$check = $payment->checkExistingPayment($rpid);
 
@@ -40,6 +39,7 @@
  		}
  	}
 
+ 	//method to pass payment data for Online payment to payment model
  	function addPaymentOnline($data)
  	{
  		parse_str($data['custom'],$id);
@@ -77,10 +77,9 @@
  			echo "<script type='text/javascript'>alert('$message')
  			window.location = '../Customer/payment.php?cid=$cid&qid=$qid&rpid=rpid</script>";
  		}
- 		
-
  	}
 
+ 	//method to view payment data from payment model
  	function viewPayment($cid, $rpid){
  		$payment = new paymentModel();
  		$payment->cid = $cid;      
@@ -88,6 +87,7 @@
  		return $payment->viewPayment();
  	}
 
+ 	//method to pass payment type to payment model to update payment type
  	function updatePaymentType($cid,$rpid,$type){
         $payment = new paymentModel();
         $payment->cid = $cid;       
@@ -95,11 +95,8 @@
         $payment->Payment_Type = $type;
 
         if($payment->updatePaymentType()){
-           
+   
         }
     }
-
-
-
  }
  ?>
