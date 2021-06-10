@@ -149,7 +149,8 @@ class deliveryModel{
 
      // update delivery status to delivered in delivery table table based delivery id
     function deliveredDelivery(){
-
+    
+    date_default_timezone_set("Asia/Kuala_Lumpur");
     $date = date("Y-m-d H:i:s");
 
     $sql = "UPDATE delivery SET D_Status = 'Delivered', D_Date = :date  WHERE D_ID = '{$this->DeliveryID}'";
