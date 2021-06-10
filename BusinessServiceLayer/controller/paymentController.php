@@ -95,8 +95,7 @@
         $payment->Payment_Type = $type;
 
         if($payment->updatePaymentType()){
-            $message = "Success Update!";
-		echo "<script type='text/javascript'>alert('$message')";
+           
         }
     }
 
