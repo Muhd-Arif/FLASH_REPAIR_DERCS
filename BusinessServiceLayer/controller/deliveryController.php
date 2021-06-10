@@ -1,4 +1,9 @@
 <?php
+/*
+ Filename: deliveryController.php
+ Purpose: Controller page for delivery and pickup
+*/
+
 require_once '../../../BusinessServiceLayer/model/deliveryModel.php';
 require_once '../../../BusinessServiceLayer/model/pickupModel.php';
 require_once '../../../BusinessServiceLayer/model/repairModel.php';
@@ -76,20 +81,20 @@ class deliveryController{
   
 
     // get all delivery details from delivery table based on delivery id
-    function getOrderID($deliveryid,$j){
+    function getOrderID($deliveryid){
         $product = new deliveryModel();
         $product->deliveryid = $deliveryid;
-        $product->j = $j;
+       // $product->j = $j;
         // print_r($deliveryid);
         // exit();
         return $product->getOrderID();
     }
 
     // get all pickup details from pickup table based on pickup id
-     function getOrderID2($pickupid,$j){
+     function getOrderID2($pickupid){
         $product = new pickupModel();
         $product->pickupid = $pickupid;
-        $product->j = $j;
+        //$product->j = $j;
         // print_r($product);
         // exit();
         return $product->getOrderID2();

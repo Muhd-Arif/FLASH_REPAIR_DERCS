@@ -1,5 +1,8 @@
 <?php
-//require_once '../../BusinessServiceLayer/controller/customerController.php';
+
+// Author : Naveenam Mayyalgan
+// This page displays the list of accepted delivery
+
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 require_once '../../../libs/runnerProfileSession.php';
 

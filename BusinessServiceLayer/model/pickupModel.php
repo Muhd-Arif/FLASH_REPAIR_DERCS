@@ -1,4 +1,8 @@
 <?php
+/*
+ Filename: pickupModel.php
+ Purpose: Entity Class for pickup
+*/
 require_once '../../../libs/database.php';
 
 class pickupModel{
@@ -33,7 +37,7 @@ class pickupModel{
         
         $sql = "SELECT * FROM pickup INNER JOIN quotation ON pickup.Q_ID = quotation.Q_ID INNER JOIN customer on pickup.C_ID = customer.C_ID WHERE pickup.P_ID = '{$PickupID}'";
 
-        // print_r($PickupID);
+        // print_r($sql);
         // exit();
 
         return DB::run($sql);

@@ -1,4 +1,9 @@
 <?php
+/*
+ Filename: deliveryModel.php
+ Purpose: Entity Class for delivery model
+*/
+
 require_once '../../../libs/database.php';
 
 class deliveryModel{
@@ -106,7 +111,7 @@ class deliveryModel{
 
 
 
-    // get all rider_order details based on Rider ID
+    // get all delivery details based on Rider ID 
     function viewAllMyDelivery(){
 
         $sql = "SELECT * FROM rider_order INNER JOIN delivery ON delivery.D_ID=rider_order.D_ID INNER JOIN quotation ON quotation.Q_ID= delivery.Q_ID INNER JOIN customer ON customer.C_ID = delivery.C_ID WHERE delivery.Service='Delivery' AND R_ID=:RunnerID";

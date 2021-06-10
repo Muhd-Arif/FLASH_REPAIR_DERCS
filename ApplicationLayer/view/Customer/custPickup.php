@@ -1,11 +1,13 @@
 <?php
+
+// Author : Naveenam Mayyalgan
+// This page displays the pickup form
+
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 require_once '../../../libs/custSession.php';
 
 
-//$RunnerID = $_SESSION['R_ID'];
-//$RunnerID = '1';
 
 $quotationid = $_GET["q_id"];
   //$quotationid = '3';

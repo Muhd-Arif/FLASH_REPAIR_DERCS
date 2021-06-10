@@ -1,4 +1,8 @@
 <?php
+
+// Author : Naveenam Mayyalgan
+// This page displays the form to update delivery status
+
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
@@ -22,14 +26,10 @@ $data = $product->viewAllMyDelivery($RunnerID);
 $deliveryid = $_POST["DeliveryID"]; 
 $QuotationID = $_POST["QuotationID"];
 $rpid = $_POST['RP_ID'];
-// print_r($deliveryid);
-// exit();
 
-// print_r($QuotationID);
-// exit();
 
 // get all delivery details from delivery table based on delivery id
-$result = $product->getOrderID($deliveryid,$j);
+$result = $product->getOrderID($deliveryid);
  
 
 
@@ -39,7 +39,7 @@ if(isset($_POST['delivered'])){
   $product->receivePayment($RunnerID);
   $paid->updateRepairPaid($rpid);
   $deliveryid = $_POST["DeliveryID"]; 
-  $result = $product->getOrderID($deliveryid,$j);
+  $result = $product->getOrderID($deliveryid);
  
 }
 

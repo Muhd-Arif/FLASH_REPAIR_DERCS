@@ -1,4 +1,8 @@
 <?php
+
+// Author : Naveenam Mayyalgan
+// This page displays the form to update pickup status
+
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 require_once '../../../libs/runnerProfileSession.php';
@@ -19,7 +23,7 @@ $data = $product->viewAllMyDelivery2($RunnerID);
 $pickupid = $_POST["PickupID"];
 
 // get all pickup details from pickup table based on pickup id
-  $result = $product->getOrderID2($pickupid,$j);
+  $result = $product->getOrderID2($pickupid);
   
  // update pickup status to complete from based pickup id
 if(isset($_POST['pickup'])){

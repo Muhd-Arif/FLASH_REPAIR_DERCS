@@ -1,4 +1,8 @@
 <?php
+
+// Author : Naveenam Mayyalgan
+// This page displays the list of accepted pickup
+
 require_once '../../../BusinessServiceLayer/controller/customerController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
 require_once '../../../libs/runnerProfileSession.php';
