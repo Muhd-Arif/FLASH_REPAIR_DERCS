@@ -1,6 +1,9 @@
 <?php
-// Author : Hoe Shin Yi
-// This page displays payment interface
+/*
+ Filename: payment.php
+ Purpose: Display Payment Interface for payment module
+ Author : Hoe Shin Yi
+*/
 require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/paymentController.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';

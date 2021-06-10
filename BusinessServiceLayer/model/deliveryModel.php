@@ -14,8 +14,6 @@ class deliveryModel{
     $OrderID, $ProductID, $OrderProductID, $quantity, $i, $index, $RunnerID, $PaymentStatus,$PaymentDate,$DeliveryID,$QuotationID,
     $orderproductid, $j, $orderid, $p, $orderproductID;
 
-
-
     
     // get all pending delivery from delivery table
     function viewAllDelivery(){

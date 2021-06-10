@@ -10,17 +10,15 @@ class paymentModel
 	//Attributes
 	 public $cid, $qid, $rpid, $Pay_Date, $Pay_Amount, $Pay_Status, $Txn_ID, $Payment_Type, $D_Status;
 
-	//check existing transaction ID to avoid duplicate
+	//check existing payment to avoid duplicate
 	function checkExistingPayment()
 	{
 		$query = "SELECT * FROM payment WHERE RP_ID = '$this->rpid'";
 		return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);;
 	}
 
-	/**
-	* method addPayment()
-	* this method add payment into database - Hoe Shin Yi
-	*/
+	
+	//this method add payment into database - Hoe Shin Yi
 	function addPayment() 
 	{
 		//Insert tansaction data into the database
@@ -40,11 +38,13 @@ class paymentModel
 		return $count;
 	}
 
+	//this method get payment details from database - Hoe Shin Yi
 	function viewPayment(){
         $query = "SELECT * FROM payment WHERE C_ID = '$this->cid' and RP_ID = '$this->rpid'";
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    //this method update payment type in database - Hoe Shin Yi
     function updatePaymentType(){
         $sql = "UPDATE delivery set Payment_Type=:Payment_Type WHERE RP_ID = '$this->rpid'";
 
