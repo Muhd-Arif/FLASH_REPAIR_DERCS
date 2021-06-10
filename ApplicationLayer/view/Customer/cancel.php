@@ -1,3 +1,10 @@
+<?php
+/*
+ Filename: cancel.php
+ Purpose: Display Cancel Payment Interface for payment module
+ Author : Hoe Shin Yi
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,9 @@
 <?php
+/*
+ Filename: success.php
+ Purpose: Display Payment Sucess Interface for payment module
+ Author : Hoe Shin Yi
+*/
 require_once '../../../BusinessServiceLayer/controller/paymentController.php';
 require_once '../../../BusinessServiceLayer/controller/repairController.php';
 require_once '../../../BusinessServiceLayer/controller/deliveryController.php';
