@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                                                                   <div class="" id="button1" style="margin-right:5px">
                                                                                       <input type="hidden" name="OrderProductID" value="<?=$row['P_ID']?>">
                                                                                       <input type="hidden" name="pickupAddress" value="<?=$row['P_Addr']?>">
-                                                                                      <button id="show" type="submit" class="btn btn-primary accept" onclick="return confirm('Are you sure you want to accept this delivery?');">ACCEPT</button>
+                                                                                      <button id="show" type="submit" class="btn btn-primary accept" onclick="return confirm('Are you sure you want to accept this pickup?');">ACCEPT</button>
                                                                                       
 
                                                                                   </div>
