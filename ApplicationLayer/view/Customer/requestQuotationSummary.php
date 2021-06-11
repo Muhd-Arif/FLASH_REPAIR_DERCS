@@ -3,10 +3,19 @@ require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
 $quotation = new quotationController();
-$c_id = $_SESSION['C_ID'];
+
+$C_ID = $_SESSION['C_ID'];
+$C_Phone = $_SESSION['C_Phone'];
+$C_Name = $_SESSION['C_Name'];
 
 if(isset($_POST['addQuotation'])){
-    $quotation->addQuotation($c_id);
+    $date = date("F j, Y");
+    $deviceType = $_POST['deviceType'];
+    $damageType = $_POST['damageType'];
+    $damageInfo = $_POST['damageInfo'];
+
+     // add customer request quotation into database - Arif
+    $quotation->addQuotation($C_ID, $date, $deviceType, $damageType, $damageInfo);
 }
 
 ?>
