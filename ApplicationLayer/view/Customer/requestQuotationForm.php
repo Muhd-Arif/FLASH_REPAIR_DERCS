@@ -1,5 +1,9 @@
 <?php
    require_once '../../../libs/custSession.php';
+
+   $C_ID = $_SESSION['C_ID'];
+   $C_Phone = $_SESSION['C_Phone'];
+   $C_Name = $_SESSION['C_Name'];
    
    ?>
 <!DOCTYPE html>
@@ -79,7 +83,7 @@
                                                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" id="name" readonly
-                                                        value="<?=$_SESSION['C_Name']?>">
+                                                        value="<?=$C_Name?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -87,7 +91,7 @@
                                                     Number</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" id="phone" readonly
-                                                        value="<?=$_SESSION['C_Phone']?>">
+                                                        value="<?=$C_Phone?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -109,7 +113,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <input type="hidden" readonly id="c_id" value="<?=$_SESSION['C_ID']?>">
+                                            <input type="hidden" readonly id="c_id" value="<?=$C_ID?>">
                                             <div class="form-group row mb-3">
                                                 <label for="damageType" class="col-sm-3 col-form-label">Damage
                                                     Type</label>

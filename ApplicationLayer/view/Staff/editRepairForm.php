@@ -8,10 +8,17 @@ require_once '../../../libs/adminSession.php';
 $rpid = $_GET['rpid'];
 
 $repair = new repairController();
-$data = $repair->viewRepair($rpid);
+$data = $repair->viewRepairDetails($rpid);
+
+function editRepairDetails(){
+    $repair2 = new repairController();
+
+    $repair2->getNewRepairDetails();
+}
+
 
 if(isset($_POST['edit'])){
-    $repair->editRepair();
+    editRepairDetails();
 }
 
 if(isset($_POST['upload-photo']) && !isset($_POST['edit'])){

@@ -27,14 +27,14 @@ $offset = ($pageno - 1) * $number_of_records;
 
 if (isset($_GET['term'])) {
     $term = $_GET['term'];
-    $data = $repair->viewRepairListPage($offset, $number_of_records, $term);
+    $data = $repair->viewMyRepairs($offset, $number_of_records, $term);
     $total = $repair->viewSearchRepairList($term)->rowCount();
     if ($total == 0){
         $errmsg = 'No results found.';
     }
 } else {
     $term = '';
-    $data = $repair->viewRepairListPage($offset, $number_of_records,'');
+    $data = $repair->viewMyRepairs($offset, $number_of_records,'');
     $total = $repair->viewRepairList()->rowCount();
     if ($total == 0){
         $errmsg = 'No results found.';

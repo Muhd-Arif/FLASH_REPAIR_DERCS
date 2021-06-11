@@ -2,10 +2,12 @@
 require_once '../../../libs/custSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
-$c_id = $_SESSION['C_ID'];
+$C_ID = $_SESSION['C_ID'];
 $quotation = new quotationController();
 
-$data = $quotation->getMyQuotation($c_id);
+
+   // get customer's request quotation - ARIF
+$data = $quotation->getMyQuotation($C_ID);
 
 ?>
 
@@ -113,26 +115,32 @@ $data = $quotation->getMyQuotation($c_id);
                                                 <?php
                 $i = 1;
                 foreach($data as $row){
+                    
+                    $Q_ID[$i] = $row['Q_ID'];
+                    $Q_DeviceType[$i] = $row['Q_DeviceType'];
+                    $Q_Status[$i] = $row['Q_Status'];
+                    $Q_Date[$i] = $row['Q_Date'];
+
                     echo '
                     <tr>
                     <th scope="row">'. $i .'</th>
-                    <td>#'.$row['Q_ID'].'</td>
-                    <td>'.$row['Q_DeviceType'].'</td>
-                    <td id="'.$row['Q_ID'].'">'.$row['Q_Status'].'</td>
-                    <td>'.$row['Q_Date'].'</td>'
+                    <td>#'.$Q_ID[$i].'</td>
+                    <td>'.$Q_DeviceType[$i].'</td>
+                    <td id="'.$Q_ID[$i].'">'.$Q_Status[$i].'</td>
+                    <td>'.$Q_Date[$i].'</td>'
                     ?>
                                                 <td>
                                                     <form method="POST">
                                                         <button type="button"
-                                                            onclick="location.href='requestQuotationDetails.php?q_id=<?=$row['Q_ID']?>'"
-                                                            name="<?=$row['Q_ID']?>" id="view"
+                                                            onclick="location.href='requestQuotationDetails.php?q_id=<?=$Q_ID[$i]?>'"
+                                                            name="<?=$Q_ID[$i]?>" id="view"
                                                             class="btn btn-primary">View</button>
                                                     </form>
                                                 </td>
 
                                                 <script type="text/javascript">
-                                                var td = document.getElementById("<?=$row['Q_ID']?>");
-                                                var btn = document.getElementById("<?=$row['Q_ID']?>");
+                                                var td = document.getElementById("<?=$Q_ID[$i]?>");
+                                                var btn = document.getElementById("<?=$Q_ID[$i]?>");
 
                                                 if (td.innerText == 'Pending') {
                                                     td.style.fontWeight = "bold"

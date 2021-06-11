@@ -20,7 +20,7 @@ require_once '../../../libs/database.php';
         }
     
         // get all customer request quotation - ARIF
-        function getAllQuotation(){
+        function getRequestQuotationList(){
             $sql = "SELECT * FROM quotation WHERE Q_Status='Pending' OR Q_Status='Pending Confirmation' ORDER BY Q_ID DESC";
             return DB::run($sql);
         }
@@ -34,7 +34,7 @@ require_once '../../../libs/database.php';
         }
     
         // get quotation details based on quotation ID - ARIF
-        function getQuotationDetails(){
+        function getRequestQuotationDetails(){
             $sql = "SELECT * FROM quotation WHERE Q_ID=:Q_ID";
             $args = [':Q_ID'=>$this->q_id];
             return DB::run($sql,$args);
@@ -59,7 +59,7 @@ require_once '../../../libs/database.php';
         }
 
         // update customer confirmation request quotation - ARIF
-        function updateConfirmation(){
+        function getRequestQuotationConfirmation(){
             $RP_Status = "Pending";
             $RP_Reason = "-";
             $RP_Image = "default.png";

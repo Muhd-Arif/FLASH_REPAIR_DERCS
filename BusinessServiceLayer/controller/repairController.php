@@ -11,7 +11,7 @@ class repairController{
 
 
     // view all repairs  (used to calculate the number of pages required) - Wei Sheng
-    function viewAllRepairs(){
+    function viewAllRepairsList(){
         $repair = new repairModel();
         if(isset($_GET['device'])){
             $repair->deviceType = $_GET['device'];
@@ -30,12 +30,12 @@ class repairController{
     }
 
     // view a specific page of repairs  - Wei Sheng
-    function viewRepairPage($offset, $number_of_records, $term){
+    function viewAllRepairs($offset, $number_of_records, $term){
         $repair = new repairModel();
         if(isset($_GET['device'])){
             $repair->deviceType = $_GET['device'];
         }
-        return $repair -> viewRPPage($offset, $number_of_records, $term);
+        return $repair -> getAllRepairs($offset, $number_of_records, $term);
     }
 
 
@@ -48,14 +48,14 @@ class repairController{
     }
 
     // edit the details of a specific repair - Wei Sheng
-    function editRepair(){
+    function getNewRepairDetails(){
         $repair = new repairModel();
         $repair->rpid = $_POST['rpid'];
         $repair->rpstatus = $_POST['rpstatus'];
         $repair->rpimage = $_POST['rpimage'];
         $repair->rpreason = $_POST['rpreason'];
         
-        if($repair->editRP()){
+        if($repair->setRepairDetails()){
             $message = "Success Update!";
 		echo "<script type='text/javascript'>alert('$message');
 		window.location = 'allRepairList.php' </script>";
@@ -92,7 +92,7 @@ class repairController{
     }
 
     // view a specific page of repairs - Wei Sheng
-    function viewRepairListPage($offset, $number_of_records, $term){
+    function viewMyRepairs($offset, $number_of_records, $term){
         $repair = new repairModel();
         $repair->custid = $_SESSION['C_ID'];
         if(isset($_GET['device'])){
@@ -100,7 +100,7 @@ class repairController{
         }else if(isset($_GET['status'])){
             $repair->repairStatus = $_GET['status'];
         }
-        return $repair -> viewRPListPage($offset, $number_of_records, $term);
+        return $repair -> getMyRepairs($offset, $number_of_records, $term);
     }
 
     // get repair details from repair table to display at repairDetails page - Wei Sheng
@@ -108,7 +108,7 @@ class repairController{
         $repair = new repairModel();
         $repair->custid = $_SESSION['C_ID'];
         $repair->rpid = $rpid;
-        return $repair->viewRepairDetails();
+        return $repair->getRepairDetails();
     }
 
     // get the details of a quotation and repair at payment details page - Hoe Shin Yi

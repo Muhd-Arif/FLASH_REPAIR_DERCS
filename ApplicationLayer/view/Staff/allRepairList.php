@@ -25,7 +25,7 @@ $offset = ($pageno - 1) * $number_of_records;
 
 if (isset($_GET['term'])) {
     $term = $_GET['term'];
-    $data = $repair->viewRepairPage($offset, $number_of_records, $term);
+    $data = $repair->viewAllRepairs($offset, $number_of_records, $term);
     $total = $repair->viewSearchAllRepairList($term)->rowCount();
 
     if ($total == 0){
@@ -33,8 +33,8 @@ if (isset($_GET['term'])) {
     }
 } else {
     $term = '';
-    $data = $repair->viewRepairPage($offset, $number_of_records, '');
-    $total = $repair->viewAllRepairs($term)->rowCount();
+    $data = $repair->viewAllRepairs($offset, $number_of_records, '');
+    $total = $repair->viewAllRepairsList($term)->rowCount();
 
 
     if ($total == 0){
@@ -321,6 +321,7 @@ $pages_needed = ceil($total / $number_of_records);
                 // }
 
                 foreach($data as $row){
+                    $rpstatus = $row['RP_Status'];
             ?>
 
 
@@ -329,12 +330,14 @@ $pages_needed = ceil($total / $number_of_records);
                                                                     <td><img class='repair-img'
                                                                             src='../../../uploads/<?=$row['RP_Image']?>'>
                                                                     </td>
-                                                                    <td><?=$row['RP_Status']?></td>
+                                                                    <td><?=$rpstatus?></td>
                                                                     <td>RM <?=$row['Q_Cost']?></td>
                                                                     <td><a class="btn btn-primary"
                                                                             href='repairDetails.php?rpid=<?=$row['RP_ID']?>'>View</a>
-                                                                        <a class="btn btn-success"
-                                                                            href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
+
+                                                                            <?php if($rpstatus != 'COD Pending' && $rpstatus != 'Paid') {?>
+                                                                                    <a class="btn btn-success" href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
+                                                                            <?php }?>
                                                                     </td>
                                                                 </tr>
 

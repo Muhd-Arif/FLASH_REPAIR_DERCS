@@ -5,22 +5,23 @@ require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 $quotation = new quotationController();
 
 // get all customer request quotation  - Arif
-$data = $quotation->getAllQuotation();
+$data = $quotation->getRequestQuotationList();
 error_reporting(0);  
 
 foreach($data as $index => $value) {
 
-    $c_id[] = $value['C_ID'];
-    $q_id[] = $value['Q_ID'];
-    $q_deviceType[] = $value['Q_DeviceType'];
-    $q_date[] = $value['Q_Date'];
-    $q_status[] = $value['Q_Status'];
+    $C_ID[] = $value['C_ID'];
+    $Q_ID[] = $value['Q_ID'];
+    $Q_DeviceType[] = $value['Q_DeviceType'];
+    $Q_Date[] = $value['Q_Date'];
+    $Q_Status[] = $value['Q_Status'];
 
-    $result = $quotation->getCustomerInfo($c_id,$index);
+    // get customer info  based on quotation ID - ARIF
+    $result = $quotation->getCustomerInfo($C_ID,$index);
     $id = $result->fetch();
-    $c_name[] = $id[1];
-    $c_email[] = $id[2];
-    $c_phone[] = $id[4];
+    $C_Name[] = $id[1];
+    $C_Email[] = $id[2];
+    $C_Phone[] = $id[4];
 
     $k = $index;
 
@@ -120,22 +121,23 @@ foreach($data as $index => $value) {
                                             <?php
                 $i = 0;
                 for($x = 0; $x <= $k; $x++){
+                   
                     echo '
                         <tr>
                             <th scope="row">'. ($i + 1) .'</th>
-                            <td>'.$c_name[$x].'</td>
-                            <td>#'.$q_id[$x].'</td>
-                            <td>'.$q_deviceType[$x].'</td>
-                            <td>'.$q_date[$x].'</td>
-                            <td>'.$q_status[$x].'</td>'
+                            <td>'.$C_Name[$x].'</td>
+                            <td>#'.$Q_ID[$x].'</td>
+                            <td>'.$Q_DeviceType[$x].'</td>
+                            <td>'.$Q_Date[$x].'</td>
+                            <td>'.$Q_Status[$x].'</td>'
                             ?>
 
                                             <td>
                                                 <form method="POST">
-                                                    <?php if( $q_status[$x] == "Pending" || $q_status[$x] == "Pending Confirmation") { ?>
+                                                    <?php if( $Q_Status[$x] == "Pending" || $Q_Status[$x] == "Pending Confirmation") { ?>
                                                     <button type="button"
-                                                        onclick="location.href='quotationDetails.php?q_id=<?=$q_id[$x]?>'"
-                                                        name="<?=$q_id[$x]?>" id="view"
+                                                        onclick="location.href='quotationDetails.php?q_id=<?=$Q_ID[$x]?>'"
+                                                        name="<?=$Q_ID[$x]?>" id="view"
                                                         class="btn btn-primary">View</button>
                                                     <?php } ?>
                                                 </form>
