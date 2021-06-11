@@ -45,7 +45,7 @@ $data = $customer->edit();
 
                             
                             <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
-                                srcset="" onerror="this.src='../../../uploads/default.png';">
+                                srcset="" onerror="src='../../../uploads/default.png';">
 								
                         </div>
                         <div class="border w-100">
