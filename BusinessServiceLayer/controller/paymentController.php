@@ -82,12 +82,12 @@
  	}
 
  	//method to view payment data from payment model  - Hoe Shin Yi
- 	function viewPayment($cid, $rpid){
+ 	function getPayment($cid, $rpid){
  		$payment = new paymentModel();
  		// set the attributes of payment object
  		$payment->cid = $cid;      
  		$payment->rpid = $rpid;
- 		return $payment->viewPayment();
+ 		return $payment->getPayment();
  	}
 
  	//method to pass payment type to payment model to update payment type  - Hoe Shin Yi

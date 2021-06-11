@@ -27,7 +27,7 @@ $payment = new paymentController();
 
 $qrpData = $repair->viewQuotationRepair($rpid);
 $deliveryData = $delivery->viewDelivery($rpid);
-$paymentData = $payment->viewPayment($cid,$rpid);
+$paymentData = $payment->getPayment($cid,$rpid);
 
 if($pt=="Online"){
 	$payment->addPaymentOnline($_GET);

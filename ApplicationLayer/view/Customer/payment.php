@@ -24,7 +24,7 @@ $payment = new paymentController();
 
 $qrpData = $repair->viewQuotationRepair($rpid);
 $deliverydata = $delivery->viewDelivery($rpid);
-$paymentdata = $payment->viewPayment($cid,$rpid);
+$paymentdata = $payment->getPayment($cid,$rpid);
 
 if(isset($_POST['paycod'])){
     $payment->updatePaymentType($cid,$rpid,"COD");

@@ -39,7 +39,7 @@ class paymentModel
 	}
 
 	//this method get payment details from database - Hoe Shin Yi
-	function viewPayment(){
+	function getPayment(){
         $query = "SELECT * FROM payment WHERE C_ID = '$this->cid' and RP_ID = '$this->rpid'";
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
     }
