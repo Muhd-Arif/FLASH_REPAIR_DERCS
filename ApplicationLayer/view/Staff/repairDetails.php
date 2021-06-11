@@ -61,6 +61,7 @@ $data = $repair->viewRepairDetails($rpid);
     <!-- STAFF REPAIR DETAILS -->
     <?php
             foreach($data as $row){
+                $rpstatus = $row['RP_Status'];
         ?>
     <div class="container">
         <h2>Repair Details</h2>
@@ -83,7 +84,7 @@ $data = $repair->viewRepairDetails($rpid);
                         </tr>
                         <tr>
                             <th scope="row">Repair Status:</th>
-                            <td><?=$row['RP_Status']?></td>
+                            <td><?=$rpstatus?></td>
                         </tr>
                         <tr>
                             <th scope="row">Repair Reason:</th>
@@ -105,8 +106,9 @@ $data = $repair->viewRepairDetails($rpid);
                     </tbody>
                 </table>
                 <div>
-                    <a class="btn btn-primary" href='editRepairForm.php?rpid=<?= $rpid?>'>Edit</a>
-
+                    <?php if($rpstatus != 'COD Pending' && $rpstatus != 'Paid') {?>
+                        <a class="btn btn-primary" href='editRepairForm.php?rpid=<?= $rpid?>'>Edit</a>
+                <?php }?>
                 </div>
 
             </div>

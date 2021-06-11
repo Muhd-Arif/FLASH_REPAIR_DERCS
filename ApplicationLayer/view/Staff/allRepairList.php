@@ -321,6 +321,7 @@ $pages_needed = ceil($total / $number_of_records);
                 // }
 
                 foreach($data as $row){
+                    $rpstatus = $row['RP_Status'];
             ?>
 
 
@@ -329,12 +330,14 @@ $pages_needed = ceil($total / $number_of_records);
                                                                     <td><img class='repair-img'
                                                                             src='../../../uploads/<?=$row['RP_Image']?>'>
                                                                     </td>
-                                                                    <td><?=$row['RP_Status']?></td>
+                                                                    <td><?=$rpstatus?></td>
                                                                     <td>RM <?=$row['Q_Cost']?></td>
                                                                     <td><a class="btn btn-primary"
                                                                             href='repairDetails.php?rpid=<?=$row['RP_ID']?>'>View</a>
-                                                                        <a class="btn btn-success"
-                                                                            href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
+
+                                                                            <?php if($rpstatus != 'COD Pending' && $rpstatus != 'Paid') {?>
+                                                                                    <a class="btn btn-success" href='editRepairForm.php?rpid=<?= $row['RP_ID']?>'>Edit</a>
+                                                                            <?php }?>
                                                                     </td>
                                                                 </tr>
 
