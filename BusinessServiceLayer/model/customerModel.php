@@ -19,7 +19,7 @@ class customerModel {
       }
     }
 	
-	   // save data to database -ADLI
+	   // save data to database 
     function registerCust(){
       if(in_array($this->imageFileType, $this->extensions_arr)){
       $sql = "insert into customer(C_Name, C_Email,C_Phone,C_image,C_Password)
@@ -28,7 +28,7 @@ class customerModel {
     
       $args = [':C_Name'=>$this->C_Name, ':C_Email'=>$this->C_Email, ':C_Phone'=>$this->C_Phone, ':C_image'=>$this->C_image, ':C_Password'=>$this->C_Password];
     
-      //Upload FIle -ADLI
+      //Upload FIle 
             move_uploaded_file($_FILES['photoFile']['tmp_name'], $this->target_dir.$this->C_image);
     
         $stmt = DB::run($sql, $args);

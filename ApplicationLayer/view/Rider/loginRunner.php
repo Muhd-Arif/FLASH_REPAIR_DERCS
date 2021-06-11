@@ -13,7 +13,7 @@ if(isset($_POST['login-submit']))
 <html>
 
 <head>
-    <title> Log-in Runner</title>
+    <title> Log-in Rider</title>
     <link rel="stylesheet" href="../../../assets/css/style.css">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@ if(isset($_POST['login-submit']))
     <form action="#" method="POST" onsubmit="ValidateEmail">
         <div class="loginbox">
             <img class="img" src="../../../uploads/avatar.svg">
-            <h2>LOGIN RUNNER</h2>
+            <h2>LOGIN RIDER</h2>
 
             <div class="containar">
                 <div class="fillbox">
