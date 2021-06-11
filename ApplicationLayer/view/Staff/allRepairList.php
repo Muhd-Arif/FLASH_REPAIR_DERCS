@@ -25,7 +25,7 @@ $offset = ($pageno - 1) * $number_of_records;
 
 if (isset($_GET['term'])) {
     $term = $_GET['term'];
-    $data = $repair->viewRepairPage($offset, $number_of_records, $term);
+    $data = $repair->viewAllRepairs($offset, $number_of_records, $term);
     $total = $repair->viewSearchAllRepairList($term)->rowCount();
 
     if ($total == 0){
@@ -33,8 +33,8 @@ if (isset($_GET['term'])) {
     }
 } else {
     $term = '';
-    $data = $repair->viewRepairPage($offset, $number_of_records, '');
-    $total = $repair->viewAllRepairs($term)->rowCount();
+    $data = $repair->viewAllRepairs($offset, $number_of_records, '');
+    $total = $repair->viewAllRepairsList($term)->rowCount();
 
 
     if ($total == 0){

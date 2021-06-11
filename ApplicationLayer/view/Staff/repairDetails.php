@@ -9,7 +9,7 @@ require_once '../../../libs/adminSession.php';
 $rpid = $_GET['rpid'];
 
 $repair = new repairController();
-$data = $repair->viewRepair($rpid);
+$data = $repair->viewRepairDetails($rpid);
 ?>
 <html>
 

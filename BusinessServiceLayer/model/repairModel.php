@@ -32,7 +32,7 @@ class repairModel{
     }
 
     // retrieve a specific number of repairs from the repair table according to the page number - Wei Sheng
-    function viewRPPage($offset, $number_of_records, $term){
+    function getAllRepairs($offset, $number_of_records, $term){
         if(isset($this->deviceType)){
             $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and q.Q_DeviceType='$this->deviceType' and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records ;
         }else{
@@ -50,7 +50,7 @@ class repairModel{
     }
 
     // update the details of a specific repair in the repair table - Wei Sheng
-    function editRP(){
+    function setRepairDetails(){
         $sql = "update repair set RP_Status=:rpstatus, RP_Image=:rpimage, RP_Reason=:rpreason where RP_ID=:rpid";
         $args = [':rpstatus'=>$this->rpstatus, ':rpimage'=>$this->rpimage, ':rpreason'=>$this->rpreason, ':rpid'=>$this->rpid];
         return DB::run($sql,$args);
@@ -87,7 +87,7 @@ class repairModel{
     }
 
     // retrieve a specific number of repairs from the repair table according to the page number - Wei Sheng
-    function viewRPListPage($offset, $number_of_records, $term){
+    function getMyRepairs($offset, $number_of_records, $term){
         if(isset($this->deviceType)){
             $sql = "select * from repair as r, quotation as q where r.Q_ID = q.Q_ID and q.C_ID = '$this->custid' and q.Q_DeviceType='$this->deviceType' and r.RP_ID like '%$term%' limit ". $offset. ", ". $number_of_records;
         }else if(isset($this->repairStatus)){
@@ -100,7 +100,7 @@ class repairModel{
     }
 
     // get selected repair details to display at repairDetails page - Wei Sheng
-    function viewRepairDetails(){
+    function getRepairDetails(){
         $sql = "select * from repair as r, quotation as q where r.RP_ID=:rpid and r.Q_ID = q.Q_ID";
         $args = [':rpid'=>$this->rpid];
         return DB::run($sql,$args);
