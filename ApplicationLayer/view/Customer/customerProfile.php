@@ -45,7 +45,7 @@ $data = $customer->my();
                         <div class="profile-img border w-100">
                             
                             <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
-                                srcset="" onerror="this.src='../../../uploads/default.png';">
+                                srcset="" onerror="src='../../../uploads/default.png';">
                         </div>
                         <div class="border w-100">
                             <h5 class=" mt-2">Hello, <?php echo $data["sub_name"]  ?></h5>
