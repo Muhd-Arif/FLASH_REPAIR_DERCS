@@ -15,8 +15,7 @@ class customerProfileController extends Controller
       'email' => $customer->C_Email,
       'phone_number' => $customer->C_Phone,
       'password' => $customer->C_Password,
-
-     
+      'image' => $customer->C_image
     ];
     return $data;
   }
