@@ -8,11 +8,12 @@
  class PaymentController
  {
 
-    //method to pass payment data for COD payment to payment model
+    //method to pass payment data for COD payment to payment model - Hoe Shin Yi
  	function addPaymentCOD($cid,$qid,$rpid)
  	{
  		$payment = new paymentModel();
 
+ 		// set the attributes of payment object
  		$payment->cid = $cid;
  		$payment->qid = $qid;
  		$payment->rpid = $rpid;
@@ -39,13 +40,14 @@
  		}
  	}
 
- 	//method to pass payment data for Online payment to payment model
+ 	//method to pass payment data for Online payment to payment model  - Hoe Shin Yi
  	function addPaymentOnline($data)
  	{
  		parse_str($data['custom'],$id);
 
  		$payment = new paymentModel();
 
+ 		// set the attributes of payment object
  		$cid = $id['cid'];
  		$qid = $id['qid'];
  		$rpid = $id['rpid'];
@@ -79,17 +81,19 @@
  		}
  	}
 
- 	//method to view payment data from payment model
+ 	//method to view payment data from payment model  - Hoe Shin Yi
  	function viewPayment($cid, $rpid){
  		$payment = new paymentModel();
+ 		// set the attributes of payment object
  		$payment->cid = $cid;      
  		$payment->rpid = $rpid;
  		return $payment->viewPayment();
  	}
 
- 	//method to pass payment type to payment model to update payment type
+ 	//method to pass payment type to payment model to update payment type  - Hoe Shin Yi
  	function updatePaymentType($cid,$rpid,$type){
         $payment = new paymentModel();
+        // set the attributes of payment object
         $payment->cid = $cid;       
  		$payment->rpid = $rpid;
         $payment->Payment_Type = $type;

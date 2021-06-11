@@ -40,8 +40,7 @@ class deliveryModel{
 		return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-    //Hoe Shin Yi
-    //method to add delivery
+    //to get data from controller to add delivery in database - Hoe Shin Yi
 	function addDelivery(){
 		$query = "INSERT into delivery(C_ID, Q_ID, RP_ID, D_Status, D_Address, D_Note, Service) values(:C_ID, :Q_ID, :RP_ID, :D_Status, :D_Address, :D_Note, :Service)";
 
@@ -53,7 +52,7 @@ class deliveryModel{
 		return $count;
 	}
 
-    //Hoe Shin Yi
+    //to get delivery data from database and send to delivery controller - Hoe Shin Yi
 	function viewDelivery(){
         $query = "SELECT * FROM delivery WHERE RP_ID = '$this->rpid'";
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);

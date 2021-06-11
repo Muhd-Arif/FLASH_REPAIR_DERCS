@@ -111,7 +111,7 @@ class repairController{
         return $repair->viewRepairDetails();
     }
 
-    // view the details of a quotation and repair - Hoe Shin Yi
+    // get the details of a quotation and repair at payment details page - Hoe Shin Yi
     function viewQuotationRepair($rpid){
         $repair = new repairModel();
        
@@ -119,6 +119,7 @@ class repairController{
         return $repair->viewQRP();
     }
 
+    // update repair status as paid at payment success page - Hoe Shin Yi
     function updateRepairPaid($rpid){
         $repair = new repairModel();
         $repair->rpid = $rpid;
@@ -130,6 +131,7 @@ class repairController{
         }
     }
 
+    // update repair status as COD pending at payment  page - Hoe Shin Yi
     function updateRepairCOD($rpid){
         $repair = new repairModel();
         $repair->rpid = $rpid;

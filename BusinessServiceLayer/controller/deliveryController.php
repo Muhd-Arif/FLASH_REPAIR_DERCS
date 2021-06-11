@@ -39,7 +39,7 @@ class deliveryController{
             return $product->viewItemList();
         }
 
-    //Hoe Shin Yi
+    // To display delivery data received from delivery model - Hoe Shin Yi
     function viewDelivery($rpid){
         $delivery = new deliveryModel();
         $delivery->rpid = $rpid;
@@ -53,7 +53,7 @@ class deliveryController{
         $delivery = new deliveryModel();
 
         
-        // set the attributes of payment object
+        // set the attributes of delivery object
         $delivery->cid = $cid;
         $delivery->qid = $qid;
         $delivery->rpid = $rpid;
