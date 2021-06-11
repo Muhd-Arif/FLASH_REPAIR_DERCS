@@ -17,7 +17,7 @@ error_reporting(0);
 
 
 // Get all delivery from delivery table
-$data = $product->viewAllDelivery();
+$data = $product->getAllDeliveryList();
 
   
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){

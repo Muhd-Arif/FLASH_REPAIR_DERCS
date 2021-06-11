@@ -21,7 +21,7 @@ error_reporting(0);
 
 
  // get all rider_order details based on Rider ID
-$data = $product->viewAllMyDelivery($RunnerID);
+$data = $product->getDeliveryList($RunnerID);
 
 $deliveryid = $_POST["DeliveryID"]; 
 $QuotationID = $_POST["QuotationID"];
@@ -29,17 +29,17 @@ $rpid = $_POST['RP_ID'];
 
 
 // get all delivery details from delivery table based on delivery id
-$result = $product->getOrderID($deliveryid);
+$result = $product->getDeliveryDetails($deliveryid);
  
 
 
 if(isset($_POST['delivered'])){
-    $product->deliveredDelivery();
+    $product->updateDeliveryStatus();
 } else if(isset($_POST['receive'])){
   $product->receivePayment($RunnerID);
   $paid->updateRepairPaid($rpid);
   $deliveryid = $_POST["DeliveryID"]; 
-  $result = $product->getOrderID($deliveryid);
+  $result = $product->getDeliveryDetails($deliveryid);
  
 }
 

@@ -31,7 +31,7 @@ class pickupModel{
 
 
     // get all pickup details from pickup table based on pickup id
-    function getOrderID2(){
+    function getPickupDetails(){
         $PickupID = $this->pickupid;
 
         
@@ -58,7 +58,7 @@ class pickupModel{
 
     
     // get all rider_order details based on rider id and pickup service = pickup
-    function viewAllMyDelivery(){
+    function getPickupList(){
 
         $sql = "SELECT * FROM rider_order INNER JOIN pickup ON pickup.P_ID=rider_order.P_ID INNER JOIN quotation ON quotation.Q_ID= pickup.Q_ID INNER JOIN customer ON customer.C_ID = pickup.C_ID WHERE pickup.Service='Pickup' AND R_ID=:RunnerID";
       
@@ -73,7 +73,7 @@ class pickupModel{
 
 
     // update pickup status to complete from based pickup id
-    function pickedup(){
+    function updatePickupStatus(){
 
     $sql = "UPDATE pickup SET P_Status = 'Complete' WHERE P_ID = '{$this->PickupID}'";
     $args = [':PickupID'=>$this->PickupID];

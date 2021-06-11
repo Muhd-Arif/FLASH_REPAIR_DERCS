@@ -18,7 +18,7 @@ error_reporting(0);
 
 
 // Get all pickup from rider_order table based on rider id
-$data = $product->viewAllMyDelivery2($RunnerID);
+$data = $product->getPickupList($RunnerID);
 
 
 ?>

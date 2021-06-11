@@ -13,9 +13,9 @@ class deliveryController{
 
 
     // get all pending delivery from delivery table to display at rider deliveryList page
-    function viewAllDelivery(){
+    function getAllDeliveryList(){
         $product = new deliveryModel();
-        return $product->viewAllDelivery();
+        return $product->getAllDeliveryList();
     }
 
      // get all pending pickup from pickup table to display at rider pickupList page
@@ -81,23 +81,23 @@ class deliveryController{
   
 
     // get all delivery details from delivery table based on delivery id
-    function getOrderID($deliveryid){
+    function getDeliveryDetails($deliveryid){
         $product = new deliveryModel();
         $product->deliveryid = $deliveryid;
        // $product->j = $j;
         // print_r($deliveryid);
         // exit();
-        return $product->getOrderID();
+        return $product->getDeliveryDetails();
     }
 
     // get all pickup details from pickup table based on pickup id
-     function getOrderID2($pickupid){
+     function getPickupDetails($pickupid){
         $product = new pickupModel();
         $product->pickupid = $pickupid;
         //$product->j = $j;
         // print_r($product);
         // exit();
-        return $product->getOrderID2();
+        return $product->getPickupDetails();
     }
 
    
@@ -153,17 +153,17 @@ class deliveryController{
 
 
     // get all rider delivery based on Rider id
-    function viewAllMyDelivery($RunnerID){
+    function getDeliveryList($RunnerID){
         $product = new deliveryModel();
         $product->RunnerID = $RunnerID;
-        return $product->viewAllMyDelivery();
+        return $product->getDeliveryList();
     }
 
   // get all rider pickup based on Rider id
-    function viewAllMyDelivery2($RunnerID){
+    function getPickupList($RunnerID){
         $product = new pickupModel();
         $product->RunnerID = $RunnerID;
-        return $product->viewAllMyDelivery();
+        return $product->getPickupList();
     }
 
       // get all delivery details from delivery table based on delivery id and delivery status not delivered
@@ -194,10 +194,10 @@ class deliveryController{
    
 
     // update delivery status to delivered 
-    function deliveredDelivery(){
+    function updateDeliveryStatus(){
             $product = new deliveryModel();
             $product->DeliveryID = $_POST['DeliveryID'];
-            if($product->deliveredDelivery()){
+            if($product->updateDeliveryStatus()){
               $message = "Success Delivered Item!";
                 echo "<script type='text/javascript'>
                 alert('$message');
@@ -207,10 +207,10 @@ class deliveryController{
         }
 
      // update pickup status to complete from based pickup id
-     function pickedup(){
+     function updatePickupStatus(){
             $product = new pickupModel();
             $product->PickupID = $_POST['PickupID'];
-            if($product->pickedup()){
+            if($product->updatePickupStatus()){
               $message = "Success Pickup Item!";
                 echo "<script type='text/javascript'>
                 alert('$message');

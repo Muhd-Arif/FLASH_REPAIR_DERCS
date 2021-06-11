@@ -1,7 +1,7 @@
 <?php
 /*
  Filename: deliveryModel.php
- Purpose: Entity Class for delivery model
+ Purpose: Entity Class for delivery
 */
 
 require_once '../../../libs/database.php';
@@ -14,9 +14,11 @@ class deliveryModel{
     $OrderID, $ProductID, $OrderProductID, $quantity, $i, $index, $RunnerID, $PaymentStatus,$PaymentDate,$DeliveryID,$QuotationID,
     $orderproductid, $j, $orderid, $p, $orderproductID;
 
+
+
     
     // get all pending delivery from delivery table
-    function viewAllDelivery(){
+    function getAllDeliveryList(){
         $sql = "SELECT * FROM delivery INNER JOIN quotation ON delivery.Q_ID = quotation.Q_ID INNER JOIN customer ON delivery.C_ID = customer.C_ID WHERE D_Status = 'Pending'";
        
         return DB::run($sql);
@@ -40,7 +42,8 @@ class deliveryModel{
 		return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-    //to get data from controller to add delivery in database - Hoe Shin Yi
+    //Hoe Shin Yi
+    //method to add delivery
 	function addDelivery(){
 		$query = "INSERT into delivery(C_ID, Q_ID, RP_ID, D_Status, D_Address, D_Note, Service) values(:C_ID, :Q_ID, :RP_ID, :D_Status, :D_Address, :D_Note, :Service)";
 
@@ -52,7 +55,7 @@ class deliveryModel{
 		return $count;
 	}
 
-    //to get delivery data from database and send to delivery controller - Hoe Shin Yi
+    //Hoe Shin Yi
 	function viewDelivery(){
         $query = "SELECT * FROM delivery WHERE RP_ID = '$this->rpid'";
         return DB::Run($query)->fetchAll(PDO::FETCH_ASSOC);
@@ -60,7 +63,7 @@ class deliveryModel{
 
    
     // get all delivery details from delivery table based on delivery id
-    function getOrderID(){
+    function getDeliveryDetails(){
         $DeliveryID = $this->deliveryid;
 
         $sql = "SELECT * FROM delivery INNER JOIN quotation ON delivery.Q_ID = quotation.Q_ID INNER JOIN payment ON payment.Q_ID=delivery.Q_ID INNER JOIN customer on delivery.C_ID = customer.C_ID WHERE delivery.D_ID = '{$DeliveryID}'";
@@ -109,7 +112,7 @@ class deliveryModel{
 
 
     // get all delivery details based on Rider ID 
-    function viewAllMyDelivery(){
+    function getDeliveryList(){
 
         $sql = "SELECT * FROM rider_order INNER JOIN delivery ON delivery.D_ID=rider_order.D_ID INNER JOIN quotation ON quotation.Q_ID= delivery.Q_ID INNER JOIN customer ON customer.C_ID = delivery.C_ID WHERE delivery.Service='Delivery' AND R_ID=:RunnerID";
         $args = [':RunnerID'=>$this->RunnerID];
@@ -150,7 +153,7 @@ class deliveryModel{
 
 
      // update delivery status to delivered in delivery table table based delivery id
-    function deliveredDelivery(){
+    function updateDeliveryStatus(){
     
     date_default_timezone_set("Asia/Kuala_Lumpur");
     $date = date("Y-m-d H:i:s");

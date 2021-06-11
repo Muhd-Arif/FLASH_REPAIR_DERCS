@@ -15,7 +15,7 @@ $product = new deliveryController();
 
 
 // Get all delivery from rider_order table based on rider id
-$data = $product->viewAllMyDelivery($RunnerID);
+$data = $product->getDeliveryList($RunnerID);
 
 
 

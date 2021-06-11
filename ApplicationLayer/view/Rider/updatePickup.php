@@ -18,16 +18,16 @@ error_reporting(0);
 
 
  // get all rider pickup based on Rider id
-$data = $product->viewAllMyDelivery2($RunnerID);
+$data = $product->getPickupList($RunnerID);
 
 $pickupid = $_POST["PickupID"];
 
 // get all pickup details from pickup table based on pickup id
-  $result = $product->getOrderID2($pickupid);
+  $result = $product->getPickupDetails($pickupid);
   
  // update pickup status to complete from based pickup id
 if(isset($_POST['pickup'])){
-    $product->pickedup();
+    $product->updatePickupStatus();
 } 
 
 
