@@ -4,13 +4,13 @@ require_once '../../../BusinessServiceLayer/model/quotationModel.php';
 class quotationController {
 
     // add customer request quotation into database - Arif
-    function addQuotation($c_id){
+    function addQuotation($C_ID, $date, $deviceType, $damageType, $damageInfo){
         $quotation = new quotationModel();
-        $quotation->c_id = $c_id;
-        $quotation->q_deviceType = $_POST['deviceType'];
-        $quotation->q_damageType = $_POST['damageType'];
-        $quotation->q_damageInfo = $_POST['damageInfo'];
-        $quotation->q_date = date("F j, Y");
+        $quotation->c_id = $C_ID;
+        $quotation->q_deviceType = $deviceType;
+        $quotation->q_damageType = $damageType;
+        $quotation->q_damageInfo = $damageInfo;
+        $quotation->q_date = $date;
         $quotation->q_status = "Pending";
 
         if($quotation->addQuotation() > 0){
@@ -32,9 +32,9 @@ class quotationController {
     }
 
     // get all customer request quotation - ARIF
-    function getAllQuotation(){
+    function getRequestQuotationList(){
         $quotation = new quotationModel();
-        return $quotation->getAllQuotation();
+        return $quotation->getRequestQuotationList();
     }
 
     // get customer's request quotation - ARIF
@@ -46,13 +46,14 @@ class quotationController {
     }
 
     // get quotation details based on quotation ID - ARIF
-    function getQuotationDetails($q_id){
+    function getRequestQuotationDetails($q_id){
         $quotation = new quotationModel();
         $quotation->q_id = $q_id;
-        return $quotation->getQuotationDetails();
+        return $quotation->getRequestQuotationDetails();
 
     }
 
+    // get customer info  based on quotation ID - ARIF
     function getCustomerInfo($c_id, $index){
         $quotation = new quotationModel();
         $quotation->c_id = $c_id;
@@ -60,6 +61,7 @@ class quotationController {
         return $quotation->getCustomerInfo();
     }
 
+    // update customer quotation with repair solution and cost - ARIF
     function updateQuotation($q_id, $s_id){
         $quotation = new quotationModel();
         $quotation->q_id = $q_id;
@@ -75,11 +77,12 @@ class quotationController {
         }
     }
 
-    function updateConfirmation($q_id, $q_status, $delivery){
+    // update customer quotation confirmation - ARIF
+    function getRequestQuotationConfirmation($q_id, $q_status, $delivery){
         $quotation = new quotationModel();
         $quotation->q_id = $q_id;
         $quotation->q_status = $q_status;
-        if($quotation->updateConfirmation()){
+        if($quotation->getRequestQuotationConfirmation()){
             if($q_status == "Accepted"){
                 $message = "Success Accept The Quotation!";
             } else {

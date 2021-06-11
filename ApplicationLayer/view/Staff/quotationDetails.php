@@ -2,34 +2,38 @@
 require_once '../../../libs/adminSession.php';
 require_once '../../../BusinessServiceLayer/controller/quotationController.php';
 
-$q_id = $_GET['q_id'];
+$Q_ID = $_GET['q_id'];
 $s_id = $_SESSION['S_ID'];
 
 $quotation = new quotationController();
-$data = $quotation->getQuotationDetails($q_id);
+
+// get quotation details based on quotation ID - ARIF
+$data = $quotation->getRequestQuotationDetails($Q_ID);
 
 foreach($data as $index => $value) {
 
-    $c_id[] = $value['C_ID'];
-    $q_deviceType[] = $value['Q_DeviceType'];
-    $q_damageType[] = $value['Q_DamageType'];
-    $q_damageInfo[] = $value['Q_DamageInfo'];
-    $q_solution[] = $value['Q_Solution'];
-    $q_cost[] = $value['Q_Cost'];
-    $q_date[] = $value['Q_Date'];
-    $q_status[] = $value['Q_Status'];
+    $C_ID[] = $value['C_ID'];
+    $Q_DeviceType[] = $value['Q_DeviceType'];
+    $Q_DamageType[] = $value['Q_DamageType'];
+    $Q_DamageInfo[] = $value['Q_DamageInfo'];
+    $Q_Solution[] = $value['Q_Solution'];
+    $Q_Cost[] = $value['Q_Cost'];
+    $Q_Date[] = $value['Q_Date'];
+    $Q_Status[] = $value['Q_Status'];
 
-    $result = $quotation->getCustomerInfo($c_id,$index);
+    // get customer info  based on quotation ID - ARIF
+    $result = $quotation->getCustomerInfo($C_ID,$index);
     $id = $result->fetch();
-    $c_name[] = $id[1];
-    $c_email[] = $id[2];
-    $c_phone[] = $id[4];
+    $C_Name[] = $id[1];
+    $C_Email[] = $id[2];
+    $C_Phone[] = $id[4];
 
     $k = $index;
 }
 
 if(isset($_POST['add'])){
-    $quotation->updateQuotation($q_id, $s_id);
+        // update customer quotation with repair solution and cost - ARIF
+    $quotation->updateQuotation($Q_ID, $s_id);
 }
 
 ?>
@@ -101,20 +105,27 @@ if(isset($_POST['add'])){
                                     <!-- TEMPLATE 1 STOP -->
                                     <div class="card-header">
                                         <center>
-                                            <h2>Quotation #<?=$q_id?></h2>
+                                            <h2>Quotation #<?=$Q_ID?></h2>
                                         </center>
                                         <form method="POST">
                                             <?php
             $i = 1;
             for($x = 0; $x <= $k; $x++) { 
-                
+                $C_Name = $C_Name[$k];
+                $C_Phone = $C_Phone[$k];
+                $Q_Date = $Q_Date[$k];
+                $Q_DeviceType = $Q_DeviceType[$k];
+                $Q_Status = $Q_Status[$k];
+                $Q_DamageType = $Q_DamageType[$x];
+                $Q_DamageInfo = $Q_DamageInfo[$x];
+                $Q_Solution = $Q_Solution[$x];
+                $Q_Cost = $Q_Cost[$x];
             ?>
                                             <div class="form-group row mb-3 mt-5">
                                                 <label for="inputEmail" class="col-sm-5 col-form-label">Name</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" readonly class="form-control-plaintext"
-                                                        id="inputEmail" placeholder="<?=$c_name[$k]?>"
-                                                        value="<?=$c_name[$k]?>">
+                                                        id="inputEmail" value="<?=$C_Name?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -122,16 +133,14 @@ if(isset($_POST['add'])){
                                                     Number</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" readonly class="form-control-plaintext"
-                                                        id="inputPassword" placeholder="<?=$c_phone[$k]?>"
-                                                        value="<?=$c_phone[$k]?>">
+                                                        id="inputPassword" value="<?=$C_Phone?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <label for="inputDate" class="col-sm-5 col-form-label">Date</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" readonly class="form-control-plaintext"
-                                                        id="inputDate" placeholder="<?=$q_date[$k]?>"
-                                                        value="<?=$q_date[$k]?>">
+                                                        id="inputDate" value="<?=$Q_Date?>">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
@@ -139,8 +148,7 @@ if(isset($_POST['add'])){
                                                     Type</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" readonly class="form-control-plaintext"
-                                                        id="deviceType" placeholder="<?=$q_deviceType[$k]?>"
-                                                        value="<?=$q_deviceType[$k]?>">
+                                                        id="deviceType" value="<?=$Q_DeviceType?>">
                                                 </div>
                                             </div>
 
@@ -149,8 +157,7 @@ if(isset($_POST['add'])){
                                                 <label for="status" class="col-sm-5 col-form-label">Status</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" readonly class="form-control-plaintext"
-                                                        id="status" placeholder="<?=$q_status[$k]?>"
-                                                        value="<?=$q_status[$k]?>">
+                                                        id="status" value="<?=$Q_Status?>">
                                                 </div>
                                             </div>
 
@@ -176,12 +183,12 @@ if(isset($_POST['add'])){
                                                     <?php
                     echo '
                         <tr>
-                            <td>'.$q_damageType[$x].'</td>
-                            <td>'.$q_damageInfo[$x].'</td>
+                            <td>'.$Q_DamageType.'</td>
+                            <td>'.$Q_DamageInfo.'</td>
                             <td><input type="text" name="solution" class="form-control" id="repairSolution" 
-                            placeholder="Repair Solution" value="'.$q_solution[$x].'"></td>
+                            placeholder="Repair Solution" value="'.$Q_Solution.'"></td>
                             <td><input type="text" name="cost" class="form-control" id="repairPrice" 
-                            placeholder="Price" value="'.$q_cost[$x].'"></td>
+                            placeholder="Price" value="'.$Q_Cost.'"></td>
                         </tr>
                     ';
                     $i++;
@@ -192,7 +199,7 @@ if(isset($_POST['add'])){
                                                 </tbody>
                                             </table>
                                             <div class="col-md-12 text-center mt-5 mb-5">
-                                                <?php if( $q_status[$k] == "Pending") { ?>
+                                                <?php if( $Q_Status == "Pending") { ?>
                                                 <button type="submit" name="add" class="btn btn-primary">Generate
                                                     Quotation</button>
                                                 <?php } ?>
