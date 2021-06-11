@@ -43,14 +43,14 @@ $data = $customer->my();
                 <div id="customer-profile">
                     <div id="customer-nav" class="text-center">
                         <div class="profile-img border w-100">
-                            <img class="profile-img-backdrop" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
-                                srcset="">
+                            
                             <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
                                 srcset="" onerror="this.src='../../../uploads/default.png';">
                         </div>
                         <div class="border w-100">
                             <h5 class=" mt-2">Hello, <?php echo $data["sub_name"]  ?></h5>
                         </div>
+						
                         <div class="border w-100 py-2">
                             <a class="cust-nav-active" href="customerProfile.php"><i class="fa fa-user"
                                     aria-hidden="true"></i>

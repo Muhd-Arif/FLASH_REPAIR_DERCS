@@ -12,37 +12,56 @@ $data = $customer->edit();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/f252491b10.js" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/css/profile.css">
     <link rel="stylesheet" href="../../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <title>Flash Delivery ! Customer's profile</title>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css"> 
+
+    <!-- NAVIGATION BAR  -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../assets/css/adminlte.min.css">
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
 
+        <?php include("sidebar.php") ?>
 
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- NAVIGATION PART 1 STOP -->
+            <div class="container mt-5">
+                <div id="customer-profile">
+                    <div id="customer-nav" class="text-center">
+                        <div class="profile-img border w-100">
 
-    <div class="container mt-5">
-        <div id="customer-profile">
-            <div id="customer-nav" class="text-center">
-
-                <div class="border w-100">
-                    <h5 class=" mt-2">Hello, <?php echo $data["sub_name"]  ?></h5>
-                </div>
-                <div class="border w-100 py-2">
-                    <a class="cust-nav" href="customerProfile.php"><i class="fa fa-user" aria-hidden="true"></i>
-                        My Profile</a>
-                </div>
-                <div class="border w-100 py-2">
-                    <a class="cust-nav-active" href="customerProfileEdit.php"> <i class="fa fa-pencil"
-                            aria-hidden="true"></i>
-                        Edit Profile</a>
-                </div>
-            </div>
+                            
+                            <img class="profile-img-real" src="../../../uploads/<?php echo $data['image'] ?>" alt=""
+                                srcset="" onerror="this.src='../../../uploads/default.png';">
+								
+                        </div>
+                        <div class="border w-100">
+                            <h5 class=" mt-2">Hello, <?php echo $data["sub_name"]  ?></h5>
+                        </div>
+                        <div class="border w-100 py-2">
+                            <a class="cust-nav-active" href="customerProfile.php"><i class="fa fa-user"
+                                    aria-hidden="true"></i>
+                                My Profile</a>
+                        </div>
+                        <div class="border w-100 py-2">
+                            <a class="cust-nav" href="customerProfileEdit.php"> <i class="fa fa-pencil"
+                                    aria-hidden="true"></i>
+                                Edit Profile</a>
+                        </div>
+                    </div>
             <div id="customer-details" class="mx-4">
                 <h4>My Profile</h4>
                 <form action="" method="post">

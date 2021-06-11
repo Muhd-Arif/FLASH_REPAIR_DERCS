@@ -38,7 +38,7 @@ class adminValidateController extends Controller
       return $data;
     }
   }
-  // Display and edit service provider details
+  // Display and edit custdetails
   public function customer()
   {
 

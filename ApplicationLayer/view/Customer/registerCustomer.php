@@ -44,7 +44,7 @@ if(isset($_POST['regs-submit']))
 			<div class="fillbox1">
 				<input type="text" placeholder="Name" name="C_Name" required></div>
 
-			<div class="fillbox1"><input type="email" placeholder="Email" name="C_Mail" required></div>
+			<div class="fillbox1"><input type="email" placeholder="Email" name="C_Email" required></div>
 
 			<div class="fillbox1"><input type="text" placeholder="No. Phone" name="C_Phone" required></div>
 

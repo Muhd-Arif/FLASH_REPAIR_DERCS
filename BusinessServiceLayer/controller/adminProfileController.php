@@ -91,18 +91,17 @@ class adminProfileController extends Controller
   }
   
   //cust delete
-  
- public function deleteCust($id){
+  public function deleteCust($id){
         $customer = new customerProfileModel();
-        $customer->id = $id;
-        if($customer->deleteCust()){
+        $customer ->id = $id;
+        if($customer ->deleteCust()){
             echo "<script type='text/javascript'>alert('Customer account are success Deleted!!!');
-            window.location = 'index.html?';</script>";
+            window.location = 'adminValidateCustomer.php';</script>";
+           
         }
         else
-            echo "<script type='text/javascript'>alert('Your account are failed Update!!!');
-            window.location = 'customerProfile.php?accountID=".$_SESSION['id']."';</script>";
-        return $customer->deleteCust();
+            echo "<script type='text/javascript'>alert('Account Deleted!!!');
+            window.location = 'adminValidateCustomer.php';</script>";
 
     }
 

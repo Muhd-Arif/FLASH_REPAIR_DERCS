@@ -42,21 +42,21 @@ class customerController {
     function regsCust(){
         $customer = new customerModel();
         $customer->C_Name = $_POST['C_Name'];
-        $customer->C_Mail = $_POST['C_Mail'];
+        $customer->C_Email = $_POST['C_Email'];
         $customer->C_Phone = $_POST['C_Phone'];
         $customer->C_Password = $_POST['C_Password'];
 		$customer->C_image = time().$_FILES['photoFile']['name'];
 		
-		//file directory to save image - ADLI
+		//file directory to save image 
             $customer->target_dir = "../../../uploads/";
     
-            //target file to save in directory -ADLI
+            //target file to save in directory 
             $customer->target_file = $customer->target_dir . basename($_FILES["photoFile"]["name"]);
     
-            // Select file type - ADLI
+            // Select file type 
             $customer->imageFileType = strtolower(pathinfo($customer->target_file,PATHINFO_EXTENSION));
     
-            // Valid file extensions- ADLI
+            // Valid file extensions
             $customer->extensions_arr = array("jpg","jpeg","png","gif");
     
     // Validate if register succesfull 
